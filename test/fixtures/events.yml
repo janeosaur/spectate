@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  organizer: MyString
+  date: 2017-06-08
+  venue: MyString
+  min_age: 1
+  stream: MyString
+  tickets: MyString
+  size: MyString
+  stadium: MyString
+  vip_tickets: MyString
+  food_drinks: MyString
+  merch_sold: MyString
+
+two:
+  name: MyString
+  organizer: MyString
+  date: 2017-06-08
+  venue: MyString
+  min_age: 1
+  stream: MyString
+  tickets: MyString
+  size: MyString
+  stadium: MyString
+  vip_tickets: MyString
+  food_drinks: MyString
+  merch_sold: MyString
