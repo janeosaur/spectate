@@ -1,1 +1,10 @@
 <h1>Events Index Page</h1>
+
+<% @events.each do |event| %>
+  <div class="">
+    Name: <%= event.name %>
+    City: <%= event.city %>
+    Country: <%= event.country %>
+    Venue: <%= event.venue %>
+  </div>
+<% end %>
