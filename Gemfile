@@ -12,6 +12,8 @@ gem 'rails', '~> 5.1.1'
 gem 'pg', '~> 0.18'
 # use devise
 gem 'devise'
+# country_select gem
+gem 'country_select'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
