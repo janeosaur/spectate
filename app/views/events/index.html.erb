@@ -2,7 +2,7 @@
 
 <% @events.each do |event| %>
   <div class="">
-    Name: <%= event.name %>
+    Name: <%= link_to event.name, event_path(event)%>
     City: <%= event.city %>
     Country: <%= event.country %>
     Venue: <%= event.venue %>
