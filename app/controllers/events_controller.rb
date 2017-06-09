@@ -3,7 +3,14 @@ class EventsController < ApplicationController
 
   # get "/events", to: "events#index", as: "events"
   def index
-    @events = Event.all
+    # @events = Event.all
+    @q = Event.ransack(params[:q])
+    @events = @q.result
+  end
+
+  def search
+    index
+    render :index
   end
 
   # get "/events/new", to: "events#new", as: "new_event"

@@ -17,6 +17,8 @@ gem 'devise'
 gem 'jquery-rails', '~> 4.3.1'
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
+# search function - ransack
+gem 'ransack', github: 'activerecord-hackery/ransack'
 # country_select gem
 gem 'country_select'
 # Use Puma as the app server

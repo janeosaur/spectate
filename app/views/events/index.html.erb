@@ -1,14 +1,37 @@
-<h1>Events Index Page</h1>
-<%= link_to "Create New Event", new_event_path %>
+<div class="row">
+  <div class="col col-md-3 col-md-offset-3">
+        bootstrap test
+    </div>
 
-<% @events.each do |event| %>
-  <div class="">
-    Name: <%= link_to event.name, event_path(event)%>
-    City: <%= event.city %>
-    Country: <%= event.country %>
-    Venue: <%= event.venue %>
-    ID: <%= event.id %>
-    <%= link_to "edit", edit_event_path(event) %>
-    <%= link_to "delete", destroy_event_path(event), data: { confirm: "Are you sure you want to delete" }, method: :delete %>
   </div>
+
+</div>
+
+<%= search_form_for @q do |f| %>
+
+  Name contains...
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  Organizer starts with..
+  <%= f.label :organizer_start %>
+  <%= f.search_field :organizer_start %>
+
+  <%= f.submit %>
 <% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :name) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td>Name</td>
+        <td> <%= event.name %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
