@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
   # get "/events", to: "events#index", as: "events"
   def index
@@ -43,12 +44,13 @@ class EventsController < ApplicationController
   # delete "/events/:id", to: "events#destroy", as: "destroy_event"
   def destroy
     set_event
-    # if current_user.try(:admin?)
+    if current_user.try(:admin?)
       @event.destroy
       redirect_to events_path
-    # else
-    #   flash[:error] = "Error, you need admin status"
-    # end
+    else
+      flash[:notice] = "Error, you need admin status"
+      redirect_to events_path
+    end
   end
 
   private
@@ -61,6 +63,15 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.friendly.find(params[:id])
+  end
+
+
+  # get this looked at
+  def require_admin
+    if current_user.nil? || current_user.admin? == false
+      redirect_back(fallback_location: root_path)
+      flash[:notice] = "Error, you must be an admin"
+    end
   end
 
 end
