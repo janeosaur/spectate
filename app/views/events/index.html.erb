@@ -9,5 +9,6 @@
     Venue: <%= event.venue %>
     ID: <%= event.id %>
     <%= link_to "edit", edit_event_path(event) %>
+    <%= link_to "delete", destroy_event_path(event), data: { confirm: "Are you sure you want to delete" }, method: :delete %>
   </div>
 <% end %>

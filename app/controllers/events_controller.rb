@@ -42,7 +42,13 @@ class EventsController < ApplicationController
 
   # delete "/events/:id", to: "events#destroy", as: "destroy_event"
   def destroy
-
+    set_event
+    # if current_user.try(:admin?)
+      @event.destroy
+      redirect_to events_path
+    # else
+    #   flash[:error] = "Error, you need admin status"
+    # end
   end
 
   private
