@@ -69,7 +69,7 @@ class EventsController < ApplicationController
   # get this looked at
   def require_admin
     if current_user.nil? || current_user.admin? == false
-      redirect_back(fallback_location: root_path)
+      redirect_back(fallback_location: root_path) #redirect user to previous page
       flash[:notice] = "Error, you must be an admin"
     end
   end
