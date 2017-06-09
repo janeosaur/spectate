@@ -7,13 +7,19 @@ class EventsController < ApplicationController
 
   # get "/events/new", to: "events#new", as: "new_event"
   def new
-
-
+    @event = Event.new
   end
 
   # post "/events", to: "events#create", as: "create_event"
   def create
-
+    @event = Event.create(event_params)
+    if @event.save
+      flash[:notice] = "Success, event successfully added"
+      redirect_to events_path
+    else
+      flash[:error] = @event.errors.full_messages.join(" ")
+      redirect_to new_event_path
+    end
   end
 
   # get "/events/:id", to: "events#show", as: "event"
@@ -23,12 +29,15 @@ class EventsController < ApplicationController
 
   # get "/events/:id/edit", to: "events#edit", as: "edit_event"
   def edit
-
+    set_event
   end
 
   # patch "/events/:id", to: "events#update", as: "update_event"
   def update
-
+    set_event
+    @event.update_attributes(event_params)
+    flash[:notice] = "Success, event was updated"
+    redirect_to event_path(@event)
   end
 
   # delete "/events/:id", to: "events#destroy", as: "destroy_event"
