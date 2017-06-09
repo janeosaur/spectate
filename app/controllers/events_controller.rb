@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   # get "/events/new", to: "events#new", as: "new_event"
   def new
 
+
   end
 
   # post "/events", to: "events#create", as: "create_event"
@@ -17,7 +18,7 @@ class EventsController < ApplicationController
 
   # get "/events/:id", to: "events#show", as: "event"
   def show
-    # @event = Event.find(params[:id])
+    set_event
   end
 
   # get "/events/:id/edit", to: "events#edit", as: "edit_event"
@@ -33,6 +34,18 @@ class EventsController < ApplicationController
   # delete "/events/:id", to: "events#destroy", as: "destroy_event"
   def destroy
 
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:name, :organizer, :date, :venue,
+      :min_age, :stream, :tickets, :size, :stadium, :vip_tickets,
+      :food_drinks, :merch_sold, :city, :country, :slug)
+  end
+
+  def set_event
+    @event = Event.friendly.find(params[:id])
   end
 
 end

@@ -2,8 +2,7 @@ class User < ApplicationRecord
   has_many :events
 
   extend FriendlyId
-  friendly_id :username, use: [:slugged, :finders]
-  # adding :finders allows MyClass.find('bar') instead of MyClass.friendly.find('bar')
+  friendly_id :username, use: :slugged
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -1,9 +1,8 @@
 class Event < ApplicationRecord
-  belongs_to :owner
+  belongs_to :owner, optional: true
 
   extend FriendlyId
-  friendly_id :name, use: [:finders, :slugged]
-  # adding :finders allows MyClass.find('bar') instead of MyClass.friendly.find('bar')
+  friendly_id :name, use: [:slugged]
 
   validates :name, :presence=>true
 
