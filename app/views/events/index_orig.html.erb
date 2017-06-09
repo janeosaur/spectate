@@ -1,0 +1,14 @@
+<h1>Events Index Page</h1>
+<%= link_to "Create New Event", new_event_path %>
+
+<% @events.each do |event| %>
+  <div class="">
+    Name: <%= link_to event.name, event_path(event)%>
+    City: <%= event.city %>
+    Country: <%= event.country %>
+    Venue: <%= event.venue %>
+    ID: <%= event.id %>
+    <%= link_to "edit", edit_event_path(event) %>
+    <%= link_to "delete", destroy_event_path(event), data: { confirm: "Are you sure you want to delete" }, method: :delete %>
+  </div>
+<% end %>

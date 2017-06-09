@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   # route to redirect users to root if they enter invalid URL
   match "*path" => redirect("/"), via: :all
 
+  match "search" => "events#search", via: [:get, :post], as: :search
+
 end
