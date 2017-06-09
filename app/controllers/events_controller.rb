@@ -17,7 +17,7 @@ class EventsController < ApplicationController
 
   # get "/events/:id", to: "events#show", as: "event"
   def show
-    @event = Event.find(params[:id])
+    # @event = Event.find(params[:id])
   end
 
   # get "/events/:id/edit", to: "events#edit", as: "edit_event"

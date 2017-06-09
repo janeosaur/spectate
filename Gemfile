@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# friendly_id gem. added require line b/c of unitialized constant User::friendlyID
+gem 'friendly_id', '~> 5.1.0', :require => "friendly_id"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
 # Use postgresql as the database for Active Record
@@ -13,8 +15,6 @@ gem 'pg', '~> 0.18'
 gem 'devise'
 # country_select gem
 gem 'country_select'
-# friendly_id gem
-gem 'friendly_id', '~> 5.1.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
