@@ -10,10 +10,10 @@ Event.delete_all
 User.delete_all
 
 event_data = [
-  {name: "ESL One Cologne", organizer: "ESL", venue: "Lanxess Arena", city: "Cologne", country: "Germany", min_age: 16, stream: "twitch link",
-    tickets: "ticket buy link", size: "1001-3000", stadium: true, vip_tickets: true, food_drinks: true, merch_sold: true},
-  {name: "PGL Major Krakow", organizer: "PGL", venue: "Lanxess Arena", city: "Krakow", country: "Poland", min_age: 16, stream: "twitch link",
-    tickets: "ticket buy link", size: "1-1000", stadium: true, vip_tickets: false, food_drinks: true, merch_sold: false}
+  {name: "ESL One Cologne", organizer: "ESL", venue: "Lanxess Arena", city: "Cologne", country: "Germany", min_age: 16, stream: "https://www.twitch.tv/esl_csgo",
+    date: "2017-07-07", date_end: "2017-07-09", tickets: "http://en.esl-one.com/csgo/cologne-2017/", size: "1001-3000", stadium: true, vip_tickets: true, food_drinks: true, merch_sold: true},
+  {name: "PGL Major Krakow", organizer: "PGL", venue: "Lanxess Arena", city: "Krakow", country: "Poland", min_age: 16, stream: "https://www.twitch.tv/pgl",
+    date: "2017-07-16", date_end: "2017-07-23", tickets: "http://major.pglesports.com/", size: "1-1000", stadium: true, vip_tickets: false, food_drinks: true, merch_sold: false}
   ]
 
 user_data = [

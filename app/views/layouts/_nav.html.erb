@@ -1,9 +1,9 @@
 <header>
-  <div class="jumbotron-small navbar-fixed-top">
+  <div class="jumbotron">
     <div class="logo-left">
       <a href="/"><p class="life">Spectate</p></a>
     </div>
-    <div class="pull-right dropdown">
+    <div class="dropdown">
       <% if signed_in? %>
         Welcome, <%= current_user.first_name%>
         <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: "signout" %>

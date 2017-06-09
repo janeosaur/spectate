@@ -1,37 +1,61 @@
-<div class="row">
-  <div class="col col-md-3 col-md-offset-3">
-        bootstrap test
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= search_form_for @q do |f| %>
+        <div class="row">
+          <div class="col-md-4">
+            <%= f.label :name_cont %><br/>
+            <%= f.search_field :name_cont %>
+          </div>
+          <div class="col-md-4">
+            <%= f.label :organizer_start %><br />
+            <%= f.search_field :organizer_start %>
+          </div>
+          <div class="col-md-4">
+            <%= f.submit %>
+          </div>
+        </div>
+      <% end %>
     </div>
-
   </div>
 
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= sort_link(@q, :name) %>
+        <% @events.each do |event| %>
+        <div class="test">
+          <%= event.name %>
+        </div>
+        <div class="test">
+          <%= event.organizer %>
+        </div>
+        <div class="test">
+          <%= event.date %> to <%= event.date_end %>
+        </div>
+        <div class="test">
+          <%= event.venue %>
+        </div>
+        <div class="test">
+          <%= event.city %>
+        </div>
+        <div class="test">
+          <%= event.country %>
+        </div>
+        <div class="test">
+          <%= link_to "Website", event.tickets %>
+        </div>
+        <div class="test">
+          <%= link_to "Stream", event.stream %>
+        </div>
+        <%= link_to "edit", edit_event_path(event) %>
+        <br/>
+        <br/>
+        <% end %>
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
 </div>
-
-<%= search_form_for @q do |f| %>
-
-  Name contains...
-  <%= f.label :name_cont %>
-  <%= f.search_field :name_cont %>
-
-  Organizer starts with..
-  <%= f.label :organizer_start %>
-  <%= f.search_field :organizer_start %>
-
-  <%= f.submit %>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th><%= sort_link(@q, :name) %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td>Name</td>
-        <td> <%= event.name %> </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
