@@ -19,3 +19,34 @@
 .test {
   border: 1px black solid
 }
+
+<div id="iw-container">
+  <div class="title"> <%= link_to event.name, event_path(event) %> </div>
+  <div class="content">
+    <p> <%= event.date %> to <%= event.date_end %> </p>
+    <p> <%= event.city %> </p>
+  </div>
+</div>
+
+#iw-container {
+  margin-bottom: 10px;
+  .title {
+    font-size: 22px;
+    font-weight: 400;
+    padding: 10px;
+    background-color: #F7CE3E;
+    color: black;
+    margin: 0;
+    border-radius: 2px 2px 0 0
+  }
+  .content {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    margin-right: 1px;
+    padding: 15px 5px 20px 15px;
+    max-height: 140px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
