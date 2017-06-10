@@ -23,7 +23,6 @@
 
 body {
   background-color: $dark-blue;
-  // color: white;
   font-family: "Montserrat"
 }
 
@@ -67,6 +66,14 @@ a {
     display: inline-block;
     font-size: 14px;
     color: white;
+    float: right;
+    a {
+      color: white;
+      position: relative;
+      display: inline-block;
+      float: right;
+      padding: 25px
+    }
     .dropbtn {
       padding: 25px;
       height: 70px;
@@ -99,6 +106,29 @@ a {
   }
 }
 
+// home page
+.home {
+  color: white;
+}
+
+// month scrolly bar
+.month-bar {
+  height: 50px;
+  background-color: $nav-blue;
+  width: 100%;
+  text-align: center;
+  margin-top: 200px;
+  div {
+    vertical-align: middle
+  }
+}
+
+// alerts
+.alert .notice {
+  color: white;
+  margin: 0;
+  padding: 0
+}
 
 
 // google maps info window

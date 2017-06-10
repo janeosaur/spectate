@@ -7,17 +7,17 @@
     </div>
     <div class="pull-right dropdown">
       <% if signed_in? %>
-      <div class="dropbtn">
-        Welcome, <%= current_user.first_name%>
-      </div>
-      <div class="dropdown-content">
-        <%= link_to "View Profile" %>
-        <%= link_to "Edit Profile", edit_user_registration_path %>
-        <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: "signout" %>
-      </div>
+        <div class="dropbtn">
+          Welcome, <%= current_user.first_name%>
+        </div>
+        <div class="dropdown-content">
+          <%= link_to "View Profile" %>
+          <%= link_to "Edit Profile", edit_user_registration_path %>
+          <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+        </div>
       <% else %>
-        <%= link_to "Sign In", new_user_session_path, class: "signin" %>
-        <%= link_to "Sign Up", new_user_registration_path, :method => :get, class: "signup" %>
+        <%= link_to "Sign In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path, :method => :get %>
       <% end %>
     </div>
   </div>
