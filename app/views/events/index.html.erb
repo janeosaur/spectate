@@ -4,16 +4,22 @@
       <%= search_form_for @q do |f| %>
         <div class="row">
           <div class="col-md-4">
-            <%= f.label :name_cont %><br/>
-            <%= f.search_field :name_cont %>
-          </div>
-          <div class="col-md-4">
-            <%= f.label :organizer_start %><br />
-            <%= f.search_field :organizer_start %>
+            <%= f.label "Search by name, organizer, venue, city, or country" %><br/>
+            <%= f.search_field :name_or_organizer_or_venue_or_city_or_country_cont %>
           </div>
           <div class="col-md-4">
             <%= f.submit %>
           </div>
+        </div>
+        <div class="row">
+          <%= f.label "Food & Drinks Sold" %>
+          <%= f.check_box :food_drinks_true, include_hidden: false %><br />
+          <%= f.label "Stadium" %>
+          <%= f.check_box :stadium_true, include_hidden: false %><br />
+          <%= f.label "VIP Tickets" %>
+          <%= f.check_box :vip_tickets_true, include_hidden: false %><br />
+          <%= f.label "Merch Sold" %>
+          <%= f.check_box :merch_sold_true, include_hidden: false %><br />
         </div>
       <% end %>
     </div>
