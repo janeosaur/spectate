@@ -6,10 +6,12 @@ class EventsController < ApplicationController
     @q = Event.ransack(params[:q])
     @events = @q.result
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+      event_path = view_context.link_to event.name, event_path(event)
       marker.lat event.latitude
       marker.lng event.longitude
       marker.title event.name
-      marker.infowindow custom_infowindow
+      marker.infowindow render_to_string(:partial => "/events/info",
+        :locals => { :event => event}) # allows use of event in partial 
     end
   end
 
@@ -85,8 +87,14 @@ class EventsController < ApplicationController
     end
   end
 
-  def custom_infowindow
-    "hello!"
+  def custom_infowindow(event)
+    # "City is #{event.city}"
+    "<div id='content' style='width:200px; background-color:red'>
+    <a href='event/#{event.name}'> #{event.city} </a> </div>"
+    # infowindow = new google.maps.InfoWindow({
+    #   content: content_string
+    #   maxWidth: 400
+    #   })
   end
 
 end
