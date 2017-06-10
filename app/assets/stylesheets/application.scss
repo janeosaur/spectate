@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -15,13 +16,90 @@
  *
  */
 
-a {
-  color: black;
+ $dark-blue: #062F4F;
+ $nav-blue: #1D2731;
+ $nav-hover: #09141f;
+ $neon-blue: #4CDEF5;
+
+body {
+  background-color: $dark-blue;
+  // color: white;
+  font-family: "Montserrat"
 }
 
-.test {
-  border: 1px black solid
+a {
+  text-decoration: none
 }
+
+// nav bar
+.jumbotron {
+  background-color: $nav-blue;
+  z-index: 100;
+  width: 100%;
+  margin: auto;
+  height: 70px;
+  padding: 0;
+  font-weight: 800;
+  text-transform: uppercase;
+  .logo-left {
+    float: left;
+    margin: 20px;
+    display: inline-block;
+    font-size: 20px;
+    letter-spacing: 4px;
+    a {
+      color: #FFF
+    }
+  }
+  .events {
+    display: inline-block;
+    font-size: 15px;
+    margin-left: 30px;
+    letter-spacing: normal;
+  }
+  a:hover {
+    border-bottom: 2px solid $neon-blue;
+    padding-bottom: 21px;
+    text-decoration: none
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    color: white;
+    .dropbtn {
+      padding: 25px;
+      height: 70px;
+      margin-left: 10px;
+      font-weight: 500;
+    }
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    margin-left: 10px;
+    width: 100%;
+    z-index: 1;
+    a {
+      background-color: $nav-hover;
+      color: white;
+      padding: 12px 16px;
+      display: block
+    }
+    a:hover {
+      background-color: #337ab7;
+      text-decoration: none
+    }
+  }
+  .dropdown:hover .dropdown-content {
+    display: block
+  }
+  .dropdown:hover .dropbtn {
+    background-color: $nav-hover
+  }
+}
+
+
 
 // google maps info window
 .gm-style .gm-style-iw {
