@@ -5,6 +5,12 @@ class EventsController < ApplicationController
   def index
     @q = Event.ransack(params[:q])
     @events = @q.result
+    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+      marker.lat event.latitude
+      marker.lng event.longitude
+      marker.title event.name
+      marker.infowindow custom_infowindow
+    end
   end
 
   def search
@@ -71,13 +77,16 @@ class EventsController < ApplicationController
     @event = Event.friendly.find(params[:id])
   end
 
-
   # get this looked at
   def require_admin
     if current_user.nil? || current_user.admin? == false
       redirect_back(fallback_location: root_path) #redirect user to previous page
       flash[:notice] = "Error, you must be an admin"
     end
+  end
+
+  def custom_infowindow
+    "hello!"
   end
 
 end
