@@ -18,7 +18,12 @@
 </div> <!-- home -->
 
 
-<div id="current-month">
+<div id="index-events">
+  <% @events.each do |event| %>
+    <%= render partial: 'home/event_card', locals: { event: event} %>
+  <% end %>
 </div>
 
-<%= console %>
+<!-- partial _event will render here  -->
+<div id="current-month">
+</div>

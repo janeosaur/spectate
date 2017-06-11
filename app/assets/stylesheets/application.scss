@@ -22,7 +22,7 @@
  $neon-blue: #4CDEF5;
 
 body {
-  background-color: $dark-blue;
+  background-color: #ddd;
   font-family: "Montserrat";
   // color: white;
 }
@@ -32,7 +32,7 @@ body {
   top: 0;
   width: 100%;
   position: fixed;
-  background-color: $nav-blue;
+  background-color: rgba(51, 51, 51, 0.9);
   z-index: 1;
   #header {
     width: 100%;
@@ -132,15 +132,34 @@ body {
 }
 
 // _event partial
-.partial {
-  color: white
+.event-card {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: white; //test
+  img {
+    width: 100%;
+    overflow: hidden;
+  }
+  .name {
+    width:150px;
+    height: 40px;
+    background-color: #ddd;
+    position:absolute;
+    top: 50%;
+    line-height: 40px;
+    padding-left: 10px;
+  }
+  .card-content {
+    padding: 20px;
+  }
 }
 
-// alerts
-.alert .notice {
-  color: white;
-  margin: 0;
-  padding: 0
+// alerts - needs to be tweaked !
+.notice {
+  p {
+    margin-top: 60px;
+  }
 }
 
 // google maps info window

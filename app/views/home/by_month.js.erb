@@ -1,4 +1,7 @@
 // to handle front-end changes when respond_to js
 // is called (being triggered by remote: true)
 
+// hide index of events 
+$("#index-events").hide();
+
 $("#current-month").html("<%= escape_javascript(render partial: 'home/event', locals: { events: @selected } ) %>");

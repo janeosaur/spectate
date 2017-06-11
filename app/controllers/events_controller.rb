@@ -11,7 +11,7 @@ class EventsController < ApplicationController
       marker.lng event.longitude
       marker.title event.name
       marker.infowindow render_to_string(:partial => "/events/info",
-        :locals => { :event => event}) # allows use of event in partial 
+        :locals => { :event => event}) # allows use of |event| in partial 
     end
   end
 
