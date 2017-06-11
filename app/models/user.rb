@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   has_many :events
+  has_many :favorites
+  has_many :favorite_events, through: :favorites, source: :favorited, source_type: 'Event'
+
   validates :photo, allow_blank: true, format: { with: %r{.(gif|jpg|png)\Z}i, message: ': must be a URL for GIF, JPG or PNG image.' }
   validates :cover_photo, allow_blank: true, format: { with: %r{.(gif|jpg|png)\Z}i, message: ': must be a URL for GIF, JPG or PNG image.' }
   # validates :twitter, allow_blank: true, format: { with: #enter regexp here, message: ': just the username please'}
