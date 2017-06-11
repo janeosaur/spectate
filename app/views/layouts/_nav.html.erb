@@ -15,9 +15,9 @@
             </li>
             <li class="right-content">
               <% if signed_in? %>
-                <%= link_to current_user.first_name, user_path(current_user.username), class:"username" %>
+                <%= link_to current_user.first_name, user_path(current_user), class:"username" %>
                 <div class="signed-in">
-                  <%= link_to edit_user_registration_path do %>
+                  <%= link_to edit_user_registration_path(current_user) do %>
                     Settings |<!--<i class="glyphicon glyphicon-cog"></i>-->
                   <% end %>
                   <%= link_to destroy_user_session_path, :method=>:delete do %>

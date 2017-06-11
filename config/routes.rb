@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   root "home#index"
   get "/fetch_month", to: "home#by_month", as: "fetch_month"
 
-  get "/users", to: "users#index", as: "users"
-  get "/users/:id", to: "users#show", as: "user"
   devise_for :users
+  get "/users/", to: "users#index", as: "users"
+  get "/users/:id", to: "users#show", as: "user"
 
   get "/events", to: "events#index", as: "events"
   get "/events/new", to: "events#new", as: "new_event"
