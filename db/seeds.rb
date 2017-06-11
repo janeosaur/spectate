@@ -21,7 +21,7 @@ event_data = [
     image: "https://static1.squarespace.com/static/5637eaeee4b0a1466d853f01/565df7bce4b0020c45680a1e/5911c526893fc011d4ee675b/1494343206929/CSGO_CLASH_FOR_CASH_1500x600_PR_release1.jpg?format=2500w",
     date: "2017-06-16", date_end: "2017-06-16", tickets: "http://www.eleague.com/tickets#2iR3pQuOh8qq", size: "1-1000", event_type: "Major", prize: "$250,000", ticket_price: "free",
     alcohol: true, stadium: true, vip_tickets: false, food_drinks: true, merch_sold: false},
-  {name: "DreamHack Open Summer 2017", organizer: "DreamHack", venue: "", city: "Jönköping, Sweden", country: "Sweden", min_age: 16, stream: "https://www.twitch.tv/dreamhackcs",
+  {name: "DreamHack Open Summer", organizer: "DreamHack", venue: "", city: "Jönköping, Sweden", country: "Sweden", min_age: 16, stream: "https://www.twitch.tv/dreamhackcs",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRElaoo6wVsksVEHgKDaEVBrf7NWoUzqliCDlhG2UFGsbK--GMNA",
     date: "2017-06-17", date_end: "2017-06-19", tickets: "https://bokning.dreamhack.se/?utm_source=dhs17&utm_campaign=dhs17bannerTickets&utm_medium=banner", size: "1-1000", event_type: "large", prize: "$100,000", ticket_price: "free",
     alcohol: true, stadium: false, vip_tickets: false, food_drinks: true, merch_sold: false},
