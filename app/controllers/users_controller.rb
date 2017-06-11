@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
     set_user
+    @fav_events = @user.favorite_events
   end
 
   private

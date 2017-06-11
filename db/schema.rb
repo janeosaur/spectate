@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611164719) do
+ActiveRecord::Schema.define(version: 20170611232318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 20170611164719) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "favorited_type"
+    t.bigint "favorited_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited_type_and_favorited_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -75,9 +85,6 @@ ActiveRecord::Schema.define(version: 20170611164719) do
     t.string "last_name"
     t.string "username"
     t.string "country"
-    t.string "fav_event"
-    t.string "fav_player"
-    t.string "fav_team"
     t.boolean "admin", default: false
     t.string "slug"
     t.string "twitter"
@@ -90,4 +97,5 @@ ActiveRecord::Schema.define(version: 20170611164719) do
   end
 
   add_foreign_key "events", "users"
+  add_foreign_key "favorites", "users"
 end

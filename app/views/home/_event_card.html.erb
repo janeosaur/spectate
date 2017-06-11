@@ -12,6 +12,17 @@
         <div class="city">
           <%= event.city %>
         </div>
+        <div class="favorite">
+          <% unless current_user.favorite_events.exists?(id: event) %>
+            <%= link_to favorite_events_path(event), method: :post do %>
+              <i class="glyphicon glyphicon-heart-empty"></i>
+            <% end %>
+          <% else %>
+            <%= link_to favorite_event_path(event), method: :delete do %>
+              <i class="glyphicon glyphicon-heart"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
