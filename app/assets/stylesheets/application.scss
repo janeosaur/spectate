@@ -23,7 +23,8 @@
 
 body {
   background-color: $dark-blue;
-  font-family: "Montserrat"
+  font-family: "Montserrat";
+  // color: white;
 }
 
 // scrolly dynamic nav bar
@@ -49,6 +50,9 @@ body {
     float: left;
     margin: 10px;
     display: inline-block;
+  }
+  a {
+    cursor: default;
   }
   .logo {
     font-size: 25px;

@@ -1,23 +1,25 @@
 <div class="home">
 
-<div class="splash">
+  <div class="splash">
 
-</div>
+  </div>
 
   <div class="month-bar">
     <ul class="grid">
-      <li class="month"><a href="#">June</a></li>
+      <li class="month"><%= link_to "June", fetch_month_path(:month => 6), remote: true %></li>
+        <!-- #(:date => date) -->
       <li class="month"><a href="#">July</a></li>
       <li class="month"><a href="#">August</a></li>
       <li class="month"><a href="#">September</a></li>
       <li class="month"><a href="#">October</a></li>
       <li class="month"><a href="#">November</a></li>
     </ul>
-  </div>
+  </div> <!-- month-bar -->
+
+</div> <!-- home -->
 
 
+<div id="current-month">
 </div>
 
-<div class="test">
-  test
-</div>
+<%= console %>

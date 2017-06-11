@@ -1,0 +1,4 @@
+// to handle front-end changes when respond_to js
+// is called (being triggered by remote: true)
+
+$("#current-month").html("<%= escape_javascript(render partial: 'home/event', locals: { events: @selected } ) %>");

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "home#index"
+  get "/fetch_month", to: "home#by_month", as: "fetch_month"
 
   get "/events", to: "events#index", as: "events"
   get "/events/new", to: "events#new", as: "new_event"
