@@ -18,7 +18,7 @@
                 <%= link_to current_user.first_name, root_path, class:"username" %>
                 <div class="signed-in">
                   <%= link_to edit_user_registration_path do %>
-                    Settings <!--<i class="glyphicon glyphicon-cog"></i>-->
+                    Settings |<!--<i class="glyphicon glyphicon-cog"></i>-->
                   <% end %>
                   <%= link_to destroy_user_session_path, :method=>:delete do %>
                     Sign Out <!--<i class="glyphicon glyphicon-log-out"></i>-->
