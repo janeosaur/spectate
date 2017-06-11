@@ -272,7 +272,20 @@ a {
    }
  }
 
-// edit/create profile page 
- .edit-profile {
-
+// edit/create profile page
+ .profile-form {
+   position: relative;
+   input, select {
+     width: 100%
+   }
+   .field {
+     margin: 15px 2px 15px 2px;
+   }
+   .parenthesis {
+     font-size: 12px;
+     padding-left: 10px;
+   }
+   .actions input {
+     text-align: center;
+   }
  }
