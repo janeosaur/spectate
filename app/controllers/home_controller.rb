@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @events = Event.all
+    @events = Event.order(:date)
   end
 
   # get "/fetch_month", to: "events#by_month", as: "fetch_month"
