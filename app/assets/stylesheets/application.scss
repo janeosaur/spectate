@@ -201,3 +201,56 @@ a {
      text-decoration: none;
    }
  }
+
+ // user profile
+ .profile {
+   border: 1px black solid;
+   height: 500px;
+   padding: 0;
+   .cover {
+     position: relative;
+     #cover {
+       width: 100%;
+       height: auto;
+       overflow: hidden;
+     }
+     #photo {
+       width: 20%;
+       height: auto;
+       border: 5px white solid;
+       border-radius: 50%;
+       position: absolute;
+       left: 50px;
+       bottom: -50px;
+     }
+   }
+   .info {
+     font-size: 25px;
+     color: black;
+     .admin {
+       font-size: 15px;
+     }
+     .country {
+       font-size: 15px;
+       padding-left: 30px;
+     }
+   }
+   .socials {
+     img {
+       height: 20px;
+     }
+     a {
+       color: black;
+     }
+     a:hover {
+       text-decoration: none;
+     }
+   }
+   @media only screen and (max-width: 500px) {
+    //  img {
+    //    display: none;
+    //  }
+   }
+
+
+ }

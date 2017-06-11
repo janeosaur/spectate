@@ -1,11 +1,49 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-">
+    <div class="profile col-sm-8 col-sm-offset-2">
+      <div class="cover">
+        <%= image_tag @user.cover_photo, id:"cover" %>
+        <%= image_tag @user.photo, id:"photo" %>
+      </div>
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-4">
+          <div class="info">
+            <span class="admin">
+              <% if @user.admin? %>
+                <i class="glyphicon glyphicon-star"></i>
+              <% end %>
+            </span>
+            <%= @user.username %>
+            <span class="country">
+              <i class="glyphicon glyphicon-map-marker"></i>
+              <%= @user.country %>
+            </span>
+          </div> <!-- info -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-5 col-xs-offset-1">
+          <div class="socials">
+            <div class="twitter">
+              <a href="https://twitter.com/<%=@user.twitter%>">
+                <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
+                <%= @user.twitter %>
+              </a>
+            </div>
+            <div class="">
+              <a href="https://www.instagram.com/<%=@user.instagram%>">
+                <img src="https://cdn4.iconfinder.com/data/icons/picons-social/57/38-instagram-3-128.png" alt="">
+                <%= @user.instagram %>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
 
 </div>
 
-Welcome back, <%= @user.username %>
-Last sign in: <%= @user.last_sign_in_at %>
+Last signed in: <%= time_ago_in_words(@user.last_sign_in_at) %>
