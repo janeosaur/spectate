@@ -7,12 +7,11 @@
   <div class="month-bar">
     <ul class="grid">
       <li class="month"><%= link_to "June", fetch_month_path(:month => 6), remote: true %></li>
-        <!-- #(:date => date) -->
-      <li class="month"><a href="#">July</a></li>
-      <li class="month"><a href="#">August</a></li>
-      <li class="month"><a href="#">September</a></li>
-      <li class="month"><a href="#">October</a></li>
-      <li class="month"><a href="#">November</a></li>
+      <li class="month"><%= link_to "July", fetch_month_path(:month => 7), remote: true %></li>
+      <li class="month"><%= link_to "August", fetch_month_path(:month => 8), remote: true %></li>
+      <li class="month"><%= link_to "September", fetch_month_path(:month => 9), remote: true %></li>
+      <li class="month"><%= link_to "October", fetch_month_path(:month => 10), remote: true %></li>
+      <li class="month"><%= link_to "November", fetch_month_path(:month => 11), remote: true %></li>
     </ul>
   </div> <!-- month-bar -->
 

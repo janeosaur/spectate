@@ -131,13 +131,17 @@ body {
   }
 }
 
+// _event partial
+.partial {
+  color: white
+}
+
 // alerts
 .alert .notice {
   color: white;
   margin: 0;
   padding: 0
 }
-
 
 // google maps info window
 .gm-style .gm-style-iw {
