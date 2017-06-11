@@ -1,6 +1,12 @@
 class EventsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
+  # match "search" => "events#search", via: [:get, :post], as: :search # route for ransack search
+  def search
+    index
+    render :index
+  end
+
   # get "/events", to: "events#index", as: "events"
   def index
     @q = Event.ransack(params[:q])
@@ -11,13 +17,8 @@ class EventsController < ApplicationController
       marker.lng event.longitude
       marker.title event.name
       marker.infowindow render_to_string(:partial => "/events/info",
-        :locals => { :event => event}) # allows use of |event| in partial 
+        :locals => { :event => event}) # allows use of |event| in partial
     end
-  end
-
-  def search
-    index
-    render :index
   end
 
   # get "/events/new", to: "events#new", as: "new_event"
@@ -79,22 +80,11 @@ class EventsController < ApplicationController
     @event = Event.friendly.find(params[:id])
   end
 
-  # get this looked at
   def require_admin
     if current_user.nil? || current_user.admin? == false
       redirect_back(fallback_location: root_path) #redirect user to previous page
       flash[:notice] = "Error, you must be an admin"
     end
-  end
-
-  def custom_infowindow(event)
-    # "City is #{event.city}"
-    "<div id='content' style='width:200px; background-color:red'>
-    <a href='event/#{event.name}'> #{event.city} </a> </div>"
-    # infowindow = new google.maps.InfoWindow({
-    #   content: content_string
-    #   maxWidth: 400
-    #   })
   end
 
 end

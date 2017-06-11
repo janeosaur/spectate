@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "home#index"
   get "/fetch_month", to: "home#by_month", as: "fetch_month"
+
+  get "/users", to: "users#index", as: "users"
+  get "/users/:id", to: "users#show", as: "user"
+  devise_for :users
 
   get "/events", to: "events#index", as: "events"
   get "/events/new", to: "events#new", as: "new_event"
@@ -11,11 +13,9 @@ Rails.application.routes.draw do
   get "/events/:id/edit", to: "events#edit", as: "edit_event"
   patch "/events/:id", to: "events#update", as: "update_event"
   delete "/events/:id", to: "events#destroy", as: "destroy_event"
+  match "search" => "events#search", via: [:get, :post], as: :search # route for ransack search
 
-  # route to redirect users to root if they enter invalid URL
-  match "*path" => redirect("/"), via: :all
+  match "*path" => redirect("/"), via: :all # route to redirect users to root if they enter invalid URL
 
-  # route for ransack search
-  match "search" => "events#search", via: [:get, :post], as: :search
 
 end

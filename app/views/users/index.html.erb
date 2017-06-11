@@ -1,0 +1,4 @@
+<% @users.each do |user| %>
+Welcome back, <%= user.username %>
+Last sign in: <%= user.last_sign_in_at %>
+<% end %>

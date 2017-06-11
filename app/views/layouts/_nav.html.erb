@@ -15,7 +15,7 @@
             </li>
             <li class="right-content">
               <% if signed_in? %>
-                <%= link_to current_user.first_name, root_path, class:"username" %>
+                <%= link_to current_user.first_name, user_path(current_user.username), class:"username" %>
                 <div class="signed-in">
                   <%= link_to edit_user_registration_path do %>
                     Settings |<!--<i class="glyphicon glyphicon-cog"></i>-->
