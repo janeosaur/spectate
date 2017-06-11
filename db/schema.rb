@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611223846) do
+ActiveRecord::Schema.define(version: 20170611232318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,9 +85,6 @@ ActiveRecord::Schema.define(version: 20170611223846) do
     t.string "last_name"
     t.string "username"
     t.string "country"
-    t.string "fav_event"
-    t.string "fav_player"
-    t.string "fav_team"
     t.boolean "admin", default: false
     t.string "slug"
     t.string "twitter"
