@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611060608) do
+ActiveRecord::Schema.define(version: 20170611063810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170611060608) do
     t.float "latitude"
     t.float "longitude"
     t.string "image"
-    t.string "type"
+    t.string "event_type"
     t.string "prize"
     t.string "ticket_price"
     t.string "alcohol"
