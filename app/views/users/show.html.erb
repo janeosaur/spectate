@@ -4,6 +4,9 @@
       <div class="cover">
         <%= image_tag @user.cover_photo, id:"cover" %>
         <%= image_tag @user.photo, id:"photo" %>
+        <% if !current_user.nil? && current_user == @user %>
+          <%= button_to "Update", edit_user_registration_path(@user), :method => "get" %>
+        <% end %>
       </div>
       <div class="row">
         <div class="col-xs-8 col-xs-offset-4">
@@ -14,15 +17,21 @@
               <% end %>
             </span>
             <%= @user.username %>
-            <span class="country">
-              <i class="glyphicon glyphicon-map-marker"></i>
-              <%= @user.country %>
-            </span>
           </div> <!-- info -->
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-5 col-xs-offset-1">
+        <div class="col-xs-5">
+          <div class="country">
+            <i class="glyphicon glyphicon-map-marker"></i>
+            <%= @user.country %>
+          </div>
+          <div class="signed-in">
+            Last signed in <%= time_ago_in_words(@user.last_sign_in_at) %> ago
+          </div>
+          <div class="created-at">
+            Member since <%= @user.created_at.strftime("%B %-d, %Y") %>
+          </div>
           <div class="socials">
             <div class="twitter">
               <a href="https://twitter.com/<%=@user.twitter%>">
@@ -36,8 +45,10 @@
                 <%= @user.instagram %>
               </a>
             </div>
-
           </div>
+        </div>
+        <div class="col-xs-5">
+
         </div>
       </div>
 
@@ -45,5 +56,3 @@
   </div>
 
 </div>
-
-Last signed in: <%= time_ago_in_words(@user.last_sign_in_at) %>

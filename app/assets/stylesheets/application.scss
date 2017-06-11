@@ -205,8 +205,12 @@ a {
  // user profile
  .profile {
    border: 1px black solid;
-   height: 500px;
+   height: 40%;
    padding: 0;
+   .row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+   }
    .cover {
      position: relative;
      #cover {
@@ -223,6 +227,17 @@ a {
        left: 50px;
        bottom: -50px;
      }
+     form, input {
+       position: absolute;
+       bottom: -5px;
+       right: 20px;
+       padding: 5px 10px 5px 10px;
+     }
+   }
+   .country, .signed-in, .socials, .created-at {
+     font-size: 12px;
+     margin: 10px;
+     margin-left: 30px;
    }
    .info {
      font-size: 25px;
@@ -230,12 +245,9 @@ a {
      .admin {
        font-size: 15px;
      }
-     .country {
-       font-size: 15px;
-       padding-left: 30px;
-     }
    }
    .socials {
+     padding-bottom: 20px;
      img {
        height: 20px;
      }
