@@ -4,13 +4,13 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
   </div>
 
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
   </div>
 
   <div class="field">
@@ -28,13 +28,39 @@
     <%= f.country_select :country %>
   </div>
 
+  <div class="socials">
+    Socials
+    <div class="field">
+      <%= f.label :twitter %><br />
+      <%= f.text_field :twitter %>
+    </div>
+
+    <div class="field">
+      <%= f.label :instagram %><br />
+      <%= f.text_field :instagram %>
+    </div>
+  </div>
+
+  <div class="photo">
+    <div class="field">
+      <%= f.label :photo %><br />
+      <%= f.text_field :photo %>
+    </div>
+
+    <div class="field">
+      <%= f.label :cover_photo %><br />
+      <%= f.text_field :cover_photo %>
+    </div>
+  </div>
+
+
   <div class="field">
     <%= f.label :admin %><br />
     <%= f.check_box :admin %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :password %><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
