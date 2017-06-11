@@ -1,15 +1,24 @@
 class EventsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
 
+  # match "search" => "events#search", via: [:get, :post], as: :search # route for ransack search
+  def search
+    index
+    render :index
+  end
+
   # get "/events", to: "events#index", as: "events"
   def index
     @q = Event.ransack(params[:q])
     @events = @q.result
-  end
-
-  def search
-    index
-    render :index
+    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+      event_path = view_context.link_to event.name, event_path(event)
+      marker.lat event.latitude
+      marker.lng event.longitude
+      marker.title event.name
+      marker.infowindow render_to_string(:partial => "/events/info",
+        :locals => { :event => event}) # allows use of |event| in partial
+    end
   end
 
   # get "/events/new", to: "events#new", as: "new_event"
@@ -71,8 +80,6 @@ class EventsController < ApplicationController
     @event = Event.friendly.find(params[:id])
   end
 
-
-  # get this looked at
   def require_admin
     if current_user.nil? || current_user.admin? == false
       redirect_back(fallback_location: root_path) #redirect user to previous page

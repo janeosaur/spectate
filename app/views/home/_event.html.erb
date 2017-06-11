@@ -1,0 +1,6 @@
+<div class="event container-fluid">
+
+  <% events.each do |event| %>
+    <%= render partial: 'home/event_card', locals: { event: event} %>
+  <% end %>
+</div>

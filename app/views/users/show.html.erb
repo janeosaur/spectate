@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="profile col-sm-8 col-sm-offset-2">
+      <div class="cover">
+        <%= image_tag @user.cover_photo, id:"cover" if @user.cover_photo? %>
+        <%= image_tag @user.photo, id:"photo" if @user.photo? %>
+        <% if !current_user.nil? && current_user == @user %>
+          <%= button_to "Update", edit_user_registration_path(@user), :method => "get" %>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-4">
+          <div class="info">
+            <span class="admin">
+              <% if @user.admin? %>
+                <i class="glyphicon glyphicon-star"></i>
+              <% end %>
+            </span>
+            <%= @user.username %>
+          </div> <!-- info -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-5">
+          <div class="country">
+            <i class="glyphicon glyphicon-map-marker"></i>
+            <%= @user.country %>
+          </div>
+          <div class="signed-in">
+            Last signed in <%= time_ago_in_words(@user.last_sign_in_at) %> ago
+          </div>
+          <div class="created-at">
+            Member since <%= @user.created_at.strftime("%B %-d, %Y") %>
+          </div>
+          <div class="socials">
+            <div class="twitter">
+              <% if @user.twitter? %>
+                <a href="https://twitter.com/<%=@user.twitter%>">
+                  <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
+                  <%= @user.twitter %>
+                </a>
+              <% end %>
+            </div>
+            <div class="insta">
+              <% if @user.instagram? %>
+                <a href="https://www.instagram.com/<%=@user.instagram%>">
+                  <img src="https://cdn4.iconfinder.com/data/icons/picons-social/57/38-instagram-3-128.png" alt="">
+                  <%= @user.instagram %>
+                </a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

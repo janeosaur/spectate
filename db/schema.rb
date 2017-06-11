@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609230128) do
+ActiveRecord::Schema.define(version: 20170611164719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 20170609230128) do
     t.bigint "user_id"
     t.string "slug"
     t.date "date_end"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "image"
+    t.string "event_type"
+    t.string "prize"
+    t.string "ticket_price"
+    t.string "alcohol"
     t.index ["slug"], name: "index_events_on_slug", unique: true
     t.index ["user_id"], name: "index_events_on_user_id"
   end
@@ -73,6 +80,10 @@ ActiveRecord::Schema.define(version: 20170609230128) do
     t.string "fav_team"
     t.boolean "admin", default: false
     t.string "slug"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "cover_photo"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

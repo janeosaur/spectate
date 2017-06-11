@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="test col-sm-3 col-sm-offset-1">
+    <div class="field">
+      <%= f.label :username %><br />
+      <%= f.text_field :username, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </div>
+  </div>
+
+  <div class="test col-sm-4">
+    <div class="photo">
+      <div class="field">
+        <%= f.label :photo %><i class="parenthesis">(enter URL)</i><br />
+        <%= f.text_field :photo %>
+      </div>
+
+      <div class="field">
+        <%= f.label :cover_photo %><i class="parenthesis">(enter URL)</i><br />
+        <%= f.text_field :cover_photo %>
+      </div>
+    </div>
+
+    <div class="socials">
+      <div class="field">
+        <%= f.label :twitter %><i class="parenthesis">(enter username)</i><br />
+        <%= f.text_field :twitter %>
+      </div>
+
+      <div class="field">
+        <%= f.label :instagram %><i class="parenthesis">(enter username)</i><br />
+        <%= f.text_field :instagram %>
+      </div>
+    </div>
+  </div>
+
+  <div class="test col-sm-3">
+    <div class="field">
+      <%= f.label :country %><br />
+      <%= f.country_select :country %>
+    </div>
+
+    <div class="field ">
+      <span id="admin">Set as admin? <%= f.check_box :admin %> </span>
+    </div>
+  </div>
+
+</div>

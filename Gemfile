@@ -17,6 +17,10 @@ gem 'devise'
 gem 'jquery-rails', '~> 4.3.1'
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
+# google maps
+gem 'gmaps4rails'
+gem 'underscore-rails'
+gem 'geocoder'
 # search function - ransack
 gem 'ransack', github: 'activerecord-hackery/ransack'
 # country_select gem

@@ -1,0 +1,7 @@
+<div id="iw-container">
+  <div class="iw-title"> <%= link_to event.name, event_path(event) %> </div>
+  <div class="iw-content">
+    <p><%= event.date.strftime("%B %-d") %> - <%= event.date_end.strftime("%B %-d, %Y") %></p>
+    <p class="city"><%= event.city %></p>
+  </div>
+</div>

@@ -1,9 +1,14 @@
 class Event < ApplicationRecord
   belongs_to :owner, optional: true
 
+  validates :name, :presence=>true, :uniqueness=>true
+
   extend FriendlyId
   friendly_id :name, use: [:slugged]
 
-  validates :name, :presence=>true, :uniqueness=>true
+  geocoded_by :city
+  after_validation :geocode
+
+
 
 end

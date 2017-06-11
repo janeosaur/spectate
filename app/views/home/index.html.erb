@@ -1,6 +1,29 @@
+<div class="home">
 
-<div class="row">
-  <div class="col col-md-4 col-md-offset-4">
-    Home Index page
+  <div class="splash">
+
   </div>
+
+  <div class="month-bar">
+    <ul class="grid">
+      <li class="month"><%= link_to "June", fetch_month_path(:month => 6), remote: true %></li>
+      <li class="month"><%= link_to "July", fetch_month_path(:month => 7), remote: true %></li>
+      <li class="month"><%= link_to "August", fetch_month_path(:month => 8), remote: true %></li>
+      <li class="month"><%= link_to "September", fetch_month_path(:month => 9), remote: true %></li>
+      <li class="month"><%= link_to "October", fetch_month_path(:month => 10), remote: true %></li>
+      <li class="month"><%= link_to "November", fetch_month_path(:month => 11), remote: true %></li>
+    </ul>
+  </div> <!-- month-bar -->
+
+</div> <!-- home -->
+
+
+<div id="index-events">
+  <% @events.each do |event| %>
+    <%= render partial: 'home/event_card', locals: { event: event} %>
+  <% end %>
+</div>
+
+<!-- partial _event will render here  -->
+<div id="current-month">
 </div>
