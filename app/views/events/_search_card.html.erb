@@ -1,0 +1,32 @@
+<div class="search-result">
+  <div class="name">
+    <h3><%= event.name %></h3>
+  </div>
+  <% if signed_in? && current_user.admin? %>
+    <%= link_to "edit", edit_event_path(event) %>
+  <%end%>
+  <div class="favorite">
+    <% if signed_in? %>
+      <% unless current_user.favorite_events.exists?(id: event) %>
+        <%= link_to favorite_events_path(event), method: :post do %>
+          <i class="glyphicon glyphicon-heart-empty"></i>
+        <% end %>
+      <% else %>
+        <%= link_to favorite_event_path(event), method: :delete do %>
+          <i class="glyphicon glyphicon-heart"></i>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="dates">
+    <%= event.date.strftime("%B %-d") %> - <%= event.date_end.strftime("%B %-d, %Y") %>
+  </div>
+  <div class="city">
+    <%= event.city %>
+  </div>
+  <div class="prize">
+    <%= event.prize %>
+  </div>
+</div>
+
+<!-- <%= image_tag event.image %> -->

@@ -3,5 +3,4 @@
 
 <%= form_for @event, :url => { :action => "update" } do |f| %>
   <%= render partial: 'events/form', locals: { f: f } %>
-  <%= f.submit "Save Changes" %>
 <% end %>
