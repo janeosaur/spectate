@@ -1,15 +1,55 @@
-Event Name: <%= f.text_field :name %> <br />
-Organizer: <%= f.text_field :organizer %><br />
-Start Date: <%= f.date_field :date %> <br />
-End Date: <%= f.date_field :date_end %> <br />
-City: <%= f.text_field :city %><br />
-Country: <%= f.text_field :country %><br />
-Venue: <%= f.text_field :venue %><br />
-Minimum Age: <%= f.text_field :min_age %><br />
-Stream Link: <%= f.text_field :stream %><br />
-Tickets: <%= f.text_field :tickets %><br />
-Size: <%= f.text_field :size %><br />
-Stadium: <%= f.check_box :stadium %><br />
-VIP Tickets sold? <%= f.check_box :vip_tickets %><br />
-Food Drink sold? <%= f.check_box :food_drinks %><br />
-Merch sold? <%= f.check_box :merch_sold %><br />
+<div class="container-fluid">
+  <div class="row event-form">
+    <div class="col-sm-3 col-sm-offset-1">
+      <p>Event Name: </p>
+      <%= f.text_field :name %>
+      <p>Organizer: </p>
+      <%= f.text_field :organizer %>
+      <p>Start Date: </p>
+      <%= f.date_field :date %>
+      <p>End Date: </p>
+      <%= f.date_field :date_end %>
+      <p>City: </p>
+      <%= f.text_field :city %>
+    </div>
+    <div class="col-sm-3">
+      <p>Country: </p>
+      <%= f.text_field :country %><br />
+      <p>Venue: </p>
+      <%= f.text_field :venue %><br />
+      <p>Event Type: </p>
+      <%= f.select :event_type, ['minor', 'big', 'major'] %>
+      <p>Prize: </p>
+      <%= f.text_field :prize %>
+      <p>Image: </p>
+      <%= f.text_field :image %>
+    </div>
+    <div class="col-sm-3">
+      <p>Minimum Age: </p>
+      <%= f.text_field :min_age %>
+      <p>Stream Link: </p>
+      <%= f.text_field :stream %>
+      <p>Tickets: </p>
+      <%= f.text_field :tickets %>
+      <p>Ticket Price: </p>
+      <%= f.text_field :ticket_price %>
+      <p>Size: </p>
+      <%= f.text_field :size %>
+
+    </div>
+    <div class="col-sm-2" id="booleans">
+      <p>Stadium: <%= f.check_box :stadium %></p>
+
+      <p>VIP Tickets sold? <%= f.check_box :vip_tickets %></p>
+
+      <p>Food Drink sold? <%= f.check_box :food_drinks %></p>
+
+      <p>Alcohol sold? <%= f.check_box :alcohol %></p>
+
+      <p>Merch sold? <%= f.check_box :merch_sold %></p>
+
+      <%= f.submit "Save" %>
+    </div>
+  </div>
+
+</div>

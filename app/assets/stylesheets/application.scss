@@ -299,3 +299,24 @@ a {
      display: none;
    }
  }
+
+ // event partial form
+.event-form {
+   p {
+     margin: 20px 0px 0px 0px
+   }
+   input, select {
+     width: 100%;
+   }
+   #booleans {
+     margin-top: 50px;
+     input[type="submit"] {
+       width: 50%;
+       margin-top: 30px;
+     }
+     input {
+       display: inline-block;
+       width: 20%;
+     }
+   }
+}

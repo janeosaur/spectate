@@ -31,7 +31,7 @@ event_data = [
   ]
 
 user_data = [
-  {email: "j@w.com", password: "123456", first_name: "jane", last_name: "w", username: "jane", country: "USA", twitter: "janeosaur", instagram: "janeosaur", photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHbxGlLyFakQItVfcMTk9nEO1QWMe1S3E65LXMQpWEU1MzOrBpaA",
+  {email: "j@w.com", password: "123456", first_name: "jane", last_name: "w", username: "jane", country: "USA", twitter: "janeosaur", instagram: "janeosaur", photo: "https://pbs.twimg.com/profile_images/749082986184749056/gtNktD3a_400x400.jpg",
     cover_photo: "https://spark.adobe.com/images/landing/preview-wattpad-cover-maker-thumbnail.jpg", admin: true},
   {email: "b@c.com", password: "123456", first_name: "ben", last_name: "cloud", username: "ben_not_admin", country: "USA", admin: false}
 ]
