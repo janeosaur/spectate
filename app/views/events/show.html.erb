@@ -1,5 +1,3 @@
-
-
 <h1>Event Show Page</h1>
 <%= link_to "Back", :back%>
 
@@ -7,6 +5,11 @@
 
 <%= link_to "edit", edit_event_path(@event) %>
 <%= link_to "delete", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %>
+
+<!-- twitter widget -->
+<% hashtag = @event.name.split(' ').join('') %>
+<a href="https://twitter.com/intent/tweet?button_hashtag="<%= hashtag %>, class="twitter-hashtag-button" data-show-count="false">Tweet #<%= hashtag %></a>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <!-- flight embed widget -->
 <div id="mmd-flight-widget"></div>

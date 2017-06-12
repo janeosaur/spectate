@@ -25,6 +25,8 @@ gem 'geocoder'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 # country_select gem
 gem 'country_select'
+# twitter
+gem 'twitter'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
