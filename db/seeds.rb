@@ -8,6 +8,7 @@
 
 Event.delete_all
 User.delete_all
+Team.delete_all
 
 event_data = [
   {name: "ESL One Cologne", organizer: "ESL", venue: "Lanxess Arena", city: "Cologne, Germany", country: "Germany", min_age: 16, stream: "https://www.twitch.tv/esl_csgo",
@@ -30,13 +31,14 @@ event_data = [
     size: "1-1000", event_type: "large", prize: "$660,000", ticket_price: "€12.99", alcohol: true, stadium: false, vip_tickets: false, food_drinks: true, merch_sold: false}
   ]
 
-user_data = [
-  {email: "j@w.com", password: "123456", first_name: "jane", last_name: "w", username: "jane", country: "USA", twitter: "janeosaur", instagram: "janeosaur", photo: "https://pbs.twimg.com/profile_images/749082986184749056/gtNktD3a_400x400.jpg",
-    cover_photo: "https://spark.adobe.com/images/landing/preview-wattpad-cover-maker-thumbnail.jpg", admin: true},
-  {email: "b@c.com", password: "123456", first_name: "ben", last_name: "cloud", username: "ben_not_admin", country: "USA", admin: false}
-]
-
 Event.create(event_data)
-User.create(user_data)
+
+team1 = Team.create({name: "OpTic", country: "US", founded_in: "2005", logo: "https://www.toornament.com/media/file/433383026564632135/logo_medium?v=1472039303"})
+team2 = Team.create({name: "CLG", country: "US", founded_in: "2010", logo: "http://i1.wp.com/splitpush.net/wp-content/uploads/2016/02/CLG.png?fit=128%2C128"})
+
+
+jane = User.create({email: "j@w.com", password: "123456", first_name: "jane", last_name: "w", username: "jane", country: "USA", twitter: "janeosaur", instagram: "janeosaur", photo: "https://pbs.twimg.com/profile_images/749082986184749056/gtNktD3a_400x400.jpg",
+    cover_photo: "https://spark.adobe.com/images/landing/preview-wattpad-cover-maker-thumbnail.jpg", admin: true})
+
 
 p "seed data created"

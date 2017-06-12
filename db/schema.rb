@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612023225) do
+ActiveRecord::Schema.define(version: 20170612212056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_teams", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "event_id"
+    t.bigint "teams_id"
+    t.index ["event_id"], name: "index_event_teams_on_event_id"
+    t.index ["teams_id"], name: "index_event_teams_on_teams_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -68,6 +77,15 @@ ActiveRecord::Schema.define(version: 20170612023225) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.string "founded_in"
+    t.string "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -96,6 +114,7 @@ ActiveRecord::Schema.define(version: 20170612023225) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  add_foreign_key "event_teams", "teams", column: "teams_id"
   add_foreign_key "events", "users"
   add_foreign_key "favorites", "users"
 end

@@ -8,7 +8,7 @@
 
 <!-- twitter widget -->
 <% hashtag = @event.name.split(' ').join('') %>
-<a href="https://twitter.com/intent/tweet?button_hashtag="<%= hashtag %>, class="twitter-hashtag-button" data-show-count="false">Tweet #<%= hashtag %></a>
+<%= link_to "test", "https://twitter.com/intent/tweet?button_hashtag=#{hashtag}", :target => "_blank" %>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <!-- flight embed widget -->

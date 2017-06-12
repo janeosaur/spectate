@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
 
   def load_tweets
     @tweets = $client.user_timeline('rubyinside', count:20)
-
   end
 
   protected

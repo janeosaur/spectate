@@ -1,5 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :owner, optional: true
+  has_many :event_teams, dependent: :destroy
+  has_many :teams, through: :event_teams
 
   validates :name, :presence=>true, :uniqueness=>true
 
