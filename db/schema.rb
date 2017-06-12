@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612212056) do
+ActiveRecord::Schema.define(version: 20170612214658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "event_teams", force: :cascade do |t|
+    t.bigint "team_id"
+    t.bigint "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "event_id"
-    t.bigint "teams_id"
     t.index ["event_id"], name: "index_event_teams_on_event_id"
-    t.index ["teams_id"], name: "index_event_teams_on_teams_id"
+    t.index ["team_id"], name: "index_event_teams_on_team_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20170612212056) do
     t.string "country"
     t.string "founded_in"
     t.string "logo"
+    t.string "twitter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -114,7 +115,8 @@ ActiveRecord::Schema.define(version: 20170612212056) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
-  add_foreign_key "event_teams", "teams", column: "teams_id"
+  add_foreign_key "event_teams", "events"
+  add_foreign_key "event_teams", "teams"
   add_foreign_key "events", "users"
   add_foreign_key "favorites", "users"
 end

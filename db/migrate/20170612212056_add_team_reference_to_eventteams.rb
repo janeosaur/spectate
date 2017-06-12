@@ -1,5 +1,0 @@
-class AddTeamReferenceToEventteams < ActiveRecord::Migration[5.1]
-  def change
-    add_reference :event_teams, :teams, foreign_key: true, index: true
-  end
-end

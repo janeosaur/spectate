@@ -5,6 +5,7 @@ class CreateTeams < ActiveRecord::Migration[5.1]
       t.string :country
       t.string :founded_in
       t.string :logo
+      t.string :twitter
 
       t.timestamps
     end
