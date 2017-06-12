@@ -1,13 +1,68 @@
+
+
 <h1>Event Show Page</h1>
 <%= link_to "Back", :back%>
 
-<div class="">
-  Name: <%= @event.name %>
-  City: <%= @event.city %>
-  Country: <%= @event.country %>
-  Venue: <%= @event.venue %>
-</div>
+
 
 <%= link_to "edit", edit_event_path(@event) %>
 <%= link_to "delete", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %>
-</div>
+
+<!-- flight embed widget -->
+<div id="mmd-flight-widget"></div>
+<script type="text/javascript">(function initWidget() {
+	var options = {
+		layout: {
+			theme: "momondo",
+      width: "",
+      height: ""
+		},
+		airports: {
+			origin: "",
+			destination: ""
+		},
+		settings: {
+			openNewWindow: true,
+			domain: "www.momondo.com",
+			source: ""
+		}
+	};
+	var settings = options.settings;
+	var airports = options.airports;
+	var layout = options.layout;
+	var encoding = null;
+	onWidgetLoad = function (f)
+	{
+		f("mmd-flight-widget", {
+			searchForms: [{
+				type: 1,
+				searchURL: "http://[DOMAIN][PATH][QUERY]" + (!!settings.source ? "&source=" + settings.source : ""),
+				openNewWindow: settings.openNewWindow,
+				currency: settings.currency,
+				segments: [
+					{
+						airports: [
+							{ code: airports.origin || "" },
+							{ code: airports.destination || "" }
+						]
+					},
+					{
+						airports: [
+							{ code: airports.destination || "" },
+							{ code: airports.origin || "" }
+						]
+					}
+				]
+			}]
+		});
+	};
+	var scr = document.createElement("script");
+	scr["src"] = "http://" + settings.domain + "/widget/searchform/v1.1/?dimensions=" + (layout.width && layout.height ? (layout.width + "x" + layout.height) : "generic") + "&types=1&callback=onWidgetLoad&theme=" + layout.theme;
+	var tag = document.getElementsByTagName("head");
+	if (tag && tag.length)
+	{
+		tag = tag[0];
+		tag.appendChild(scr);
+	}
+})();
+ </script>
