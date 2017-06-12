@@ -53,7 +53,7 @@ a {
   }
   li {
     float: left;
-    margin: 10px;
+    margin: 13px;
     display: inline-block;
   }
   .logo {
@@ -61,19 +61,10 @@ a {
     margin-left: 30px;
   }
   a:hover {
-    border-bottom: 2px solid $neon-blue;
-    padding-bottom: 12px;
-    text-decoration: none
-  }
-  .search-bar {
-    margin: 0 auto;
-    float: right;
-    font-size: 15px;
-    margin-left: 30px;
-  }
-  .form-control, button {
-    height: 25px;
-    padding: 2px;
+    border-bottom: 4px solid $neon-blue;
+    padding-bottom: 8px;
+    text-decoration: none;
+    color: white;
   }
   .right-content {
     float: right;
@@ -82,12 +73,19 @@ a {
     .username {
       color: white;
     }
-    .signed-in {
-      color: white;
-      font-size: 12px;
+    .log-out {
+      color: red;
+      padding-left: 10px;
+    }
+    a {
+      font-size: 18px;
+      line-height: 18px;
     }
     a:hover {
-      border: 0
+      border: 0;
+      border-bottom: 4px solid $neon-blue;
+      padding-bottom: 8px;
+      text-decoration: none;
     }
   }
   @media only screen and (max-width: 926px) {
@@ -165,6 +163,34 @@ a {
 .notice {
   p {
     margin-top: 60px;
+  }
+}
+
+// events index (search) page
+.event-index {
+  .mapped {
+    margin: 50px 0 50px 0;
+    .search {
+      margin-top: 30px;
+    }
+  }
+
+}
+
+// _search_card partial
+.search-result {
+  border: 2px black solid;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+  height: 220px;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  h3 {
+    margin-top: 0;
+
   }
 }
 

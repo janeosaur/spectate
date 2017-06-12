@@ -2,70 +2,55 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+<div class="container event-index">
+  <div class="row mapped">
+    <div class="col-sm-2 search">
       <%= search_form_for @q do |f| %>
-        <div class="row">
-          <div class="col-md-4">
-            <%= f.label "Search" %><br/>
-            <%= f.search_field :name_or_organizer_or_venue_or_city_or_country_cont %>
-          </div>
-          <div class="col-md-4">
-            <%= f.submit %>
-          </div>
-        </div>
-        <div class="row">
-          <%= f.label "Food & Drinks Sold" %>
-          <%= f.check_box :food_drinks_true, include_hidden: false %><br />
+          <%= f.label "Search" %><br/>
+          <%= f.search_field :name_or_organizer_or_venue_or_city_or_country_cont %>
+          <%= f.label "Event Type" %>
+          <%= f.select :event_type, ['minor', 'big', 'major'], include_hidden: false, include_blank: true %>
           <%= f.label "Stadium" %>
           <%= f.check_box :stadium_true, include_hidden: false %><br />
+          <%= f.label "Food & Drinks Sold" %>
+          <%= f.check_box :food_drinks_true, include_hidden: false %><br />
           <%= f.label "VIP Tickets" %>
           <%= f.check_box :vip_tickets_true, include_hidden: false %><br />
           <%= f.label "Merch Sold" %>
           <%= f.check_box :merch_sold_true, include_hidden: false %><br />
-        </div>
+          <%= f.label "Alcohol Sold" %>
+          <%= f.check_box :alcohol_true, include_hidden: false %><br />
+          <%= f.submit %>
       <% end %>
+    </div>
+
+
+
+    <div class="col-sm-8 col-sm-offset-1">
+      <div id="map" style='width: 700px; height: 400px;'></div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 sort">
+      <!-- sorts ransack search results by name -->
+      Sory by: <%= sort_link(@q, :date) %> |
+      <%= sort_link(@q, :name) %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <%= sort_link(@q, :name) %>
-        <% @events.each do |event| %>
-        <div class="test">
-          <%= event.name %>
-        </div>
-        <div class="test">
-          <%= event.organizer %>
-        </div>
-        <div class="test">
-          <%= event.date %> to <%= event.date_end %>
-        </div>
-        <div class="test">
-          <%= event.venue %>
-        </div>
-        <div class="test">
-          <%= event.city %>
-        </div>
-        <div class="test">
-          <%= link_to "Website", event.tickets %>
-        </div>
-        <div class="test">
-          <%= link_to "Stream", event.stream %>
-        </div>
-        <%= link_to "edit", edit_event_path(event) %>
-        <br/>
-        <br/>
-        <% end %>
-    </div>
+    <% @events.each do |event| %>
+      <div class="col-sm-4">
+        <%= render partial: 'events/search_card', locals: { event: event} %>
+      </div>
+    <% end %>
   </div>
-  <br/>
-  <br/>
 
-  <div style='width: 800px;'>
-    <div id="map" style='width: 800px; height: 400px;'></div>
-  </div>
+
+  <br/>
+  <br/>
 
 </div>
 
@@ -77,3 +62,18 @@
     handler.fitMapToBounds();
   });
 </script>
+
+
+
+<!-- for future search integration -->
+<% if false %>
+  <%= f.label "Happening on: " %>
+  <%= f.date_select :date_cont, include_hidden: false, include_blank: true %>
+  <%= f.label "Prize money at least" %>
+  <%= f.text_field :prize, include_hidden: false %>
+  <%= f.label "Minimum age" %>
+  <%= f.text_field :min_age, include_hidden: false %>
+  <%= f.label "Price range?" %>
+  <%= f.text_field :price, include_hidden: false %>
+
+<% end %>
