@@ -12,5 +12,4 @@ class Event < ApplicationRecord
   after_validation :geocode
 
 
-
 end

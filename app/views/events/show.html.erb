@@ -1,18 +1,27 @@
 <h1>Event Show Page</h1>
 <%= link_to "Back", :back%>
 
-
-
 <%= link_to "edit", edit_event_path(@event) %>
 <%= link_to "delete", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %>
 
 <!-- twitter widget -->
-<% hashtag = @event.name.split(' ').join('') %>
-<%= link_to "test", "https://twitter.com/intent/tweet?button_hashtag=#{hashtag}", :target => "_blank" %>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="">
+	<% hashtag = @event.name.split(' ').join('') %>
+	<%= link_to "Tweet", "https://twitter.com/intent/tweet?button_hashtag=#{hashtag}", :target => "_blank" %>
+</div>
+
+<div class="teams">
+	<% @event.teams.each do |team| %>
+		<%= team.name %>
+		<%= team.country %>
+	<% end %>
+</div>
+
+
 
 <!-- flight embed widget -->
 <div id="mmd-flight-widget"></div>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script type="text/javascript">(function initWidget() {
 	var options = {
 		layout: {
