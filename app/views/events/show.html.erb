@@ -14,6 +14,20 @@
 	<% @event.teams.each do |team| %>
 		<%= team.name %>
 		<%= team.country %>
+		<div class="favorite">
+			<% if signed_in? %>
+				<% unless current_user.favorite_teams.exists?(id: team) %>
+					<%= link_to favorite_teams_path(team), method: :post do %>
+						<i class="glyphicon glyphicon-heart-empty"></i>
+					<% end %>
+				<% else %>
+					<%= link_to favorite_team_path(team), method: :delete do %>
+						<i class="glyphicon glyphicon-heart"></i>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+
 	<% end %>
 </div>
 
