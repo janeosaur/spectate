@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   post "/events/:event_id/teams", to: "event_teams#create", as: "add_team"
   delete "/events/:event_id/teams/:id", to: "event_teams#destroy", as: "delete_team"
 
+  get "/teams/:team_id/players/new", to: "team_players#new", as: "add_player_select"
   post "/teams/:team_id/players", to: "team_players#create", as: "add_player"
   delete "/teams/:team_id/players/:id", to: "team_players#destroy", as: "delete_player"
 

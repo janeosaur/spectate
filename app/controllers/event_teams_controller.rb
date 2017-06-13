@@ -1,5 +1,5 @@
 class EventTeamsController < ApplicationController
-  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_admin
   before_action :set_event, only: [:create, :destroy]
 
   # get "/events/:event_id/teams/new", to: "event_teams#new", as: "add_team_select"

@@ -1,9 +1,9 @@
 <h1>Event Show Page</h1>
-<%= link_to "Back", :back%>
+<%= link_to "Back", :back%><br/><br/>
 
-<%= link_to "edit", edit_event_path(@event) %> <br/>
-<%= link_to "delete", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %> <br/>
-<%= link_to "add a team", add_team_select_path(@event) %>
+<%= link_to "edit", edit_event_path(@event) %> <br/><br/>
+<%= link_to "delete event", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %> <br/><br/>
+<%= link_to "add a team", add_team_select_path(@event) %><br/><br/>
 
 <!-- twitter widget -->
 <div class="">
@@ -29,8 +29,6 @@
 				<% end %>
 			<% end %>
 		</div>
-
-
 	<% end %>
 </div>
 
