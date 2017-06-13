@@ -12,7 +12,7 @@
 
 <div class="teams">
 	<% @event.teams.each do |team| %>
-		<%= team.name %>
+		<%= link_to team.name, team %>
 		<%= team.country %>
 		<div class="favorite">
 			<% if signed_in? %>

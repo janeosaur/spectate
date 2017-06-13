@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Player.delete_all
 EventTeam.delete_all
 Team.delete_all
 Event.delete_all
@@ -45,10 +45,25 @@ astralis = Team.create({name: "Astralis", country: "Denmark", founded_in: "2015"
 sk = Team.create({name: "SK", country: "Brazil", founded_in: "1998", logo: "https://gambit.gg/public/images/general/2016/04/07/thumbnail-20160407150839-6901.png"})
 fnatic = Team.create({name: "fnatic", country: "Sweden", founded_in: "1999", logo: "https://hydra-media.cursecdn.com/dota2.gamepedia.com/thumb/2/22/Team_logo_Fnatic.png/256px-Team_logo_Fnatic.png?version=ca5a59e66bf6440497b43a3b045cda77"})
 
-
-esl.teams << [optic, vp, sk]
+esl.teams << [optic, vp, sk, fnatic]
 eleague.teams << [vp, astralis]
 dreamhack.teams << clg
 
+cutler = Player.create({name: "Stephen Cutler", gamer_tag: "reltuC", country: "US", twitter: "reltuc", instagram: "clutchler", photo: "https://pbs.twimg.com/profile_images/820485283418284032/t9rUlRTJ_400x400.jpg", role: "support"})
+koosta = Player.create({name: "Kenneth Suen", gamer_tag: "koosta", country: "US", twitter: "koosta", instagram: "clgkoosta", photo: "https://pbs.twimg.com/profile_images/873458575137308672/E0AAUpvV_400x400.jpg", role: "awper"})
+nahte = Player.create({name: "Ethan Arnold", gamer_tag: "nahtE", country: "US", twitter: "CLG_Nahte", instagram: "clgnahte", photo: "https://pbs.twimg.com/profile_images/845485089765056512/1NxRl7_p_400x400.jpg", role: "entry"})
+rickeh = Player.create({name: "Rick Mulholland", gamer_tag: "Rickeh", country: "Australia", twitter: "Rickehcsgo", instagram: "", photo: "https://pbs.twimg.com/profile_images/839970983574360064/ha_fQbzO_400x400.jpg", role: "support"})
+tarik = Player.create({name: "Tarik Celik", gamer_tag: "tarik", country: "US", twitter: "noshirt_tv", instagram: "officialtarik", photo: "https://pbs.twimg.com/profile_images/856561269163180036/ZfH4D57Y_400x400.jpg", role: "entry"})
+mixwell = Player.create({name: "Oscar Canella", gamer_tag: "Mixwell", country: "Spain", twitter: "Mixwell", instagram: "m1xwell", photo: "https://pbs.twimg.com/profile_images/861173235517227008/dixioA0R_400x400.jpg", role: "awper"})
+jdm = Player.create({name: "Joshua Marzano", gamer_tag: "jdm^v^", country: "US", twitter: "liquid_jdm", instagram: "jdmarzano", photo: "https://pbs.twimg.com/profile_images/868215893431537665/wydxaMNM_400x400.jpg", role: "awper"})
+fallen = Player.create({name: "Gabriel Toledo", gamer_tag: "FalleN", country: "Brazil", twitter: "fallencs", instagram: "fallen", photo: "https://pbs.twimg.com/profile_images/865602765703303168/odufTF0F_400x400.jpg", role: "awper"})
+taco = Player.create({name: "Epitacio", gamer_tag: "TACO", country: "Brazil", twitter: "tacocs", instagram: "taco", photo: "https://pbs.twimg.com/profile_images/867410817796501504/WC1cXmCh_400x400.jpg", role: "entry"})
+stewie = Player.create({name: "Jake Yip", gamer_tag: "Stewie", country: "US", twitter: "Stewie", instagram: "stew2k", photo: "https://pbs.twimg.com/profile_images/873716175821094912/RUpGn1LC_400x400.jpg", role: "entry"})
+glaive = Player.create({name: "Lukas Rossander", gamer_tag: "gla1ve", country: "Denmark", twitter: "gla1ve_csgo", instagram: "gla1ve_csgo", photo: "https://pbs.twimg.com/profile_images/790564286137569280/wo8t8yrQ_400x400.jpg", role: "IGL"})
+
+optic.players << [tarik, mixwell]
+clg.players << [koosta, cutler, nahte, rickeh]
+astralis.players << glaive
+sk.players << [fallen, taco]
 
 p "seed data created"
