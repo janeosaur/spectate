@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     set_user
     @fav_events = @user.favorite_events
     @fav_teams = @user.favorite_teams
+    @fav_players = @user.favorite_players
   end
 
   private

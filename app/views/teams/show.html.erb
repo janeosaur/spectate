@@ -55,6 +55,19 @@
                   <% end %>
                 </div>
               </div>
+              <div class="favorite">
+                <% if signed_in? %>
+                  <% unless current_user.favorite_players.exists?(id: player) %>
+                    <%= link_to favorite_players_path(player), method: :post do %>
+                      <i class="glyphicon glyphicon-heart-empty"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to favorite_player_path(player), method: :delete do %>
+                      <i class="glyphicon glyphicon-heart"></i>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
 
 
               </div>

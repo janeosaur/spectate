@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :favorite_events, only: [:create, :destroy]
   resources :favorite_teams, only: [:create, :destroy]
+  resources :favorite_players, only: [:create, :destroy]
 
   get "/users/", to: "users#index", as: "users"
   get "/users/:id", to: "users#show", as: "user"

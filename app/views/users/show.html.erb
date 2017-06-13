@@ -58,11 +58,16 @@
               <%= link_to event.name, event %>
             </div>
           <% end %>
-          need team show page
           Favorite Teams<hr>
           <% @fav_teams.each do |team| %>
             <div class="">
               <%= team.name%>
+            </div>
+          <% end %>
+          Favorite Players<hr>
+          <% @fav_players.each do |player| %>
+            <div class="">
+              <%= player.gamer_tag%>
             </div>
           <% end %>
         </div>
