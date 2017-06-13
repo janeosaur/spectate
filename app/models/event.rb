@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :owner, optional: true
+  belongs_to :user, optional: true
   has_many :event_teams, dependent: :destroy
   has_many :teams, through: :event_teams
 

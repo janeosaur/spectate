@@ -1,0 +1,12 @@
+<h1>List of Players</h1>
+
+<% @players.each do |player| %>
+  <ul style="list-style: none;">
+    <li>
+      <%= link_to player.gamer_tag, player %>
+      <% if !player.team.nil? %>
+        currently playing on: <%= link_to player.team.name, player.team %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
