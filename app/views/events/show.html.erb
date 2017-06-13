@@ -1,8 +1,9 @@
 <h1>Event Show Page</h1>
 <%= link_to "Back", :back%>
 
-<%= link_to "edit", edit_event_path(@event) %>
-<%= link_to "delete", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %>
+<%= link_to "edit", edit_event_path(@event) %> <br/>
+<%= link_to "delete", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %> <br/>
+<%= link_to "add a team", add_team_select_path(@event) %>
 
 <!-- twitter widget -->
 <div class="">
@@ -14,6 +15,7 @@
 	<% @event.teams.each do |team| %>
 		<%= link_to team.name, team %>
 		<%= team.country %>
+		<%= link_to "delete team from event", delete_team_path(@event, team), method: :delete %>
 		<div class="favorite">
 			<% if signed_in? %>
 				<% unless current_user.favorite_teams.exists?(id: team) %>
@@ -27,6 +29,7 @@
 				<% end %>
 			<% end %>
 		</div>
+
 
 	<% end %>
 </div>

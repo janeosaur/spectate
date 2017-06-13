@@ -35,13 +35,12 @@ Rails.application.routes.draw do
   patch "/players/:id", to: "players#update", as: "update_player"
   delete "/players/:id", to: "players#destroy", as: "destroy_player"
 
-  get "/events/:event_id/teams/new", to: "event_teams#new", as: "new_event_team"
-  post "/events/:event_id/teams", to: "event_teams#create", as: "create_event_team"
-  delete "/events/:event_id/teams/:id", to: "event_teams#destroy", as: "destroy_event_team"
+  get "/events/:event_id/teams/new", to: "event_teams#new", as: "add_team_select"
+  post "/events/:event_id/teams", to: "event_teams#create", as: "add_team"
+  delete "/events/:event_id/teams/:id", to: "event_teams#destroy", as: "delete_team"
 
-  get "/teams/:team_id/players/new", to: "team_players#new", as: "new_team_player"
-  post "/teams/:team_id/players", to: "team_players#create", as: "create_team_player"
-  delete "/teams/:team_id/players/:id", to: "team_players#destroy", as: "destroy_team_player"
+  post "/teams/:team_id/players", to: "team_players#create", as: "add_player"
+  delete "/teams/:team_id/players/:id", to: "team_players#destroy", as: "delete_player"
 
   match "*path" => redirect("/"), via: :all # route to redirect users to root if they enter invalid URL
 

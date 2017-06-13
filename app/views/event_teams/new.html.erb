@@ -1,0 +1,4 @@
+<%= form_tag add_team_path, method: :post do %>
+   <%= collection_select :team, :id, @teams, :id, :name %>
+   <%= submit_tag %>
+<% end %>
