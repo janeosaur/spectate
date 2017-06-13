@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   delete "/teams/:id", to: "teams#destroy", as: "destroy_team"
 
   get "/players", to: "players#index", as: "players"
-  get "/players/:id", to: "players#show", as: "player"
   get "/players/new", to: "players#new", as: "new_player"
+  get "/players/:id", to: "players#show", as: "player"
   post "/players", to: "players#create", as: "create_player"
   get "/players/:id/edit", to: "players#edit", as: "edit_player"
   patch "/players/:id", to: "players#update", as: "update_player"

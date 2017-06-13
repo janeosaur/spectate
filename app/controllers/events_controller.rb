@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # match "search" => "events#search", via: [:get, :post], as: :search # route for ransack search
   def search
