@@ -30,7 +30,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.create(event_params)
     if @event.save
-      flash[:notice] = "Success, event successfully added"
+      flash[:notice] = "Success, event successfully created"
       redirect_to events_path
     else
       flash[:error] = @event.errors.full_messages.join(" ")

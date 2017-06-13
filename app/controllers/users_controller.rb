@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
   before_action :require_admin, only: [:index]
 
+  # get "/users/", to: "users#index", as: "users"
   def index
     @users = User.all
   end
 
+  # get "/users/:id", to: "users#show", as: "user"
   def show
     set_user
     @fav_events = @user.favorite_events

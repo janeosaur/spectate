@@ -18,6 +18,15 @@ Rails.application.routes.draw do
   delete "/events/:id", to: "events#destroy", as: "destroy_event"
   match "search" => "events#search", via: [:get, :post], as: :search # route for ransack search
 
+  get "/teams", to: "teams#index", as: "teams"
+  get "/teams/new", to: "teams#new", as: "new_team"
+  get "/teams/:id", to: "teams#show", as: "team"
+  post "/teams", to: "teams#create", as: "create_team"
+  get "/teams/:id/edit", to: "teams#edit", as: "edit_team"
+  patch "/teams/:id", to: "teams#update", as: "update_team"
+  delete "/teams/:id", to: "teams#destroy", as: "destroy_team"
+
+  get "/players/:id", to: "players#show", as: "player"
 
   match "*path" => redirect("/"), via: :all # route to redirect users to root if they enter invalid URL
 

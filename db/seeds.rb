@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+EventTeam.delete_all
 Team.delete_all
 Event.delete_all
-EventTeam.delete_all
 Favorite.delete_all
 User.delete_all
 
@@ -38,7 +38,7 @@ ecs = Event.create({name: "ECS Season 3 Finals", organizer: "ECS", venue: "Wembl
     image: "http://www.esports-pro.com/images/uploads/articles/ECS_CS_GO_Wembley_840.jpg", date: "2017-06-23", date_end: "2017-06-25", tickets: "https://wembley.csgoleague.com/",
     size: "1-1000", event_type: "large", prize: "$660,000", ticket_price: "€12.99", alcohol: true, stadium: false, vip_tickets: false, food_drinks: true, merch_sold: false})
 
-optic = Team.create({name: "OpTic", country: "US", founded_in: "2005", logo: "https://www.toornament.com/media/file/433383026564632135/logo_medium?v=1472039303"})
+optic = Team.create({name: "OpTic", country: "US", founded_in: "2005", logo: "http://www.esportscod.com/wp-content/uploads/2015/05/optic-logo-128x128.png"})
 clg = Team.create({name: "CLG", country: "US", founded_in: "2010", logo: "http://i1.wp.com/splitpush.net/wp-content/uploads/2016/02/CLG.png?fit=128%2C128"})
 vp = Team.create({name: "VP", country: "Poland", founded_in: "2005", logo: "https://hydra-media.cursecdn.com/dota2.gamepedia.com/thumb/8/86/Team_icon_Virtus.pro.png/256px-Team_icon_Virtus.pro.png?version=fc33bdafde2222cbbd2a436af0b3f972"})
 astralis = Team.create({name: "Astralis", country: "Denmark", founded_in: "2015", logo: "https://www.toornament.com/media/file/433367103107598939/logo_medium?v=1468984226"})

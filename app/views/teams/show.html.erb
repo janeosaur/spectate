@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-sm-offset-1">
+      <div class="teamlogo">
+        <div class="image">
+          <%= image_tag @team.logo %>
+        </div>
+        <div class="info">
+          <p class="name"><%= @team.name %></p>
+          <p>Country: <%= @team.country %></p>
+          <p>Founded in: <%= @team.founded_in %></p>
+        </div>
+        <div class="admin">
+          <% if current_user.admin? %>
+            <%= link_to edit_team_path do %>
+              <i class="glyphicon glyphicon-pencil"></i>
+            <% end %>
+            <%= link_to destroy_team_path, data: { confirm: "Are you sure you want to delete" }, method: :delete do %>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <div class="playerlist">
+        <% if false %>
+          <% @players.each do |player| %>
+            <div class="playercard">
+              <div class="">
+
+              </div>
+
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+</div>

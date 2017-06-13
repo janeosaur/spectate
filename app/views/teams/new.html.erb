@@ -1,0 +1,6 @@
+<h1>Create New Team</h1>
+<%= link_to "Back", :back%>
+
+<%= form_for @team, :url => { :action => "create" } do |f| %>
+  <%= render partial: 'teams/form', locals: { f: f } %>
+<% end %>
