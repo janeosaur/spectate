@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170612023225) do
+ActiveRecord::Schema.define(version: 20170613040408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_teams", force: :cascade do |t|
+    t.bigint "team_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_teams_on_event_id"
+    t.index ["team_id"], name: "index_event_teams_on_team_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -68,6 +77,34 @@ ActiveRecord::Schema.define(version: 20170612023225) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "photo"
+    t.string "role"
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "gamer_tag"
+    t.string "slug"
+    t.index ["slug"], name: "index_players_on_slug", unique: true
+    t.index ["team_id"], name: "index_players_on_team_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.string "founded_in"
+    t.string "logo"
+    t.string "twitter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_teams_on_slug", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -96,6 +133,8 @@ ActiveRecord::Schema.define(version: 20170612023225) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  add_foreign_key "event_teams", "events"
+  add_foreign_key "event_teams", "teams"
   add_foreign_key "events", "users"
   add_foreign_key "favorites", "users"
 end

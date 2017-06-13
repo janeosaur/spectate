@@ -1,0 +1,27 @@
+<h1>List of Players</h1>
+
+<% @players.each do |player| %>
+  <ul style="list-style: none;">
+    <li>
+      <%= link_to player.gamer_tag, player %>
+      currently playing on:
+      <% if player.team.nil? %>
+        no team
+      <% else %>
+        <%= link_to player.team.name, player.team %>
+      <% end %>
+      <div class="admin">
+        <% if signed_in? && current_user.admin? %>
+          <%= link_to edit_player_path(player) do %>
+            <i class="glyphicon glyphicon-pencil"></i>
+          <% end %>
+          <%= link_to destroy_player_path(player), data: { confirm: "Are you sure you want to delete" }, method: :delete do %>
+            <i class="glyphicon glyphicon-trash"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </li>
+  </ul>
+<% end %>
+
+<%= link_to "Create New Player", new_player_path %>

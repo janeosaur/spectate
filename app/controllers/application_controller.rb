@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :load_tweets
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def load_tweets
+    @tweets = $client.user_timeline('rubyinside', count:20)
+  end
 
   protected
 

@@ -1,0 +1,86 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-sm-offset-1">
+      <div class="teamlogo">
+        <div class="image">
+          <%= image_tag @team.logo %>
+        </div>
+        <div class="info">
+          <p class="name"><%= @team.name %></p>
+          <p>Country: <%= @team.country %></p>
+          <p>Founded in: <%= @team.founded_in %></p>
+        </div>
+        <div class="admin">
+          <% if signed_in? && current_user.admin? %>
+            <%= link_to edit_team_path do %>
+              <i class="glyphicon glyphicon-pencil"></i>
+            <% end %>
+            <%= link_to destroy_team_path, data: { confirm: "Are you sure you want to delete" }, method: :delete do %>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+            <%= link_to "Add player to team", add_player_select_path(@team) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <div class="playerlist">
+        <% @players.each do |player| %>
+          <div class="playercard">
+            <div class="photo">
+              <%= image_tag player.photo %>
+            </div>
+            <div class="info">
+              <div class="name">
+                <%= link_to player.gamer_tag, player %>
+              </div>
+              <div class="details">
+                <%= player.country %>
+                <%= player.role %>
+              </div>
+              <div class="socials">
+                <div class="twitter">
+                  <% if player.twitter? %>
+                    <a href="https://twitter.com/<%=player.twitter%>">
+                      <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
+                      <%= player.twitter %>
+                    </a>
+                  <% end %>
+                </div>
+                <div class="insta">
+                  <% if player.instagram? %>
+                    <a href="https://www.instagram.com/<%=player.instagram%>">
+                      <img src="https://cdn4.iconfinder.com/data/icons/picons-social/57/38-instagram-3-128.png" alt="">
+                      <%= player.instagram %>
+                    </a>
+                  <% end %>
+                </div>
+              </div>
+              <div class="favorite">
+                <% if signed_in? %>
+                  <% unless current_user.favorite_players.exists?(id: player) %>
+                    <%= link_to favorite_players_path(player), method: :post do %>
+                      <i class="glyphicon glyphicon-heart-empty"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to favorite_player_path(player), method: :delete do %>
+                      <i class="glyphicon glyphicon-heart"></i>
+                    <% end %>
+                  <% end %>
+                <% end %>
+
+              </div>
+              <div class="admin">
+                <% if signed_in? && current_user.admin? %>
+                  <%= link_to "delete player from team", delete_player_path(@team, player), method: :delete %>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,4 @@
+<%= form_tag add_player_path, method: :post do %>
+   <%= collection_select :player, :id, @players, :id, :gamer_tag %>
+   <%= submit_tag %>
+<% end %>

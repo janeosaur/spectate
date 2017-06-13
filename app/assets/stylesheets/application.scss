@@ -346,3 +346,71 @@ a {
      }
    }
 }
+
+// team show page
+.teamlogo {
+  border: 2px black solid;
+  .info {
+    p {
+      padding: 10px;
+      margin: 10px;
+    }
+    .name {
+      font-size: 27px;
+      font-weight: 500
+    }
+  }
+  img {
+    width: 100%;
+  }
+  .admin {
+    margin: 10px;
+  }
+}
+
+// team form
+.team-form {
+  input {
+    width: 100%;
+    margin: 10px 0px 25px 0px;
+  }
+  p {
+    margin: 0;
+  }
+  .submit {
+    margin: 0 auto;
+    width: 30%;
+    input {
+      width: 100%;
+    }
+  }
+}
+
+// team show page
+.playercard {
+  height: 200px;
+  border: 2px solid black;
+  margin: 0 auto;
+  .photo {
+    img {
+      float: left;
+      width: 200px;
+    }
+  }
+  .info {
+    margin-left: 200px;
+    .socials {
+      padding-bottom: 20px;
+      img {
+        height: 20px;
+      }
+      a {
+        color: black;
+      }
+      a:hover {
+        text-decoration: none;
+        color: red;
+      }
+    }
+  }
+}

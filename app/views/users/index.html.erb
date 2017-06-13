@@ -1,3 +1,10 @@
+<h1>List of Registered Users</h1>
+
 <% @users.each do |user| %>
-<%= link_to user.username, user %>
+  <ul style="list-style: none;">
+    <li>
+      <%= link_to user.username, user %>
+      since: <%= user.created_at.strftime("%B %-d, %Y") %>
+    </li>
+  </ul>
 <% end %>

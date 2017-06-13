@@ -1,0 +1,33 @@
+<h1><%=@player.gamer_tag%> Profile</h1>
+
+Name: <%= @player.name %>
+
+<div class="socials">
+  <div class="twitter">
+    <% if @player.twitter? %>
+      <a href="https://twitter.com/<%=@player.twitter%>">
+        <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
+        <%= @player.twitter %>
+      </a>
+    <% end %>
+  </div>
+  <div class="insta">
+    <% if @player.instagram? %>
+      <a href="https://www.instagram.com/<%=@player.instagram%>">
+        <img src="https://cdn4.iconfinder.com/data/icons/picons-social/57/38-instagram-3-128.png" alt="">
+        <%= @player.instagram %>
+      </a>
+    <% end %>
+  </div>
+
+
+<div class="admin">
+  <% if signed_in? && current_user.admin? %>
+    <%= link_to edit_player_path(@player) do %>
+      <i class="glyphicon glyphicon-pencil"></i>
+    <% end %>
+    <%= link_to destroy_player_path(@player), data: { confirm: "Are you sure you want to delete" }, method: :delete do %>
+      <i class="glyphicon glyphicon-trash"></i>
+    <% end %>
+  <% end %>
+</div>

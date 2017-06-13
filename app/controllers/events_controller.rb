@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # match "search" => "events#search", via: [:get, :post], as: :search # route for ransack search
   def search
@@ -30,7 +31,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.create(event_params)
     if @event.save
-      flash[:notice] = "Success, event successfully added"
+      flash[:notice] = "Success, event successfully created"
       redirect_to events_path
     else
       flash[:error] = @event.errors.full_messages.join(" ")
@@ -40,17 +41,14 @@ class EventsController < ApplicationController
 
   # get "/events/:id", to: "events#show", as: "event"
   def show
-    set_event
   end
 
   # get "/events/:id/edit", to: "events#edit", as: "edit_event"
   def edit
-    set_event
   end
 
   # patch "/events/:id", to: "events#update", as: "update_event"
   def update
-    set_event
     @event.update_attributes(event_params)
     flash[:notice] = "Success, event was updated"
     redirect_to event_path(@event)
@@ -58,7 +56,6 @@ class EventsController < ApplicationController
 
   # delete "/events/:id", to: "events#destroy", as: "destroy_event"
   def destroy
-    set_event
     if current_user.try(:admin?)
       @event.destroy
       redirect_to events_path

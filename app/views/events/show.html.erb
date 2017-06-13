@@ -1,15 +1,42 @@
-
-
 <h1>Event Show Page</h1>
-<%= link_to "Back", :back%>
+<%= link_to "Back", :back%><br/><br/>
+
+<%= link_to "edit", edit_event_path(@event) %> <br/><br/>
+<%= link_to "delete event", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %> <br/><br/>
+<%= link_to "add a team", add_team_select_path(@event) %><br/><br/>
+
+<!-- twitter widget -->
+<div class="">
+	<% hashtag = @event.name.split(' ').join('') %>
+	<%= link_to "Tweet", "https://twitter.com/intent/tweet?button_hashtag=#{hashtag}", :target => "_blank" %>
+</div>
+
+<div class="teams">
+	<% @event.teams.each do |team| %>
+		<%= link_to team.name, team %>
+		<%= team.country %>
+		<%= link_to "delete team from event", delete_team_path(@event, team), method: :delete %>
+		<div class="favorite">
+			<% if signed_in? %>
+				<% unless current_user.favorite_teams.exists?(id: team) %>
+					<%= link_to favorite_teams_path(team), method: :post do %>
+						<i class="glyphicon glyphicon-heart-empty"></i>
+					<% end %>
+				<% else %>
+					<%= link_to favorite_team_path(team), method: :delete do %>
+						<i class="glyphicon glyphicon-heart"></i>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
 
 
-
-<%= link_to "edit", edit_event_path(@event) %>
-<%= link_to "delete", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %>
 
 <!-- flight embed widget -->
 <div id="mmd-flight-widget"></div>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script type="text/javascript">(function initWidget() {
 	var options = {
 		layout: {
