@@ -9,6 +9,7 @@ class TeamsController < ApplicationController
 
   # get "/teams/:id", to: "teams#show", as: "team"
   def show
+    @players = @team.players
   end
 
   # get "/teams/new", to: "teams#new", as: "new_team"

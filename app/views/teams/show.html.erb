@@ -11,7 +11,7 @@
           <p>Founded in: <%= @team.founded_in %></p>
         </div>
         <div class="admin">
-          <% if current_user.admin? %>
+          <% if signed_in? && current_user.admin? %>
             <%= link_to edit_team_path do %>
               <i class="glyphicon glyphicon-pencil"></i>
             <% end %>
@@ -24,17 +24,44 @@
     </div>
     <div class="col-sm-7">
       <div class="playerlist">
-        <% if false %>
-          <% @players.each do |player| %>
-            <div class="playercard">
-              <div class="">
+        <% @players.each do |player| %>
+          <div class="playercard">
+            <div class="photo">
+              <%= image_tag player.photo %>
+            </div>
+            <div class="info">
+              <div class="name">
+                <%= player.gamer_tag %>
+              </div>
+              <div class="details">
+                <%= player.country %>
+                <%= player.role %>
+              </div>
+              <div class="socials">
+                <div class="twitter">
+                  <% if player.twitter? %>
+                    <a href="https://twitter.com/<%=player.twitter%>">
+                      <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
+                      <%= player.twitter %>
+                    </a>
+                  <% end %>
+                </div>
+                <div class="insta">
+                  <% if player.instagram? %>
+                    <a href="https://www.instagram.com/<%=player.instagram%>">
+                      <img src="https://cdn4.iconfinder.com/data/icons/picons-social/57/38-instagram-3-128.png" alt="">
+                      <%= player.instagram %>
+                    </a>
+                  <% end %>
+                </div>
+              </div>
+
 
               </div>
 
             </div>
-          <% end %>
+          </div>
         <% end %>
-
       </div>
     </div>
   </div>

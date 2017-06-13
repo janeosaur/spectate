@@ -385,3 +385,32 @@ a {
     }
   }
 }
+
+// team show page
+.playercard {
+  height: 200px;
+  border: 2px solid black;
+  margin: 0 auto;
+  .photo {
+    img {
+      float: left;
+      width: 200px;
+    }
+  }
+  .info {
+    margin-left: 200px;
+    .socials {
+      padding-bottom: 20px;
+      img {
+        height: 20px;
+      }
+      a {
+        color: black;
+      }
+      a:hover {
+        text-decoration: none;
+        color: red;
+      }
+    }
+  }
+}
