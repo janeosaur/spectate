@@ -54,7 +54,7 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:event).permit(:name, :country, :logo, :founded_in, :twitter, :slug)
+    params.require(:team).permit(:name, :country, :logo, :founded_in, :twitter, :slug)
   end
 
   def set_team
