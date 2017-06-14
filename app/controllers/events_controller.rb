@@ -42,7 +42,6 @@ class EventsController < ApplicationController
 
   # get "/events/:id", to: "events#show", as: "event"
   def show
-
   end
 
   # get "/events/:id/edit", to: "events#edit", as: "edit_event"
