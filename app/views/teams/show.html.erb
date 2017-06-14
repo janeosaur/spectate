@@ -1,16 +1,27 @@
-<div class="container-fluid">
+<div class="container-fluid team-show">
   <div class="row">
-    <div class="col-sm-3 col-sm-offset-1">
-      <div class="teamlogo">
+    <div class="col-sm-4 col-sm-offset-1">
+      <div class="team-left-info">
         <div class="image">
           <%= image_tag @team.logo %>
         </div>
-        <div class="info">
-          <p class="name"><%= @team.name %></p>
-          <p>Country: <%= @team.country %></p>
-          <p>Founded in: <%= @team.founded_in %></p>
+        <h3><%= @team.name %></h3><hr/>
+        <div class>
+          <div class="socials">
+            <% if @team.twitter? %>
+              <a href="https://www.twitter.com/<%=@team.twitter%>">
+                <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
+                <%= @team.twitter %>
+              </a>
+            <% end %>
+          </div>
+          <div class="info">
+            Founded in: <%= @team.founded_in %>
+            <p>Country: <%= @team.country %></p>
+          </div>
         </div>
         <div class="admin">
+          Admin Tools:
           <% if signed_in? && current_user.admin? %>
             <%= link_to edit_team_path do %>
               <i class="glyphicon glyphicon-pencil"></i>
@@ -18,26 +29,50 @@
             <%= link_to destroy_team_path, data: { confirm: "Are you sure you want to delete" }, method: :delete do %>
               <i class="glyphicon glyphicon-trash"></i>
             <% end %>
-            <%= link_to "Add player to team", add_player_select_path(@team) %>
+            <%= link_to add_player_select_path(@team) do %>
+              <i class="glyphicon glyphicon-plus"></i>
+            <% end %>
           <% end %>
         </div>
       </div>
+      <h3>Recent Tweets</h3>
+      <div class="twitter-feed">
+        <% @tweets.each do |tweet| %>
+          <div class="tweet-card">
+            <%= tweet.text %>
+            <div class="tweet-data">
+              <span class="blue"><i class="glyphicon glyphicon-retweet"></i> <%= tweet.retweet_count %></span>
+              <span class="red"><i class="glyphicon glyphicon-star"></i> <%= tweet.favorites_count %></span>
+            </div>
+            <hr/>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="col-sm-7">
-      <div class="playerlist">
+      <div class="row">
         <% @players.each do |player| %>
-          <div class="playercard">
-            <div class="photo">
+          <div class="col-sm-5 col-sm-offset-1 card">
+            <div class="image">
               <%= image_tag player.photo %>
+              <h3><%= link_to player.gamer_tag, player %></h3>
             </div>
-            <div class="info">
-              <div class="name">
-                <%= link_to player.gamer_tag, player %>
-              </div>
-              <div class="details">
-                <%= player.country %>
-                <%= player.role %>
-              </div>
+            <div class="favorite">
+              <% if signed_in? %>
+                <% unless current_user.favorite_players.exists?(id: player) %>
+                  <%= link_to favorite_players_path(player), method: :post do %>
+                    <i class="glyphicon glyphicon-heart-empty"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to favorite_player_path(player), method: :delete do %>
+                    <i class="glyphicon glyphicon-heart"></i>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="card-info">
+              <p class="role"><%= player.role %> </p>
+              <p>Originally from: <%= player.country %></p>
               <div class="socials">
                 <div class="twitter">
                   <% if player.twitter? %>
@@ -56,31 +91,19 @@
                   <% end %>
                 </div>
               </div>
-              <div class="favorite">
-                <% if signed_in? %>
-                  <% unless current_user.favorite_players.exists?(id: player) %>
-                    <%= link_to favorite_players_path(player), method: :post do %>
-                      <i class="glyphicon glyphicon-heart-empty"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to favorite_player_path(player), method: :delete do %>
-                      <i class="glyphicon glyphicon-heart"></i>
-                    <% end %>
-                  <% end %>
-                <% end %>
+            </div>
 
-              </div>
-              <div class="admin">
-                <% if signed_in? && current_user.admin? %>
-                  <%= link_to "delete player from team", delete_player_path(@team, player), method: :delete %>
+            <div class="admin">
+              Admin Tools:
+              <% if signed_in? && current_user.admin? %>
+                <%= link_to delete_player_path(@team, player), method: :delete do %>
+                  <i class="glyphicon glyphicon-trash"></i>
                 <% end %>
-              </div>
-
+              <% end %>
             </div>
           </div>
         <% end %>
       </div>
-    </div>
+    </div> <!-- col-sm-7-->
   </div>
-
 </div>

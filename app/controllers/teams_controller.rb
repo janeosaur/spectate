@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :load_tweets, only: [:show]
 
   # get "/teams", to: "teams#index", as: "teams"
   def index
@@ -66,6 +67,10 @@ class TeamsController < ApplicationController
       redirect_back(fallback_location: root_path) #redirect user to previous page
       flash[:notice] = "Error, you must be an admin"
     end
+  end
+
+  def load_tweets
+    @tweets = $client.user_timeline(@team.twitter, count:10)
   end
 
 end

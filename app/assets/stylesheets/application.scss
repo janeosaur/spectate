@@ -32,6 +32,32 @@ a {
   cursor: hand!important;
 }
 
+.socials img {
+  height: 22px!important;
+  width: 22px!important;
+}
+
+.blue {
+  color: blue!important;
+}
+.red {
+  color: red!important;
+}
+
+.twitter-feed {
+  margin-top: 10px!important;
+  text-align: left!important;
+  .tweet-card {
+    background-color: white!important;
+    padding: 5px 22px!important;
+    margin: 0 auto!important;
+  }
+  .tweet-data {
+    float: right!important;
+    padding: 5px!important;
+  }
+}
+
 // scrolly dynamic nav bar
 #header-wrap {
   top: 0;
@@ -281,9 +307,6 @@ a {
    }
    .socials {
      padding-bottom: 20px;
-     img {
-       height: 20px;
-     }
      a {
        color: black;
      }
@@ -410,13 +433,6 @@ a {
       float: right;
       padding: 5px;
     }
-    .blue {
-      color: blue
-    }
-    .red {
-      color: red
-    }
-
   }
   @media only screen and (max-width: 926px) {
     .banner, #tweets, img {
@@ -446,27 +462,6 @@ a {
    }
 }
 
-// team show page
-.teamlogo {
-  border: 2px black solid;
-  .info {
-    p {
-      padding: 10px;
-      margin: 10px;
-    }
-    .name {
-      font-size: 27px;
-      font-weight: 500
-    }
-  }
-  img {
-    width: 100%;
-  }
-  .admin {
-    margin: 10px;
-  }
-}
-
 // team form
 .team-form {
   input {
@@ -486,30 +481,90 @@ a {
 }
 
 // team show page
-.playercard {
-  height: 200px;
-  border: 2px solid black;
-  margin: 0 auto;
-  .photo {
-    img {
+.team-show {
+  .tweet-card {
+    background-color: white;
+  }
+  .team-left-info {
+    padding: 10px 10px 50px 10px;
+    .info {
+      padding: 4px;
       float: left;
-      width: 200px;
+    }
+    .socials {
+      text-align: center;
+    }
+    .image {
+      width: 50%;
+      margin: 0 auto;
+      img {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+    h3 {
+      font-weight: 800;
+      text-align: center;
+    }
+    border: 2px black solid;
+    .admin {
+      margin-top: 8px;
+      float: right;
+      p {
+        margin: 0;
+      }
+      i {
+        padding: 6px;
+      }
     }
   }
-  .info {
-    margin-left: 200px;
-    .socials {
-      padding-bottom: 20px;
-      img {
-        height: 20px;
+  .card {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 0;
+    margin: 5px 20px;
+    .card-info {
+      padding: 20px 0 0 20px;
+      .role p {
+        font-size: 18px;
       }
+    }
+    .favorite, .admin {
+      float: right;
+      padding: 10px;
+    }
+    .socials {
       a {
-        color: black;
+        color: white;
+      }
+    }
+    .image {
+      position: relative;
+      img {
+        width: 100%
+      }
+    }
+    h3 {
+      position: absolute;
+      bottom: 0;
+      right: 10px;
+      font-weight: 700;
+      border: 2px solid white;
+      background-color: grey;
+      padding: 5px;
+      a {
+        color: white;
+        padding: 10px;
       }
       a:hover {
+        color: $neon-blue;
         text-decoration: none;
-        color: red;
       }
+    }
+  }
+  @media only screen and (max-width: 926px) {
+    img {
+      display: none;
     }
   }
 }

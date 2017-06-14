@@ -87,7 +87,6 @@ class EventsController < ApplicationController
 
   def load_tweets
     @tweets = $client.user_timeline(@event.organizer_twitter, count:10)
-    topics = @event.name.split(' ').join('')
   end
 
 end
