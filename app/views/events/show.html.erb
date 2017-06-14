@@ -1,21 +1,38 @@
 <h1>Event Show Page</h1>
 <%= link_to "Back", :back%><br/><br/>
 
-<%= link_to "edit", edit_event_path(@event) %> <br/><br/>
-<%= link_to "delete event", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %> <br/><br/>
-<%= link_to "add a team", add_team_select_path(@event) %><br/><br/>
+<div class="admin">
+	<% if signed_in? && current_user.admin? %>
+		<p><%= link_to "edit event", edit_event_path(@event) %></p> 
+		<p><%= link_to "delete event", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %></p>
+		<p><%= link_to "add a team", add_team_select_path(@event) %></p>
+	<% end %>
+</div>
 
 <!-- twitter widget -->
 <div class="">
 	<% hashtag = @event.name.split(' ').join('') %>
-	<%= link_to "Tweet", "https://twitter.com/intent/tweet?button_hashtag=#{hashtag}", :target => "_blank" %>
+	<%= link_to "Tweet About It! ##{hashtag}", "https://twitter.com/intent/tweet?button_hashtag=#{hashtag}", :target => "_blank" %>
 </div>
+
+<section id="tweets">
+		 <ul>
+			 <% @tweets.each do |tweet| %>
+				 <li><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %></li>
+			 <% end %>
+		 </ul>
+
+</section>
 
 <div class="teams">
 	<% @event.teams.each do |team| %>
 		<%= link_to team.name, team %>
 		<%= team.country %>
-		<%= link_to "delete team from event", delete_team_path(@event, team), method: :delete %>
+		<div class="admin">
+			<% if signed_in? && current_user.admin? %>
+				<%= link_to "delete team from event", delete_team_path(@event, team), method: :delete %>
+			<% end %>
+		</div>
 		<div class="favorite">
 			<% if signed_in? %>
 				<% unless current_user.favorite_teams.exists?(id: team) %>

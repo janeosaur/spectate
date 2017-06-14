@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :load_tweets, only: [:show]
 
   # match "search" => "events#search", via: [:get, :post], as: :search # route for ransack search
   def search
@@ -41,6 +42,7 @@ class EventsController < ApplicationController
 
   # get "/events/:id", to: "events#show", as: "event"
   def show
+
   end
 
   # get "/events/:id/edit", to: "events#edit", as: "edit_event"
@@ -82,6 +84,11 @@ class EventsController < ApplicationController
       redirect_back(fallback_location: root_path) #redirect user to previous page
       flash[:notice] = "Error, you must be an admin"
     end
+  end
+
+  def load_tweets
+    @tweets = $client.user_timeline(@event.organizer_twitter, count:10)
+    topics = @event.name.split(' ').join('')
   end
 
 end
