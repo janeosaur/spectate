@@ -38,12 +38,12 @@ ecs = Event.create({name: "ECS Season 3 Finals", organizer: "ECS", organizer_twi
     image: "http://www.esports-pro.com/images/uploads/articles/ECS_CS_GO_Wembley_840.jpg", date: "2017-06-23", date_end: "2017-06-25", tickets: "https://wembley.csgoleague.com/",
     size: "1-1000", event_type: "large", prize: "$660,000", ticket_price: "€12.99", alcohol: true, stadium: false, vip_tickets: false, food_drinks: true, merch_sold: false})
 
-optic = Team.create({name: "OpTic", country: "US", founded_in: "2005", logo: "http://www.esportscod.com/wp-content/uploads/2015/05/optic-logo-128x128.png"})
-clg = Team.create({name: "CLG", country: "US", founded_in: "2010", logo: "http://i1.wp.com/splitpush.net/wp-content/uploads/2016/02/CLG.png?fit=128%2C128"})
-vp = Team.create({name: "VP", country: "Poland", founded_in: "2005", logo: "https://hydra-media.cursecdn.com/dota2.gamepedia.com/thumb/8/86/Team_icon_Virtus.pro.png/256px-Team_icon_Virtus.pro.png?version=fc33bdafde2222cbbd2a436af0b3f972"})
-astralis = Team.create({name: "Astralis", country: "Denmark", founded_in: "2015", logo: "https://www.toornament.com/media/file/433367103107598939/logo_medium?v=1468984226"})
-sk = Team.create({name: "SK", country: "Brazil", founded_in: "1998", logo: "https://gambit.gg/public/images/general/2016/04/07/thumbnail-20160407150839-6901.png"})
-fnatic = Team.create({name: "fnatic", country: "Sweden", founded_in: "1999", logo: "https://hydra-media.cursecdn.com/dota2.gamepedia.com/thumb/2/22/Team_logo_Fnatic.png/256px-Team_logo_Fnatic.png?version=ca5a59e66bf6440497b43a3b045cda77"})
+optic = Team.create({name: "OpTic Gaming", country: "US", founded_in: "2005", twitter: "opticgaming", logo: "http://www.esportscod.com/wp-content/uploads/2015/05/optic-logo-128x128.png"})
+clg = Team.create({name: "Counter Logic Gaming", country: "US", founded_in: "2010", twitter: "clgaming", logo: "http://i1.wp.com/splitpush.net/wp-content/uploads/2016/02/CLG.png?fit=128%2C128"})
+vp = Team.create({name: "Virtus Pro", country: "Poland", founded_in: "2005", twitter: "teamvirtuspro", logo: "https://hydra-media.cursecdn.com/dota2.gamepedia.com/thumb/8/86/Team_icon_Virtus.pro.png/256px-Team_icon_Virtus.pro.png?version=fc33bdafde2222cbbd2a436af0b3f972"})
+astralis = Team.create({name: "Astralis", country: "Denmark", founded_in: "2015", twitter: "astralisgg", logo: "https://www.toornament.com/media/file/433367103107598939/logo_medium?v=1468984226"})
+sk = Team.create({name: "SK Gaming", country: "Brazil", founded_in: "1998", twitter: "skgaming", logo: "https://gambit.gg/public/images/general/2016/04/07/thumbnail-20160407150839-6901.png"})
+fnatic = Team.create({name: "fnatic", country: "Sweden", founded_in: "1999", twitter: "fnatic", logo: "https://hydra-media.cursecdn.com/dota2.gamepedia.com/thumb/2/22/Team_logo_Fnatic.png/256px-Team_logo_Fnatic.png?version=ca5a59e66bf6440497b43a3b045cda77"})
 
 esl.teams << [optic, vp, sk, fnatic]
 eleague.teams << [vp, astralis]

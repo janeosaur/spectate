@@ -1,50 +1,103 @@
-<h1>Event Show Page</h1>
-<%= link_to "Back", :back%><br/><br/>
-
-<div class="admin">
-	<% if signed_in? && current_user.admin? %>
-		<p><%= link_to "edit event", edit_event_path(@event) %></p>
-		<p><%= link_to "delete event", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %></p>
-		<p><%= link_to "add a team", add_team_select_path(@event) %></p>
-	<% end %>
-</div>
-
-<!-- twitter widget -->
-<div class="">
-	<% hashtag = @event.name.split(' ').join('') %>
-	<%= link_to "Tweet About It! ##{hashtag}", "https://twitter.com/intent/tweet?button_hashtag=#{hashtag}", :target => "_blank" %>
-</div>
-
-<section id="tweets">
-		 <ul>
-			 <% @tweets.each do |tweet| %>
-				 <li><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %></li>
-			 <% end %>
-		 </ul>
-
-</section>
-
-<div class="teams">
-	<% @event.teams.each do |team| %>
-		<%= link_to team.name, team %>
-		<%= team.country %>
-		<div class="admin">
-			<% if signed_in? && current_user.admin? %>
-				<%= link_to "delete team from event", delete_team_path(@event, team), method: :delete %>
+<div class="container-fluid event-show">
+	<div class="row">
+		<div class="col-sm-12 ">
+			<div>
+				<h1><%=@event.name%></h1>
+				<div class="admin">
+					<% if signed_in? && current_user.admin? %>
+						<p>Admin Tools: </p>
+						<%= link_to "edit event", edit_event_path(@event) %>   ||
+						<%= link_to "delete event", destroy_event_path(@event), data: { confirm: "Are you sure you want to delete" }, method: :delete %>   ||
+						<%= link_to "add a team", add_team_select_path(@event) %>
+					<% end %>
+				</div>
+				<%= link_to "Back", :back%><br/><br/>
+				<!-- twitter widget -->
+				<div class="">
+					<% hashtag = @event.name.split(' ').join('') %>
+					<%= link_to "Tweet About It! ##{hashtag}", "https://twitter.com/intent/tweet?button_hashtag=#{hashtag}", :target => "_blank" %>
+				</div>
+			</div>
+			<div class="row team-grid">
+				<div class="col-sm-4 col-sm-offset-1">
+					<h3>Tweets from
+						<img class="twitter-logo" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
+						<a href="https://www.twitter.com/<%=@event.organizer%>"><%=@event.organizer%></a>
+				</div>
+				<div class="col-sm-5 col-sm-offset-1">
+					<h3>Teams Attending:</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1 twitter-feed">
+					<section id="tweets">
+							 <ul style="list-style:none">
+								 <% @tweets.each do |tweet| %>
+									 <li><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %></li>
+								 <% end %>
+							 </ul>
+					</section>
+				</div>
+				<% @event.teams.each do |team| %>
+					<div class="col-sm-5 col-sm-offset-1 card">
+						<div class="row">
+							<div class="col-sm-2 col-sm-offset-1">
+								<%= image_tag team.logo, class: "logo" %>
+							</div>
+							<div class="col-sm-9">
+								<h3><%= link_to team.name, team %></h3>
+								<div class="favorite">
+									<% if signed_in? %>
+										<% unless current_user.favorite_teams.exists?(id: team) %>
+											<%= link_to favorite_teams_path(team), method: :post do %>
+												<i class="glyphicon glyphicon-heart-empty"></i>
+											<% end %>
+										<% else %>
+											<%= link_to favorite_team_path(team), method: :delete do %>
+												<i class="glyphicon glyphicon-heart"></i>
+											<% end %>
+										<% end %>
+									<% end %>
+								</div>
+								<div class="players">
+									<ul style="list-style:none">
+										<% team.players.each do |player| %>
+											<li>
+												<%= link_to player.gamer_tag, player %>:
+												 <%=player.role %> from <%=player.country %>
+											</li>
+										<% end %>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row below">
+							<div class="col-sm-7">
+								<div class="team-info">
+									<p><%= team.country %></p>
+									<p>Founded in: <%= team.founded_in %></p>
+									<p>
+										<% if team.twitter? %>
+								      <a href="https://www.twitter.com/<%=team.twitter%>">
+												<img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
+								        <%= team.twitter %>
+								      </a>
+								    <% end %>
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-5">
+								<div class="admin">
+									<% if signed_in? && current_user.admin? %>
+										<p>Admin Tools:</p>
+										<%= link_to "delete team from event", delete_team_path(@event, team), method: :delete %>
+									<% end %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			<% end %>
 		</div>
-		<div class="favorite">
-			<% if signed_in? %>
-				<% unless current_user.favorite_teams.exists?(id: team) %>
-					<%= link_to favorite_teams_path(team), method: :post do %>
-						<i class="glyphicon glyphicon-heart-empty"></i>
-					<% end %>
-				<% else %>
-					<%= link_to favorite_team_path(team), method: :delete do %>
-						<i class="glyphicon glyphicon-heart"></i>
-					<% end %>
-				<% end %>
-			<% end %>
-		</div>
-	<% end %>
+	</div>
 </div>
