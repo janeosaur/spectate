@@ -15,6 +15,7 @@
 //= require rails-ujs
 //= require underscore
 //= require gmaps/google
+//= require bootstrap/modal
 //= require_tree .
 
 $(document).ready(function(){

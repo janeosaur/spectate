@@ -22,7 +22,7 @@
  $neon-blue: #4CDEF5;
 
 body {
-  background-color: #ddd;
+  background-color: white;
   font-family: "Montserrat";
   // color: white;
 }
@@ -31,7 +31,6 @@ a {
   cursor: pointer!important;
   cursor: hand!important;
 }
-
 .socials img {
   height: 22px!important;
   width: 22px!important;
@@ -43,7 +42,6 @@ a {
 .red {
   color: red!important;
 }
-
 .twitter-feed {
   margin-top: 10px!important;
   text-align: left!important;
@@ -63,8 +61,8 @@ a {
   top: 0;
   width: 100%;
   position: fixed;
-  background-color: rgba(51, 51, 51, 0.9);
-  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 100;
   #header {
     width: 100%;
     position: absolute;
@@ -128,12 +126,33 @@ a {
 
 // home page
 .home {
-  color: white;
+  position: relative;
+  video {
+    position: absolute;
+    top: -7px;
+    width: 100%;
+  }
+  #index-events {
+    background-color: white;
+    position: absolute;
+    height: 500px;
+    z-index: 5;
+    margin-top: 431px;
+  }
+  #current-month {
+    background-color: white;
+    position: absolute;
+    height: 500px;
+    z-index: 5;
+    margin-top: 431px;
+  }
 }
 
 // month nav bar
 .month-bar {
-  background-color: #f0f0f0;
+  position: absolute;
+  margin-top: 375px;
+  background-color: black;
   width: 100%;
   ul {
     overflow: hidden;
@@ -148,11 +167,18 @@ a {
     box-sizing: border-box;
   }
   a {
+    color: white;
+    font-weight: 600;
     display: block;
     text-decoration: none;
     font-size: 15px;
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 10px;
+  }
+  a:hover {
+    border: 2px solid white;
+    border-radius: 10px;
   }
   @media only screen and (max-width: 926px) {
     a, li, ul, div {
@@ -164,9 +190,10 @@ a {
 // _event_card partial
 .event-card {
   position: relative;
+  border-radius: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: white; //test
+  background-color: #ddd; //test
   img {
     width: 100%;
     overflow: hidden;
