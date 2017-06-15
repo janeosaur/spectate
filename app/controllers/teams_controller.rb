@@ -37,14 +37,16 @@ class TeamsController < ApplicationController
   # patch "/teams/:id", to: "teams#update", as: "update_team"
   def update
     @team.update_attributes(team_params)
-    flash[:notice] = "Success, event was updated"
+    flash[:notice] = "Success, team was updated"
     redirect_to @team
   end
 
   # delete "/teams/:id", to: "teams#destroy", as: "destroy_team"
   def destroy
     if current_user.try(:admin?)
+      @team.events.delete_all
       @team.destroy
+      flash[:notice] = "Team deleted from database"
       redirect_to teams_path
     else
       flash[:notice] = "Error, you need admin status"

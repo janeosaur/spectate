@@ -1,4 +1,11 @@
-<%= form_tag add_player_path, method: :post do %>
-   <%= collection_select :player, :id, @players, :id, :gamer_tag %>
-   <%= submit_tag %>
-<% end %>
+<div class="add-team-player">
+  <%= link_to "Back", :back %>
+  <%= form_tag add_player_path, method: :post do %>
+    <div class="">
+      <%= collection_select :player, :id, @players, :id, :gamer_tag %>
+    </div>
+    <div class="">
+      <%= submit_tag %>
+    </div>
+  <% end %>
+</div>

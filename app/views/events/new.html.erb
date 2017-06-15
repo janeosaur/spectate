@@ -1,6 +1,9 @@
-<h1 class="event-form">Create New Event</h1>
-<%= link_to "Back", :back%>
+<div class="event-form">
+  <h1>Create New Event</h1>
+  <%= link_to "Back", :back%>
 
-<%= form_for @event, :url => { :action => "create" } do |f| %>
+  <%= form_for @event, :url => { :action => "create" } do |f| %>
   <%= render partial: 'events/form', locals: { f: f } %>
-<% end %>
+  <% end %>
+
+</div>

@@ -61,13 +61,13 @@
           <div class="fav">
             <u>Favorite Teams</u>
             <% @fav_teams.each do |team| %>
-              <li><%= team.name%></li>
+              <li><%= link_to team.name, team%></li>
             <% end %>
           </div>
           <div class="fav">
             <u>Favorite Players</u>
             <% @fav_players.each do |player| %>
-              <li><%= player.gamer_tag%></li>
+              <li><%= link_to player.gamer_tag, player%></li>
             <% end %>
           </div>
         </div>

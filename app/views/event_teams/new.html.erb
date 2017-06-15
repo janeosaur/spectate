@@ -1,4 +1,7 @@
-<%= form_tag add_team_path, method: :post do %>
-   <%= collection_select :team, :id, @teams, :id, :name %>
-   <%= submit_tag %>
-<% end %>
+<div class="add-event-team">
+  <h1>Add Team to <%=@event.name%></h1>
+  <%= form_tag add_team_path, method: :post do %>
+     <%= collection_select :team, :id, @teams, :id, :name %>
+     <%= submit_tag %>
+  <% end %>
+</div>

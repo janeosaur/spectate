@@ -4,27 +4,50 @@
 
 <div class="container event-index">
   <div class="row mapped">
-    <div class="col-sm-2 col-sm-offset-1 search">
+    <div class="col-sm-3 col-sm-offset-1 search">
+      <h4>Search for your next event!</h4>
       <%= search_form_for @q do |f| %>
-          <%= f.label "Search" %><br/>
-          <%= f.search_field :name_or_organizer_or_venue_or_city_or_country_cont %>
-          <%= f.label "Event Type" %>
-          <%= f.select :event_type, ['minor', 'big', 'major'], include_hidden: false, include_blank: true %>
-          <%= f.label "Stadium" %>
-          <%= f.check_box :stadium_true, include_hidden: false %><br />
-          <%= f.label "Food & Drinks Sold" %>
-          <%= f.check_box :food_drinks_true, include_hidden: false %><br />
-          <%= f.label "VIP Tickets" %>
-          <%= f.check_box :vip_tickets_true, include_hidden: false %><br />
-          <%= f.label "Merch Sold" %>
-          <%= f.check_box :merch_sold_true, include_hidden: false %><br />
-          <%= f.label "Alcohol Sold" %>
-          <%= f.check_box :alcohol_true, include_hidden: false %><br />
-          <%= f.submit %>
+        <p>Enter Name, Organizer, or Location!</p>
+        <%= f.search_field :name_or_organizer_or_venue_or_city_or_country_cont %>
+        <div class="dates">
+          <p>Happening between:</p>
+          <span>Start </span>
+          <%= f.date_select :date_gteq, include_hidden: false, include_blank: true %><br/>
+          <span class="end">End  </span>
+          <%= f.date_select :date_end_lteq, include_hidden: false, include_blank: true %>
+        </div>
+        <div class="type">
+          Event Type
+          <%= f.select :event_type_eq, ['minor', 'large', 'major'], include_hidden: false, include_blank: true %>
+        </div>
+        <div class="prize">
+          Prize Pool At Least...
+          <%= f.text_field :prize_gteq, include_hidden: false %>
+        </div>
+        <div class="age">
+          Minimum Age for Entry...
+          <%= f.text_field :min_age_lteq, include_hidden: false %>
+        </div>
+        <div class="age">
+          Ticket Price Under..
+          <%= f.text_field :ticket_price_gteq, include_hidden: false %>
+        </div>
+
+        <%= f.label "Stadium" %>
+        <%= f.check_box :stadium_true, include_hidden: false %><br />
+        <%= f.label "Food & Drinks Sold" %>
+        <%= f.check_box :food_drinks_true, include_hidden: false %><br />
+        <%= f.label "VIP Tickets" %>
+        <%= f.check_box :vip_tickets_true, include_hidden: false %><br />
+        <%= f.label "Merch Sold" %>
+        <%= f.check_box :merch_sold_true, include_hidden: false %><br />
+        <%= f.label "Alcohol Sold" %>
+        <%= f.check_box :alcohol_true, include_hidden: false %><br />
+        <%= f.submit %>
       <% end %>
     </div>
 
-    <div class="col-sm-8">
+    <div class="col-sm-7 col-sm-offset-1">
       <div id="map" style='width: 700px; height: 400px;'></div>
     </div>
 
@@ -60,18 +83,3 @@
     handler.fitMapToBounds();
   });
 </script>
-
-
-
-<!-- for future search integration -->
-<% if false %>
-  <%= f.label "Happening on: " %>
-  <%= f.date_select :date_cont, include_hidden: false, include_blank: true %>
-  <%= f.label "Prize money at least" %>
-  <%= f.text_field :prize, include_hidden: false %>
-  <%= f.label "Minimum age" %>
-  <%= f.text_field :min_age, include_hidden: false %>
-  <%= f.label "Price range?" %>
-  <%= f.text_field :price, include_hidden: false %>
-
-<% end %>

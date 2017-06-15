@@ -36,7 +36,7 @@ class PlayersController < ApplicationController
   # patch "/players/:id", to: "players#update", as: "update_player"
   def update
     @player.update_attributes(player_params)
-    flash[:notice] = "Success, event was updated"
+    flash[:notice] = "Success, player was updated"
     redirect_to @player
   end
 

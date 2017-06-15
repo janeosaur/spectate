@@ -30,12 +30,12 @@ class EventsController < ApplicationController
 
   # post "/events", to: "events#create", as: "create_event"
   def create
-    @event = Event.create(event_params)
+    @event = Event.new(event_params)
     if @event.save
       flash[:notice] = "Success, event successfully created"
       redirect_to events_path
     else
-      flash[:error] = @event.errors.full_messages.join(" ")
+      flash[:notice] = @event.errors.full_messages.join(" ")
       redirect_to new_event_path
     end
   end
@@ -70,8 +70,8 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :organizer, :date, :venue,
-      :min_age, :stream, :tickets, :size, :stadium, :vip_tickets,
-      :food_drinks, :merch_sold, :city, :country, :slug)
+      :min_age, :stream, :tickets, :size, :organizer_twitter, :stadium, :vip_tickets,
+      :food_drinks, :merch_sold, :city, :country, :date_end, :event_type, :prize, :image, :ticket_price, :alcohol, :slug)
   end
 
   def set_event

@@ -1,6 +1,9 @@
-<h1>Edit Team</h1>
-<%= link_to "Back", :back%>
+<div class="team-form">
+  <h1>Edit Team</h1>
+  <%= link_to "Back", :back%>
 
-<%= form_for @team, :url => { :action => "update" } do |f| %>
-  <%= render partial: 'teams/form', locals: { f: f } %>
-<% end %>
+  <%= form_for @team, :url => { :action => "update" } do |f| %>
+    <%= render partial: 'teams/form', locals: { f: f } %>
+  <% end %>
+
+</div>

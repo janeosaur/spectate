@@ -41,7 +41,7 @@ a {
   color: $blue!important;
 }
 .red {
-  color: $orange!important;
+  color: $rust!important;
 }
 .twitter-feed {
   margin-top: 10px!important;
@@ -56,6 +56,10 @@ a {
     float: right!important;
     padding: 5px!important;
   }
+}
+
+.glyphicon-trash {
+  color: $rust!important;
 }
 
 // scrolly dynamic nav bar
@@ -150,6 +154,9 @@ a {
 // home page
 .home {
   position: relative;
+  .row {
+    width: 100%;
+  }
   video {
     position: absolute;
     top: -22px;
@@ -165,6 +172,9 @@ a {
   }
   #current-month {
     padding-right: 15px;
+    .row {
+      margin: 0
+    }
   }
 }
 
@@ -230,6 +240,12 @@ a {
     line-height: 40px;
     padding-left: 10px;
   }
+  .name:hover {
+    background-color: $blue;
+    a:hover {
+      color: $orange;
+    }
+  }
   .card-content {
     padding: 20px;
   }
@@ -240,14 +256,12 @@ a {
   a {
     text-decoration: none;
   }
-  .name:hover {
-    color: $orange;
-    background-color: $blue;
-  }
+
 }
 
 // events index (search) page
 .event-index {
+  margin-top: 50px;
   width: 100%;
   background-color: $blue;
   color: white;
@@ -262,7 +276,54 @@ a {
   .mapped {
     margin: 50px 0 50px 0;
     .search {
-      margin-top: 30px;
+      .dates {
+        border-top: 1px white solid;
+        border-bottom: 1px white solid;
+        padding: 5px 0;
+        margin: 20px 0;
+        .end {
+          margin-right: 6px;
+        }
+        select {
+          margin: 2px
+        }
+      }
+      .type {
+        border-bottom: 1px white solid;
+        padding-bottom: 13px;
+      }
+      .prize {
+        border-bottom: 1px white solid;
+        padding-top: 10px;
+        padding-bottom: 12px;
+        input {
+          float: right;
+          width: 40%;
+        }
+      }
+      .age {
+        border-bottom: 1px white solid;
+        padding: 8px 0 12px 0;
+        margin: 0;
+        input {
+          float: right;
+          width: 40%;
+        }
+      }
+      .checkbox {
+        input[type="checkbox"] {
+          float: right;
+        }
+        .col-md-6 {
+          padding: 0;
+        }
+      }
+      h4 {
+        color: $orange;
+        font-weight: 600;
+        padding-bottom: 5px;
+        border-bottom: 2px solid white;
+      }
       label {
         margin: 10px 0;
       }
@@ -318,6 +379,9 @@ a {
     text-decoration: none;
     color: $orange;
   }
+  #map {
+    margin-top: 50px;
+  }
 }
 
 // google maps info window
@@ -330,6 +394,7 @@ a {
    padding-top: 10px;
    display: block !important;
    font-weight: 400;
+   color: black;
    #iw-container {
      margin: 0 auto;
      overflow: auto;
@@ -479,6 +544,7 @@ a {
     margin-top: 10px;
   }
   .banner {
+    margin-top: 60px;
     width: 100%;
     position: relative;
     h1 {
@@ -539,7 +605,7 @@ a {
       a {
         font-size: 30px;
         font-weight: 800;
-        color: $blue;
+        color: $rust;
       }
     }
     .favorite {
@@ -587,12 +653,17 @@ a {
 .event-form {
   text-align: center;
   color: white;
+  h1 {
+    margin-top: 90px;
+    color: $orange;
+    font-weight: 800;
+  }
    p {
-     margin: 20px 0px 0px 0px
+     margin: 20px 0px 0px 0px;
    }
    input, select {
      color: black;
-     width: 100%;
+     width: 80%;
    }
    #booleans {
      margin-top: 50px;
@@ -609,12 +680,18 @@ a {
 
 // team form
 .team-form {
+  h1 {
+    color: $orange;
+    text-align: center;
+    margin-top: 80px;
+  }
   input {
     width: 100%;
     margin: 10px 0px 25px 0px;
   }
   p {
     margin: 0;
+    color: white;
   }
   .submit {
     margin: 0 auto;
@@ -627,6 +704,7 @@ a {
 
 // team show page
 .team-show {
+  margin-top: 80px;
   color: white;
   .team-left-info {
     padding: 10px 10px 50px 10px;
@@ -706,7 +784,7 @@ a {
     }
   }
   a {
-    color: $orange;
+    color: $rust;
   }
   a:hover {
     text-decoration: none;
@@ -726,6 +804,8 @@ a {
   text-align: center;
   color: white;
   h2 {
+    color: $orange;
+    font-weight: 600;
     margin-top: 50px;
     padding-bottom: 8px;
     border-bottom: 2px white solid;
@@ -828,5 +908,75 @@ a {
   .pull-right {
     margin-right: 15px;
     margin-top: -80px;
+  }
+}
+
+// new team player and event team
+.add-team-player, .add-event-team {
+  text-align: center;
+  margin-top: 100px;
+  color: white;
+  select, input {
+    margin-top: 20px;
+    color: black;
+  }
+}
+
+// players index
+.players-index {
+  margin: 80px 0 0 60px;
+  text-align: center;
+  color: white;
+  h1 {
+    color: $rust;
+    margin-top: 20px;
+  }
+  a {
+    display: inline-block;
+    color: $orange;
+  }
+  li {
+    margin: 20px;
+  }
+}
+
+// player show
+.player-show{
+  color: white;
+  text-align: center;
+  h1 {
+    color: $rust;
+    margin-top: 80px;
+  }
+  a {
+    display: inline-block;
+    color: $orange;
+  }
+}
+
+// edit player
+.edit-player {
+  h1 {
+    margin-top: 80px;
+    color: $rust;
+    text-align: center;
+  }
+}
+
+// team index
+.team-index {
+  text-align: center;
+  h1 {
+    margin-top: 80px;
+    color: $rust;
+  }
+  a {
+    color: white;
+  }
+  ul {
+    margin-top: 40px;
+  }
+  li {
+    margin: 20px;
   }
 }

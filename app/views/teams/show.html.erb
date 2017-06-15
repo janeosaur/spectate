@@ -99,6 +99,9 @@
                 <%= link_to delete_player_path(@team, player), method: :delete do %>
                   <i class="glyphicon glyphicon-trash"></i>
                 <% end %>
+                <%= link_to edit_player_path(player) do %>
+                  <i class="glyphicon glyphicon-pencil"></i>
+                <% end %>
               <% end %>
             </div>
           </div>
