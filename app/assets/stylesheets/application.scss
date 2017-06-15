@@ -22,7 +22,7 @@
  $neon-blue: #4CDEF5;
 
 body {
-  background-color: white;
+  background-color: #2c2c2c;
   font-family: "Montserrat";
   // color: white;
 }
@@ -142,7 +142,7 @@ a {
   background-color: #2c2c2c!important;
   video {
     position: absolute;
-    top: -2px;
+    top: -22px;
     width: 100%;
   }
   #index-events, #current-month {
@@ -155,6 +155,10 @@ a {
     height: 500px;
     z-index: 5;
     margin-top: 431px;
+    padding-right: 15px;
+  }
+  #current-month {
+    padding-right: 15px;
   }
 }
 
@@ -255,7 +259,6 @@ a {
   }
   h3 {
     margin-top: 0;
-
   }
 }
 
@@ -300,9 +303,13 @@ a {
 
  // user profile
  .profile {
-   border: 1px black solid;
+   margin-top: 20px;
+   overflow:hidden;
+   border: 2px white solid;
+   border-radius: 20px;
    height: 40%;
    padding: 0;
+   background-color: #ddd;
    .row {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -642,6 +649,7 @@ a {
       color: black;
       margin: 5px 0px 15px 0;
       border-radius: 20px;
+      padding-left: 10px;
     }
     input[type="submit"] {
       border: none;
@@ -652,6 +660,33 @@ a {
       color: white;
     }
   }
+}
 
-
+.sign-up {
+  background-color: black;
+  color: white;
+  .video {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  video {
+    width: 100%;
+    margin-top: -7px;
+  }
+  input, select {
+    padding-left: 10px;
+    color: black;
+    width: 70%;
+    margin: 5px 0px 15px 0;
+    border-radius: 20px;
+  }
+  input[type="submit"] {
+    border: none;
+    padding: 5px 10px;
+  }
+  input[type="submit"]:hover {
+    background-color: $neon-blue;
+    color: white;
+  }
 }
