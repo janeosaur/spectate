@@ -21,8 +21,8 @@
           </div>
         </div>
         <div class="admin">
-          Admin Tools:
           <% if signed_in? && current_user.admin? %>
+            Admin Tools:
             <%= link_to edit_team_path do %>
               <i class="glyphicon glyphicon-pencil"></i>
             <% end %>
@@ -94,8 +94,8 @@
             </div>
 
             <div class="admin">
-              Admin Tools:
               <% if signed_in? && current_user.admin? %>
+                Admin Tools:
                 <%= link_to delete_player_path(@team, player), method: :delete do %>
                   <i class="glyphicon glyphicon-trash"></i>
                 <% end %>
