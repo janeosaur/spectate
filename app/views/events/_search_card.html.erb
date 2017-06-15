@@ -19,15 +19,19 @@
     <%= event.date.strftime("%B %-d") %> - <%= event.date_end.strftime("%B %-d, %Y") %>
   </div>
   <div class="city">
-    <%= event.city %>
+    <%= event.venue %> in <%= event.city %>
   </div>
   <div class="prize">
-    Prize Pool:
-    <%= event.prize %>
+    Prize Pool: $<%= event.prize %>
+  </div>
+  <div class="other">
+    <p>Minimum Age for Entry: <%= event.min_age %></p>
+    <a href="<%=event.tickets%>">Buy Tickets!</a>
+    <p><a href="<%=event.stream%>">Watch on Stream</a></p>
   </div>
   <div class="admin">
-    Admin Tools:
     <% if signed_in? && current_user.admin? %>
+      Admin Tools:
       <%= link_to "edit event", edit_event_path(event) %>
     <%end%>
   </div>

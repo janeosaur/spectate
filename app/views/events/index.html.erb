@@ -12,9 +12,9 @@
         <div class="dates">
           <p>Happening between:</p>
           <span>Start </span>
-          <%= f.date_select :date_gteq, include_hidden: false, include_blank: true %><br/>
+          <%= f.date_select :date_gteq, :start_year => 2017, include_hidden: false, include_blank: true %><br/>
           <span class="end">End  </span>
-          <%= f.date_select :date_end_lteq, include_hidden: false, include_blank: true %>
+          <%= f.date_select :date_end_lteq, :start_year => 2017, include_hidden: false, include_blank: true %>
         </div>
         <div class="type">
           Event Type
@@ -28,11 +28,6 @@
           Minimum Age for Entry...
           <%= f.text_field :min_age_lteq, include_hidden: false %>
         </div>
-        <div class="age">
-          Ticket Price Under..
-          <%= f.text_field :ticket_price_gteq, include_hidden: false %>
-        </div>
-
         <%= f.label "Stadium" %>
         <%= f.check_box :stadium_true, include_hidden: false %><br />
         <%= f.label "Food & Drinks Sold" %>

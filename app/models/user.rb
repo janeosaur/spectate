@@ -20,6 +20,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :username, :presence=>true, :uniqueness=>true
-  validates :email, :uniqueness=>true
+  validates :email, :twitter, :instagram, :country, :uniqueness=>true
 
 end

@@ -102,15 +102,19 @@ a {
       border-radius: 40px;
     }
   }
+  .small {
+    color: $orange;
+    font-size: 15px;
+    line-height: 35px;
+  }
   .events {
-    padding-right: 30px;
+    padding-right: 20px;
   }
   .right-content {
     float: right;
     margin: 20px;
-    color: $orange;
     .username {
-      color: white;
+      color: $orange;
     }
     .log-out {
       color: red;
@@ -120,7 +124,7 @@ a {
       }
     }
     a {
-      color: $orange;
+      color: white;
       font-size: 15px;
       line-height: 15px;
       padding: 7px;
@@ -165,13 +169,15 @@ a {
   #index-events, #current-month {
     background-color: $blue;
     position: absolute;
-    height: 500px;
     z-index: 5;
     margin-top: 431px;
     padding-right: 15px;
   }
+  #index-events {
+    height: 500px;
+  }
   #current-month {
-    padding-right: 15px;
+    width: 100%;
     .row {
       margin: 0
     }
@@ -350,9 +356,9 @@ a {
     background-color: #ddd;
     border: 2px black solid;
     border-radius: 20px;
-    padding: 20px;
-    margin: 10px;
-    height: 220px;
+    padding: 20px 20px 30px 20px;
+    margin: 10px 10px 30px 10px;
+    min-height: 220px;
     color: black;
     h3 {
       margin: 0;
@@ -370,6 +376,9 @@ a {
     }
     .favorite {
       float: right;
+    }
+    .other {
+
     }
   }
   a {
@@ -396,9 +405,10 @@ a {
    font-weight: 400;
    color: black;
    #iw-container {
+     width: 100%;
      margin: 0 auto;
-     overflow: auto;
-     padding: 15px;
+     overflow: hidden;
+     padding: 5px;
      box-sizing: border-box
    }
    .iw-title {
@@ -406,7 +416,7 @@ a {
      padding: 10px 0;
      text-align: center;
      font-weight: 700;
-     font-size: 20px;
+     font-size: 15px;
      border-top: 1px solid black;
      border-bottom: 1px solid black;
    }
