@@ -16,7 +16,7 @@ User.delete_all
 jane = User.create({email: "j@w.com", password: "123456", first_name: "jane", last_name: "w", username: "jane", country: "USA", twitter: "janeosaur", instagram: "janeosaur", photo: "https://pbs.twimg.com/profile_images/749082986184749056/gtNktD3a_400x400.jpg",
     cover_photo: "https://spark.adobe.com/images/landing/preview-wattpad-cover-maker-thumbnail.jpg", admin: true})
 
-sejin = User.create({email: "sejin@ga.com", password: "123456", first_name: "Sejin", last_name: "Park", username: "SejinLovesBibimbap", country: "Korea", twitter: "sejin", photo: "https://asset-pipeline-passenger-test.herokuapp.com/assets/sejin-ebe0025ae539037112993dc5068c4ac1c1e053eadd3a0760ea0c4cd5697b5f94.jpg", cover_photo: "http://i.imgur.com/OQN0fsA.jpg"})
+sejin = User.create({email: "sejin@ga.com", password: "123456", first_name: "Sejin", last_name: "Park", username: "SejinLovesBibimbap", country: "Korea", twitter: "sejin", photo: "https://asset-pipeline-passenger-test.herokuapp.com/assets/sejin-ebe0025ae539037112993dc5068c4ac1c1e053eadd3a0760ea0c4cd5697b5f94.jpg", cover_photo: "http://i.imgur.com/OQN0fsA.jpg", admin: false})
 
 esl = Event.create({name: "ESL One Cologne", organizer: "ESL", organizer_twitter: "ESLCS", venue: "Lanxess Arena", city: "Cologne, Germany", country: "Germany", min_age: 18, stream: "https://www.twitch.tv/esl_csgo",
     image: "https://www.esl-one.com/uploads/pics/20160708_Patrick-Strack_ESLOneCologne16_070A2991gfdgfdgfdgfd.jpg", date: "2017-07-07", date_end: "2017-07-09",
