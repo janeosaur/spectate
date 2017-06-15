@@ -19,6 +19,9 @@
                 <%= link_to "Sign In", new_user_session_path %>
               </li>
             <% end %>
+            <!-- Devise & Flash Messages (notice, alert) -->
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
 
             <li class="right-content events">
               <%= link_to "Search Events", events_path %>
