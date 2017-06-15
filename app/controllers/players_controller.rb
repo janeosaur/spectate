@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_admin, only: [:new, :index, :create, :edit, :update, :destroy]
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
   # get "/players", to: "players#index", as: "players"

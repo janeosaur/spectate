@@ -21,13 +21,4 @@ class User < ApplicationRecord
 
   validates :username, :presence=>true, :uniqueness=>true
   validates :email, :twitter, :instagram, :country, :uniqueness=>true
-
-  after_initialize :default_values
-
-  private
-
-  def default_values
-    self.admin ||= false
-  end
-
 end

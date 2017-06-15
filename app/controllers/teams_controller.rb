@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_admin, only: [:new, :index, :create, :edit, :update, :destroy]
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   before_action :load_tweets, only: [:show]
 
