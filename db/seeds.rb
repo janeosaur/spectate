@@ -40,18 +40,13 @@ ecs = Event.create({name: "ECS Season 3 Finals", organizer: "ECS", organizer_twi
     image: "http://www.esports-pro.com/images/uploads/articles/ECS_CS_GO_Wembley_840.jpg", date: "2017-06-23", date_end: "2017-06-25", tickets: "https://wembley.csgoleague.com/",
     size: "1-1000", event_type: "large", prize: "660,000", ticket_price: "13", alcohol: true, stadium: false, vip_tickets: false, food_drinks: true, merch_sold: false})
 
-malmo = Event.create({name: "DreamHack Masters Malmo", organizer: "Dreamhack", organizer_twitter: "dreamhackCSGO", venue: "Malmo Arena", city: "Malmo, Sweden", country: "Sweden", min_age: 16, stream: "https://www.twitch.tv/dreamhackcs",
+malmo = Event.create({name: "DreamHack Masters", organizer: "Dreamhack", organizer_twitter: "dreamhackCSGO", venue: "Malmo Arena", city: "Malmo, Sweden", country: "Sweden", min_age: 16, stream: "https://www.twitch.tv/dreamhackcs",
     image: "https://masters.dreamhack.com/malmo/wp-content/uploads/sites/3/2017/02/MastersNewsItem.png", date: "2017-08-30", date_end: "2017-09-03", tickets: "https://www.google.com/search?q=dreamhack+malmo+tickets&oq=dreamhack+malmo&aqs=chrome.2.69i57j0l5.2960j0j7&sourceid=chrome&ie=UTF-8",
     size: "1-1000", event_type: "large", prize: "250,000", ticket_price: "13", alcohol: true, stadium: true, vip_tickets: false, food_drinks: true, merch_sold: false})
 
 ny = Event.create({name: "ESL One New York", organizer: "ESL", organizer_twitter: "eslcsgo", venue: "Madison Square Garden", city: "New York, NY", country: "USA", min_age: 16, stream: "https://www.twitch.tv/esl_csgo",
     image: "https://egamersworld.com/uploads//news/1496868932163.jpeg", date: "2017-09-16", date_end: "2017-09-17", tickets: "http://en.esl-one.com/csgo/newyork-2017/faq/",
     size: "1-1000", event_type: "large", prize: "220,000", ticket_price: "25", alcohol: true, stadium: true, vip_tickets: true, food_drinks: true, merch_sold: true})
-
-nordic = Event.create({name: "Nordic Championship S2 Finals", organizer: "Nordic", organizer_twitter: "eslcsgo", venue: "Helsinki, Finland", city: "Helsinki, Finland", country: "Finland", min_age: 12, stream: "https://www.twitch.tv/esl_csgo",
-    image: "https://egamersworld.com/uploads//news/1496868932163.jpeg", date: "2017-08-05", date_end: "2017-08-05", tickets: "http://google.com",
-    size: "1-1000", event_type: "minor", prize: "23,000", ticket_price: "5", alcohol: false, stadium: false, vip_tickets: false, food_drinks: false, merch_sold: false})
-
 
 optic = Team.create({name: "OpTic Gaming", country: "US", founded_in: "2005", twitter: "opticgaming", logo: "http://www.esportscod.com/wp-content/uploads/2015/05/optic-logo-128x128.png"})
 clg = Team.create({name: "Counter Logic Gaming", country: "US", founded_in: "2010", twitter: "clgaming", logo: "http://i1.wp.com/splitpush.net/wp-content/uploads/2016/02/CLG.png?fit=128%2C128"})
@@ -69,7 +64,6 @@ pgl.teams << [optic, vp, astralis, sk, fnatic, c9, liquid]
 ecs.teams << [optic, astralis, sk, fnatic, c9]
 malmo.teams << [vp, astralis, c9]
 ny.teams << [optic, clg, c9, liquid]
-nordic.teams << astralis
 
 cutler = Player.create({name: "Stephen Cutler", gamer_tag: "reltuC", country: "US", twitter: "reltuc", instagram: "clutchler", photo: "https://pbs.twimg.com/profile_images/820485283418284032/t9rUlRTJ_400x400.jpg", role: "Support Player"})
 koosta = Player.create({name: "Kenneth Suen", gamer_tag: "koosta", country: "US", twitter: "koosta", instagram: "clgkoosta", photo: "https://pbs.twimg.com/profile_images/873458575137308672/E0AAUpvV_400x400.jpg", role: "Awper"})
