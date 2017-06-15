@@ -4,25 +4,25 @@
           <ul>
             <li class="logo"><%= link_to "SPECTATE", root_path %></li>
 
-            <div class="right-content">
-              <li class="events">
-                <%= link_to "Events", events_path %>
-              </li>
-              <% if signed_in? %>
-                <li><%= link_to current_user.first_name, user_path(current_user), class:"username" %>
-                  <span class="log-out">
-                    <%= link_to destroy_user_session_path, :method=>:delete do %>
+            <% if signed_in? %>
+              <li class="right-content">
+                <%= link_to current_user.first_name, user_path(current_user), class:"username" %>
+                <span class="log-out">
+                  <%= link_to destroy_user_session_path, :method=>:delete do %>
                     <i class="glyphicon glyphicon-log-out"></i>
-                    <% end %>
-                  </span>
-                </li>
-              <% else %>
-                <div class="sign-in">
-                  <%= link_to "Sign Up", new_user_registration_path, :method => :get %>
-                  <%= link_to "Sign In", new_user_session_path %>
-                </div>
-              <% end %>
-            </div>
+                  <% end %>
+                </span>
+              </li>
+            <% else %>
+              <li class="right-content">
+                <%= link_to "Sign Up", new_user_registration_path, :method => :get %> |
+                <%= link_to "Sign In", new_user_session_path %>
+              </li>
+            <% end %>
+
+            <li class="right-content events">
+              <%= link_to "Search Events", events_path %>
+            </li>
           </ul>
         </nav>
     </div> <!-- header -->

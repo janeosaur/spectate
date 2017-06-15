@@ -61,13 +61,13 @@ a {
   top: 0;
   width: 100%;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #222222;
   z-index: 100;
   #header {
     width: 100%;
     position: absolute;
     bottom: 0;
-    height: 55px;
+    height: 60px;
   }
   ul {
     overflow: hidden;
@@ -81,19 +81,29 @@ a {
     display: inline-block;
   }
   .logo {
-    font-size: 25px;
     margin-left: 30px;
+    a {
+      color: white;
+      font-size: 30px;
+      line-height: 30px;
+      padding: 1px 20px;
+    }
+    a:hover {
+      // border-bottom: 4px solid $neon-blue;
+      // padding-bottom: 8px;
+      text-decoration: none;
+      border: 2px solid $neon-blue;
+      border-radius: 40px;
+      // color: $neon-blue;
+    }
   }
-  a:hover {
-    border-bottom: 4px solid $neon-blue;
-    padding-bottom: 8px;
-    text-decoration: none;
-    color: white;
+  .events {
+    padding-right: 30px;
   }
   .right-content {
     float: right;
-    margin-right: 20px;
-    height: 55px;
+    margin: 20px;
+    color: white;
     .username {
       color: white;
     }
@@ -102,13 +112,15 @@ a {
       padding-left: 10px;
     }
     a {
-      font-size: 18px;
-      line-height: 18px;
+      color: white;
+      font-size: 15px;
+      line-height: 15px;
+      padding: 7px;
     }
     a:hover {
-      border: 0;
-      border-bottom: 4px solid $neon-blue;
-      padding-bottom: 8px;
+      // color: $neon-blue;
+      border: 2px solid $neon-blue;
+      border-radius: 20px;
       text-decoration: none;
     }
   }
@@ -127,20 +139,18 @@ a {
 // home page
 .home {
   position: relative;
+  background-color: #2c2c2c!important;
   video {
     position: absolute;
-    top: -7px;
+    top: -2px;
     width: 100%;
   }
-  #index-events {
-    background-color: white;
-    position: absolute;
-    height: 500px;
-    z-index: 5;
-    margin-top: 431px;
-  }
-  #current-month {
-    background-color: white;
+  #index-events, #current-month {
+    .row {
+      background-color: #2c2c2c;
+      margin: 0;
+    }
+    background-color: #2c2c2c;
     position: absolute;
     height: 500px;
     z-index: 5;
@@ -151,9 +161,10 @@ a {
 // month nav bar
 .month-bar {
   position: absolute;
-  margin-top: 375px;
-  background-color: black;
+  margin-top: 371px;
+  background-color: #212121;
   width: 100%;
+  border-top: 3px grey solid;
   ul {
     overflow: hidden;
     list-style: none;
@@ -178,6 +189,7 @@ a {
   }
   a:hover {
     border: 2px solid white;
+    padding: 5px;
     border-radius: 10px;
   }
   @media only screen and (max-width: 926px) {
@@ -594,4 +606,52 @@ a {
       display: none;
     }
   }
+}
+
+.log-in {
+  background-color: black;
+  position: relative;
+  text-align: center;
+  color: white;
+  h2 {
+    margin-top: 50px;
+    padding-bottom: 8px;
+    border-bottom: 2px white solid;
+  }
+  .video {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  video {
+    width: 100%;
+    margin-top: -7px;
+  }
+  .form {
+    position: absolute;
+    top: 500%;
+    left: 40%;
+    width: 300px;
+    height: 200px;
+    z-index: 15;
+    .first {
+      margin-top: 30px;
+    }
+    input {
+      background-color: white;
+      color: black;
+      margin: 5px 0px 15px 0;
+      border-radius: 20px;
+    }
+    input[type="submit"] {
+      border: none;
+      padding: 5px 10px;
+    }
+    input[type="submit"]:hover {
+      background-color: $neon-blue;
+      color: white;
+    }
+  }
+
+
 }
