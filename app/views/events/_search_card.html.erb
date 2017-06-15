@@ -2,9 +2,6 @@
   <div class="name">
     <h3><%= link_to event.name, event %></h3>
   </div>
-  <% if signed_in? && current_user.admin? %>
-    <%= link_to "edit", edit_event_path(event) %>
-  <%end%>
   <div class="favorite">
     <% if signed_in? %>
       <% unless current_user.favorite_events.exists?(id: event) %>
@@ -25,7 +22,14 @@
     <%= event.city %>
   </div>
   <div class="prize">
+    Prize Pool:
     <%= event.prize %>
+  </div>
+  <div class="admin">
+    Admin Tools:
+    <% if signed_in? && current_user.admin? %>
+      <%= link_to "edit event", edit_event_path(event) %>
+    <%end%>
   </div>
 </div>
 

@@ -7,8 +7,6 @@
 					<h1><%=@event.name%></h1>
 				</div>
 
-
-
 				<div class="admin">
 					<% if signed_in? && current_user.admin? %>
 						<p>Admin Tools: </p>
@@ -24,7 +22,6 @@
 			<div class="row team-grid">
 				<div class="col-sm-5">
 					<h3>Tweets from
-						<img class="twitter-logo" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
 						<a href="https://www.twitter.com/<%=@event.organizer%>"><%=@event.organizer%></a>
 					</h3>
 						<!-- twitter widget -->

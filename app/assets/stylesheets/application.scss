@@ -16,13 +16,14 @@
  *
  */
 
- $dark-blue: #062F4F;
- $nav-blue: #1D2731;
  $nav-hover: #09141f;
  $neon-blue: #4CDEF5;
+ $orange: #f2b935;
+ $blue: #1E2636;
+ $rust: #a94442;
 
 body {
-  background-color: #2c2c2c;
+  background-color: $blue;
   font-family: "Montserrat";
   // color: white;
 }
@@ -37,18 +38,19 @@ a {
 }
 
 .blue {
-  color: blue!important;
+  color: $blue!important;
 }
 .red {
-  color: red!important;
+  color: $orange!important;
 }
 .twitter-feed {
   margin-top: 10px!important;
   text-align: left!important;
   .tweet-card {
-    background-color: white!important;
+    background-color: #ddd!important;
     padding: 5px 22px!important;
     margin: 0 auto!important;
+    color: black!important;
   }
   .tweet-data {
     float: right!important;
@@ -92,9 +94,9 @@ a {
       // border-bottom: 4px solid $neon-blue;
       // padding-bottom: 8px;
       text-decoration: none;
-      border: 2px solid $neon-blue;
+      border: 2px solid $orange;
       border-radius: 40px;
-      // color: $neon-blue;
+      // color: $orange;
     }
   }
   .events {
@@ -110,6 +112,9 @@ a {
     .log-out {
       color: red;
       padding-left: 10px;
+      #icon:hover {
+        border: none;
+      }
     }
     a {
       color: white;
@@ -118,8 +123,8 @@ a {
       padding: 7px;
     }
     a:hover {
-      // color: $neon-blue;
-      border: 2px solid $neon-blue;
+      // color: $orange;
+      border: 2px solid $orange;
       border-radius: 20px;
       text-decoration: none;
     }
@@ -139,18 +144,14 @@ a {
 // home page
 .home {
   position: relative;
-  background-color: #2c2c2c!important;
+  // background-color: $blue
   video {
     position: absolute;
     top: -22px;
     width: 100%;
   }
   #index-events, #current-month {
-    .row {
-      background-color: #2c2c2c;
-      margin: 0;
-    }
-    background-color: #2c2c2c;
+    background-color: $blue;
     position: absolute;
     height: 500px;
     z-index: 5;
@@ -168,7 +169,7 @@ a {
   margin-top: 371px;
   background-color: #212121;
   width: 100%;
-  border-top: 3px grey solid;
+  border-top: 3px $orange solid;
   ul {
     overflow: hidden;
     list-style: none;
@@ -192,9 +193,7 @@ a {
     padding: 10px;
   }
   a:hover {
-    border: 2px solid white;
-    padding: 5px;
-    border-radius: 10px;
+    color: $orange;
   }
   @media only screen and (max-width: 926px) {
     a, li, ul, div {
@@ -206,7 +205,8 @@ a {
 // _event_card partial
 .event-card {
   position: relative;
-  border-radius: 30px;
+  overflow: hidden;
+  border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #ddd; //test
@@ -226,6 +226,17 @@ a {
   .card-content {
     padding: 20px;
   }
+  a {
+    color: black;
+    font-weight: 600;
+  }
+  a {
+    text-decoration: none;
+  }
+  .name:hover {
+    color: $orange;
+    background-color: $blue;
+  }
 }
 
 // alerts - needs to be tweaked !
@@ -237,28 +248,75 @@ a {
 
 // events index (search) page
 .event-index {
+  width: 100%;
+  background-color: $blue;
+  color: white;
+  .sort {
+    a {
+      color: $orange;
+    }
+    a:hover {
+      color: white;
+    }
+  }
   .mapped {
     margin: 50px 0 50px 0;
     .search {
       margin-top: 30px;
+      label {
+        margin: 10px 0;
+      }
+      input {
+        color: black;
+        padding: 0 10px;
+        border-radius: 10px;
+      }
+      input[type="submit"] {
+        border: none;
+        padding: 5px 20px;
+      }
+      input[type="submit"]:hover {
+        background-color: $orange;
+        color: white;
+      }
+      select {
+        background-color: #ddd;
+        color: black;
+      }
     }
   }
-
-}
-
-// _search_card partial
-.search-result {
-  border: 2px black solid;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 10px;
-  height: 220px;
-  img {
-    max-width: 100%;
-    height: auto;
+  .search-result {
+    background-color: #ddd;
+    border: 2px black solid;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px;
+    height: 220px;
+    color: black;
+    h3 {
+      margin: 0;
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 2px solid black;
+      font-weight: 600;
+    }
+    .dates {
+      text-align: center;
+      font-weight: 600;
+    }
+    div {
+      margin: 10px;
+    }
+    .favorite {
+      float: right;
+    }
   }
-  h3 {
-    margin-top: 0;
+  a {
+    color: $rust;
+  }
+  a:hover {
+    text-decoration: none;
+    color: $orange;
   }
 }
 
@@ -305,11 +363,21 @@ a {
  .profile {
    margin-top: 20px;
    overflow:hidden;
-   border: 2px white solid;
+   border: 5px $rust solid;
    border-radius: 20px;
    height: 40%;
    padding: 0;
    background-color: #ddd;
+   .fav {
+     min-height: 100px;
+     margin: 10px 0;
+     padding: 10px 0 30px 15px;
+     border-bottom: 1px solid black;
+     width: 80%;
+     li {
+       padding-left: 20px;
+     }
+   }
    .row {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -323,7 +391,7 @@ a {
        background-color: white;
      }
      #photo {
-       background-color: white;
+       background-color: #ddd;
        width: 20%;
        height: auto;
        border: 5px white solid;
@@ -338,14 +406,31 @@ a {
        right: 20px;
        padding: 5px 10px 5px 10px;
      }
+     input[type="submit"] {
+       border: none;
+       padding: 5px 15px;
+       background-color: white;
+     }
+     input[type="submit"]:hover {
+       background-color: $orange;
+       color: white;
+     }
    }
-   .country, .signed-in, .socials, .created-at {
-     font-size: 12px;
-     margin: 10px;
-     margin-left: 30px;
+   .left-info {
+     margin: 30px 0 0 30px;
+     .country, .signed-in, .socials, .created-at {
+       font-size: 15px;
+       margin: 10px;
+       margin-left: 30px;
+     }
+     .country {
+       i {
+         color: $rust;
+       }
+     }
    }
    .info {
-     font-size: 25px;
+     font-size: 30px;
      color: black;
      .admin {
        font-size: 15px;
@@ -353,17 +438,18 @@ a {
    }
    .socials {
      padding-bottom: 20px;
-     a {
-       color: black;
-     }
-     a:hover {
-       text-decoration: none;
-     }
    }
    @media only screen and (max-width: 500px) {
-    //  img {
-    //    display: none;
-    //  }
+     img {
+       display: none;
+     }
+   }
+   a {
+     color: $rust;
+   }
+   a:hover {
+     color: $orange;
+     text-decoration: none;
    }
  }
 
@@ -388,6 +474,7 @@ a {
  // event show page
 .event-show {
   text-align: center;
+  color: white;
   .back a {
     margin-top: 10px;
   }
@@ -406,6 +493,7 @@ a {
   }
   .admin {
     p {
+      color: $orange;
       margin: 0 auto;
     }
   }
@@ -416,15 +504,25 @@ a {
       height: 25px;
     }
     h3 {
+      color: $orange;
       font-weight: 700;
-      text-decoration: underline;
+    }
+    .widget {
+      text-align: right;
+      a {
+        color: $orange;
+      }
     }
   }
   .card {
     margin: 10px 0;
-    background-color: white;
+    color: black;
+    background-color: #ddd;
     border: 2px solid black;
     border-radius: 10px;
+    a {
+      color: $blue;
+    }
     .below {
       border-top: 2px solid black;
       padding: 10px 0;
@@ -438,6 +536,11 @@ a {
       padding: 0;
       text-align: left;
       margin: 20px 0;
+      a {
+        font-size: 30px;
+        font-weight: 800;
+        color: $blue;
+      }
     }
     .favorite {
       position: absolute;
@@ -467,32 +570,28 @@ a {
       }
     }
   }
-  .twitter-feed {
-    margin-top: 10px;
-    text-align: left;
-    .tweet-card {
-      background-color: white;
-      padding: 5px 22px;
-      margin: 0 auto;
-    }
-    .tweet-data {
-      float: right;
-      padding: 5px;
-    }
-  }
   @media only screen and (max-width: 926px) {
     .banner, #tweets, img {
       display: none;
     }
   }
+  a {
+    color: white;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 }
 
  // event partial form
 .event-form {
+  text-align: center;
+  color: white;
    p {
      margin: 20px 0px 0px 0px
    }
    input, select {
+     color: black;
      width: 100%;
    }
    #booleans {
@@ -528,9 +627,7 @@ a {
 
 // team show page
 .team-show {
-  .tweet-card {
-    background-color: white;
-  }
+  color: white;
   .team-left-info {
     padding: 10px 10px 50px 10px;
     .info {
@@ -548,11 +645,10 @@ a {
         margin: 0 auto;
       }
     }
-    h3 {
+    h2 {
       font-weight: 800;
       text-align: center;
     }
-    border: 2px black solid;
     .admin {
       margin-top: 8px;
       float: right;
@@ -564,25 +660,34 @@ a {
       }
     }
   }
+  h3 {
+    margin-top: 50px;
+  }
   .card {
     border: 2px solid black;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 0;
     margin: 5px 20px;
+    overflow: hidden;
+    background-color: #ddd;
+    color: black;
     .card-info {
       padding: 20px 0 0 20px;
       .role p {
         font-size: 18px;
       }
     }
+    .socials {
+      a {
+        color: $blue;
+      }
+      a:hover {
+        color: $orange;
+      }
+    }
     .favorite, .admin {
       float: right;
       padding: 10px;
-    }
-    .socials {
-      a {
-        color: white;
-      }
     }
     .image {
       position: relative;
@@ -595,18 +700,17 @@ a {
       bottom: 0;
       right: 10px;
       font-weight: 700;
-      border: 2px solid white;
-      background-color: grey;
-      padding: 5px;
-      a {
-        color: white;
-        padding: 10px;
-      }
-      a:hover {
-        color: $neon-blue;
-        text-decoration: none;
-      }
+      background-color: $blue;
+      padding: 8px 15px;
+      border-radius: 20px;
     }
+  }
+  a {
+    color: $orange;
+  }
+  a:hover {
+    text-decoration: none;
+    color: white;
   }
   @media only screen and (max-width: 926px) {
     img {
@@ -656,7 +760,7 @@ a {
       padding: 5px 10px;
     }
     input[type="submit"]:hover {
-      background-color: $neon-blue;
+      background-color: $orange;
       color: white;
     }
   }
@@ -686,7 +790,7 @@ a {
     padding: 5px 10px;
   }
   input[type="submit"]:hover {
-    background-color: $neon-blue;
+    background-color: $orange;
     color: white;
   }
 }

@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-5">
+        <div class="col-xs-5 left-info">
           <div class="country">
             <i class="glyphicon glyphicon-map-marker"></i>
             <%= @user.country %>
@@ -52,24 +52,24 @@
           </div>
         </div>
         <div class="col-xs-6">
-          Favorite Events <hr>
-          <% @fav_events.each do |event| %>
-            <div class="">
-              <%= link_to event.name, event %>
-            </div>
-          <% end %>
-          Favorite Teams<hr>
-          <% @fav_teams.each do |team| %>
-            <div class="">
-              <%= team.name%>
-            </div>
-          <% end %>
-          Favorite Players<hr>
-          <% @fav_players.each do |player| %>
-            <div class="">
-              <%= player.gamer_tag%>
-            </div>
-          <% end %>
+          <div class="fav">
+            <u>Favorite Events</u>
+            <% @fav_events.each do |event| %>
+              <li><%= link_to event.name, event %></li>
+            <% end %>
+          </div>
+          <div class="fav">
+            <u>Favorite Teams</u>
+            <% @fav_teams.each do |team| %>
+              <li><%= team.name%></li>
+            <% end %>
+          </div>
+          <div class="fav">
+            <u>Favorite Players</u>
+            <% @fav_players.each do |player| %>
+              <li><%= player.gamer_tag%></li>
+            <% end %>
+          </div>
         </div>
       </div>
 
