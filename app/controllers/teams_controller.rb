@@ -72,7 +72,7 @@ class TeamsController < ApplicationController
   end
 
   def load_tweets
-    @tweets = $client.user_timeline(@team.twitter, count:10)
+    @tweets = $client.user_timeline(@team.twitter, count:5)
   end
 
 end

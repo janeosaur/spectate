@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -41,10 +43,10 @@ body {
 a {
   cursor: pointer!important;
   cursor: hand!important;
+  color: white
 }
-.socials img {
-  height: 22px!important;
-  width: 22px!important;
+a:hover {
+  text-decoration: none;
 }
 .blue {
   color: $blue!important;
@@ -55,19 +57,30 @@ a {
 .orange {
   color: $orange!important;
 }
+
 .twitter-feed {
   margin-top: 10px!important;
   text-align: left!important;
+  font-size: 13px;
   .tweet-card {
     background-color: #ddd!important;
-    padding: 5px 22px!important;
-    margin: 0 auto!important;
+    padding: 10px 10px 10px 20px!important;
+    margin: 10px!important;
     color: black!important;
+    border-radius: 10px!important;
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+    .tweet-text {
+      float: left;
+    }
+    .tweet-data {
+      overflow:hidden;
+      float: right;
+      padding: 5px!important;
+    }
   }
-  .tweet-data {
-    float: right!important;
-    padding: 5px!important;
-  }
+
 }
 
 .glyphicon-trash {
@@ -632,102 +645,91 @@ div.home-page {
     h1 {
       position: absolute;
       text-align: center;
-      left: 10px;
+      left: 20px;
       bottom: 0;
-      color: white;
+      color: #fff;
       font-weight: 800;
       font-size: 50px;
+      text-shadow: 2px 3px 2px #000;
     }
   }
-  .admin {
-    p {
-      color: $orange;
-      margin: 0 auto;
-    }
+  .admin p {
+    padding-top: 20px;
+    color: $orange;
+    margin: 0 auto;
   }
-  .team-grid {
-    margin-bottom: 10px;
+  h3 {
+    font-weight: 700;
     text-align: left;
-    img {
-      height: 25px;
+    color: #fff;
+  }
+  .left {
+    a {
+      color: $orange
     }
-    h3 {
-      color: $orange;
-      font-weight: 700;
+    a:hover {
+      color: $rust
     }
     .widget {
       text-align: right;
-      a {
-        color: $orange;
-      }
     }
   }
-  .card {
-    margin: 10px 0;
-    color: black;
-    background-color: #ddd;
-    border: 2px solid black;
-    border-radius: 10px;
-    a {
-      color: $blue;
-    }
-    .below {
-      border-top: 2px solid black;
-      padding: 10px 0;
-    }
-    .logo {
-      width: 100%;
-      margin-top: 12px;
-      margin-left: -10px;
-    }
-    h3 {
-      padding: 0;
-      text-align: left;
+  .team-list {
+    margin-left: 20px;
+    margin-bottom: 50px;
+    .card {
       margin: 20px 0;
+      color: black;
+      background-color: #ddd;
+      border: 3px solid $orange;
+      border-radius: 20px;
       a {
-        font-size: 30px;
-        font-weight: 800;
         color: $rust;
       }
-    }
-    .favorite {
-      position: absolute;
-      top: 15px;
-      right: 30px;
-    }
-    .admin {
-      text-align: right;
-      margin: 10px;
-    }
-    .players {
-      text-align: left;
-      font-size: 15px;
-      ul {
-        padding: 0
+      a:hover {
+        color: $orange;
       }
-    }
-    .team-info {
-      padding-top: 8px;
-      text-align: left;
-      p {
-        padding-left: 12px;
-        margin: 3px;
+      .logo {
+        width: 100%;
+        padding: 10px;
       }
-      img {
-        height: 25px;
+      .team-info {
+        padding: 10px;
+        text-align: left;
+        p {
+          margin: 3px;
+        }
+        h4 {
+          text-align: center;
+          margin: 0 0 10px 0;
+          font-weight: 700;
+          .favorite {
+            font-size: 15px;
+            float: right;
+          }
+        }
+      }
+      .right {
+        text-align: left;
+        font-size: 15px;
+        padding: 20px;
+        ul {
+          padding: 0
+        }
+        .admin p {
+          text-align: right;
+          color: black;
+          margin: 10px;
+          a {
+          }
+        }
       }
     }
   }
   @media only screen and (max-width: 926px) {
-    .banner, #tweets, img {
-      display: none;
-    }
-  }
-  a {
-    color: white;
-  }
-  a:hover {
-    text-decoration: none;
+    // .banner, #tweets, img {
+    //   display: none;
+    // }
   }
 }
 
@@ -786,20 +788,28 @@ div.home-page {
 
 // team show page
 .team-show {
-  margin-top: 80px;
+  margin-top: 100px;
+  margin-bottom: 40px;
   color: white;
+  .socials {
+    text-align: center;
+    span {
+      color: #fff;
+    }
+  }
   .team-left-info {
+    margin-top: 30px;
     padding: 10px 10px 50px 10px;
     .info {
       padding: 4px;
       float: left;
     }
-    .socials {
-      text-align: center;
-    }
     .image {
-      width: 50%;
+      width: 100%;
       margin: 0 auto;
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      padding: 15px;
       img {
         width: 100%;
         margin: 0 auto;
@@ -810,7 +820,7 @@ div.home-page {
       text-align: center;
     }
     .admin {
-      margin-top: 8px;
+      margin-left: 8px;
       float: right;
       p {
         margin: 0;
@@ -820,29 +830,40 @@ div.home-page {
       }
     }
   }
-  h3 {
-    margin-top: 50px;
+  .timeline h4 {
+    text-align: center;
+  }
+  .player-list {
+    margin-top: 20px;
   }
   .card {
-    border: 2px solid black;
+    border: 2px solid $orange;
     border-radius: 15px;
     padding: 0;
-    margin: 5px 20px;
+    margin: 2px;
     overflow: hidden;
     background-color: #ddd;
     color: black;
     .card-info {
-      padding: 20px 0 0 20px;
-      .role p {
-        font-size: 18px;
+      padding: 10px 0 0 10px;
+      font-size: 13px;
+      .name {
+        font-size: 15px;
       }
-    }
-    .socials {
-      a {
-        color: $blue;
+      .role {
+        margin-top: 10px;
       }
-      a:hover {
-        color: $orange;
+      .socials {
+        text-align: left;
+        span {
+          color: #000;
+        }
+        a {
+          color: $rust;
+        }
+        a:hover {
+          color: $orange;
+        }
       }
     }
     .favorite, .admin {
@@ -851,31 +872,31 @@ div.home-page {
     }
     .image {
       position: relative;
+      color: $blue;
       img {
         width: 100%
       }
     }
-    h3 {
+    h4 {
       position: absolute;
       bottom: 0;
-      right: 10px;
+      right: 0;
       font-weight: 700;
-      background-color: $blue;
-      padding: 8px 15px;
-      border-radius: 20px;
+      background-color: $orange;
+      padding: 5px;
+      border-top-left-radius: 25px;
+      width: 60%;
+      text-align: center;
     }
   }
   a {
-    color: $rust;
+    color: $orange;
   }
   a:hover {
     text-decoration: none;
-    color: white;
+    color: $rust;
   }
-  @media only screen and (max-width: 926px) {
-    img {
-      display: none;
-    }
+  @media only screen and (max-width: 991px) {
   }
 }
 

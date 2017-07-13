@@ -1,24 +1,15 @@
 <div class="container-fluid team-show">
   <div class="row">
-    <div class="col-sm-4 col-sm-offset-1">
+    <div class="col-lg-3 col-lg-offset-1 col-sm-4 col-sm-offset-1 col-xs-8 col-xs-offset-2">
       <div class="team-left-info">
         <div class="image">
           <%= image_tag @team.logo %>
         </div>
         <h2><%= @team.name %></h2><hr/>
-        <div class>
-          <div class="socials">
-            <% if @team.twitter? %>
-              <a href="https://www.twitter.com/<%=@team.twitter%>">
-                <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
-                <%= @team.twitter %>
-              </a>
-            <% end %>
-          </div>
-          <div class="info">
-            Founded in: <%= @team.founded_in %>
-            <p>Country: <%= @team.country %></p>
-          </div>
+
+        <div class="info">
+          Founded in: <%= @team.founded_in %>
+          <p>Country: <%= @team.country %></p>
         </div>
         <div class="admin">
           <% if signed_in? && current_user.admin? %>
@@ -35,27 +26,42 @@
           <% end %>
         </div>
       </div>
-      <h3>Recent Tweets</h3>
+    </div>
+
+    <div class="col-sm-5 col-sm-offset-1 col-xs-10 col-xs-offset-1 timeline">
+      <h4>Recent Tweets from
+        <span class="socials">
+          <% if @team.twitter? %>
+            <a href="https://www.twitter.com/<%=@team.twitter%>">
+              <span class="fa fa-twitter"></span><%= @team.twitter %>
+            </a>
+          <% end %>
+        </span>
+      </h4>
       <div class="twitter-feed">
         <% @tweets.each do |tweet| %>
           <div class="tweet-card">
-            <%= tweet.text %>
-            <div class="tweet-data">
-              <span class="blue"><i class="glyphicon glyphicon-retweet"></i> <%= tweet.retweet_count %></span>
-              <span class="red"><i class="glyphicon glyphicon-star"></i> <%= tweet.favorites_count %></span>
+            <div class="tweet-text">
+              <%= tweet.text %>
             </div>
-            <hr/>
+            <div class="tweet-data">
+              <span class="fa fa-retweet blue"></span><%= tweet.retweet_count %>
+              <span class="fa fa-star red"></span><%= tweet.favorites_count %>
+            </div>
           </div>
         <% end %>
       </div>
     </div>
-    <div class="col-sm-7">
+  </div>
+
+  <div class="row player-list">
+    <div class="col-xs-10 col-xs-offset-2">
       <div class="row">
         <% @players.each do |player| %>
-          <div class="col-sm-5 col-sm-offset-1 card">
+          <div class="col-md-2 col-md-offset-0 col-xs-5 card">
             <div class="image">
               <%= image_tag player.photo %>
-              <h3><%= link_to player.gamer_tag, player %></h3>
+              <h4><%= player.gamer_tag %></h4>
             </div>
             <div class="favorite">
               <% if signed_in? %>
@@ -71,26 +77,23 @@
               <% end %>
             </div>
             <div class="card-info">
-              <p class="role"><%= player.role %> </p>
-              <p>Originally from: <%= player.country %></p>
+              <p class="name"><%= player.name %></p>
               <div class="socials">
                 <div class="twitter">
-                  <% if player.twitter? %>
-                    <a href="https://twitter.com/<%=player.twitter%>">
-                      <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
-                      <%= player.twitter %>
-                    </a>
+                  <span class="fa fa-twitter"></span>
+                    <% if player.twitter? %>
+                      <a href="https://twitter.com/<%=player.twitter%>"><%= player.twitter %></a>
                   <% end %>
                 </div>
                 <div class="insta">
-                  <% if player.instagram? %>
-                    <a href="https://www.instagram.com/<%=player.instagram%>">
-                      <img src="https://cdn4.iconfinder.com/data/icons/picons-social/57/38-instagram-3-128.png" alt="">
-                      <%= player.instagram %>
-                    </a>
+                  <span class="fa fa-instagram"></span>
+                    <% if player.instagram? %>
+                      <a href="https://www.instagram.com/<%=player.instagram%>"><%= player.instagram %></a>
                   <% end %>
                 </div>
               </div>
+              <p class="role">Role: <%= player.role %></p>
+              Country: <%= player.country %>
             </div>
 
             <div class="admin">
@@ -107,6 +110,6 @@
           </div>
         <% end %>
       </div>
-    </div> <!-- col-sm-7-->
+    </div>
   </div>
 </div>
