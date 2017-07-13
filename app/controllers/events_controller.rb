@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy, :admin]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :load_tweets, only: [:show]
 
@@ -7,6 +7,11 @@ class EventsController < ApplicationController
   def search
     index
     render :index
+  end
+
+  # get "/events/admin", to: "events#admin", as: "events_admin"
+  def admin
+    @events = Event.all
   end
 
   # get "/events", to: "events#index", as: "events"
@@ -62,7 +67,7 @@ class EventsController < ApplicationController
       redirect_to events_path
     else
       flash[:notice] = "Error, you need admin status"
-      redirect_to events_path
+      redirect_to events_admin_path
     end
   end
 

@@ -1,0 +1,19 @@
+<div class="container-fluid event-admin">
+  <h1>Manage Events</h1>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <% @events.each do |event| %>
+        <p>
+          <%= event.name %>: 
+          <%= link_to "View", event_path(event) %>
+          <%= link_to edit_event_path(event) do %>
+            <i class="glyphicon glyphicon-pencil"></i>
+          <% end %>
+          <%= link_to destroy_event_path(event), data: {confirm: "Are you sure you want to delete?"}, method: :delete do %>
+            <i class="glyphicon glyphicon-trash"></i>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

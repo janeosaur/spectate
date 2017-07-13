@@ -44,7 +44,7 @@ malmo = Event.create({name: "DreamHack Masters", organizer: "Dreamhack", organiz
     image: "https://masters.dreamhack.com/malmo/wp-content/uploads/sites/3/2017/02/MastersNewsItem.png", date: "2017-08-30", date_end: "2017-09-03", tickets: "https://www.google.com/search?q=dreamhack+malmo+tickets&oq=dreamhack+malmo&aqs=chrome.2.69i57j0l5.2960j0j7&sourceid=chrome&ie=UTF-8",
     size: "1-1000", event_type: "large", prize: "250,000", ticket_price: "13", alcohol: true, stadium: true, vip_tickets: false, food_drinks: true, merch_sold: false})
 
-ny = Event.create({name: "ESL One New York", organizer: "ESL", organizer_twitter: "eslcsgo", venue: "Madison Square Garden", city: "New York, NY", country: "USA", min_age: 16, stream: "https://www.twitch.tv/esl_csgo",
+ny = Event.create({name: "ESL One New York", organizer: "ESL", organizer_twitter: "ESLCS", venue: "Madison Square Garden", city: "New York, NY", country: "USA", min_age: 16, stream: "https://www.twitch.tv/esl_csgo",
     image: "https://egamersworld.com/uploads//news/1496868932163.jpeg", date: "2017-09-16", date_end: "2017-09-17", tickets: "http://en.esl-one.com/csgo/newyork-2017/faq/",
     size: "1-1000", event_type: "large", prize: "220,000", ticket_price: "25", alcohol: true, stadium: true, vip_tickets: true, food_drinks: true, merch_sold: true})
 
