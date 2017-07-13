@@ -1,8 +1,6 @@
 <div class="home">
   <%= video_tag "bg-video.mp4", autoplay: true, loop: true %>
-  <div class="">
-    Join
-  </div>
+
   <div class="month-bar">
     <ul class="grid">
       <li class="month"><%= link_to "June", fetch_month_path(:month => 6), remote: true %></li>
@@ -13,10 +11,6 @@
       <li class="month"><%= link_to "November", fetch_month_path(:month => 11), remote: true %></li>
     </ul>
   </div> <!-- month-bar -->
-
-  <div id="cover-video">
-
-  </div>
 
   <div id="index-events">
     <% @events.each do |event| %>
