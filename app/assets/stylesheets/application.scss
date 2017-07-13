@@ -35,6 +35,7 @@ body {
   font-family: "Montserrat";
   padding-bottom: 100px;
   position: relative;
+  padding-bottom: 100px;
 }
 
 a {
@@ -95,24 +96,21 @@ a {
     margin: 13px;
     display: inline-block;
   }
-  .logo {
-    margin-left: 20px;
-    a {
-      color: white;
-      font-size: 30px;
-      line-height: 30px;
-      padding: 1px 10px;
-    }
-    a:hover {
-      text-decoration: none;
-      color: $orange;
-    }
+  a {
+    color: white;
+    font-size: 30px;
+    line-height: 30px;
+    padding: 1px 10px;
   }
-  .small {
+  a:hover {
+    text-decoration: none;
     color: $orange;
-    font-size: 15px;
-    line-height: 35px;
   }
+  // .small {
+  //   color: $orange;
+  //   font-size: 15px;
+  //   line-height: 35px;
+  // }
   .events {
     padding-right: 20px;
   }
@@ -130,14 +128,9 @@ a {
       }
     }
     a {
-      color: white;
       font-size: 15px;
       line-height: 15px;
       padding: 7px;
-    }
-    a:hover {
-      text-decoration: none;
-      color: $orange;
     }
   }
   @media only screen and (max-width: 926px) {
@@ -150,6 +143,7 @@ a {
 // devise errors
 #error_explanation ul {
   list-style: none;
+  color: $rust;
 }
 
 .notice, .alert {
@@ -180,7 +174,7 @@ div.home-page {
     margin: 0 auto;
     opacity: 0;
   }
-  .arrow::before {
+  .arrow::before, .arrow::after {
     content: '';
     position: absolute;
     bottom: 10%;
@@ -188,15 +182,12 @@ div.home-page {
     left: 0;
     width: 0;
     height: 0;
-    border-top: 30px solid #fff;
+    border-top: 30px solid $orange;
     border-right: 30px solid transparent;
     border-left: 30px solid transparent;
     margin: 0 auto;
     -webkit-animation: bounce 2s ease-in-out infinite;
     animation: bounce 2s ease-in-out infinite;
-  }
-  .arrow:hover::before {
-    border-top-color: $orange;
   }
   .month-bar {
     background-color: #212121;
@@ -270,7 +261,7 @@ div.home-page {
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #ddd; //test
+  background-color: #ddd;
   img {
     width: 100%;
     overflow: hidden;
@@ -292,13 +283,16 @@ div.home-page {
       color: $orange;
     }
   }
-  .card-content {
-    padding: 20px;
-  }
   a {
     color: black;
     font-weight: 600;
     text-decoration: none;
+  }
+  .card-content {
+    padding: 20px;
+    a:hover {
+      color: $rust;
+    }
   }
 }
 
@@ -473,18 +467,18 @@ div.home-page {
 
  // user profile
  .profile {
-   margin-top: 20px;
-   overflow:hidden;
-   border: 5px $rust solid;
+   margin-top: 80px;
+   margin-bottom: 20px;
+   overflow: hidden;
+   border: 4px $rust solid;
    border-radius: 20px;
    height: 40%;
-   padding: 0;
    background-color: #ddd;
+   padding: 0;
    .fav {
      min-height: 100px;
      margin: 10px 0;
      padding: 10px 0 30px 15px;
-     border-bottom: 1px solid black;
      width: 80%;
      li {
        padding-left: 20px;
@@ -521,11 +515,12 @@ div.home-page {
      input[type="submit"] {
        border: none;
        padding: 5px 15px;
+       border-radius: 20px;
        background-color: white;
      }
      input[type="submit"]:hover {
-       background-color: $orange;
        color: white;
+       background-color: $orange;
      }
    }
    .left-info {
@@ -551,11 +546,6 @@ div.home-page {
    .socials {
      padding-bottom: 20px;
    }
-   @media only screen and (max-width: 500px) {
-     img {
-       display: none;
-     }
-   }
    a {
      color: $rust;
    }
@@ -565,21 +555,63 @@ div.home-page {
    }
  }
 
+ .parenthesis {
+   font-size: 12px;
+   padding-left: 5px;
+   color: $orange;
+ }
+
 // edit/create profile page
  .profile-form {
    position: relative;
+   padding-top: 70px;
+   color: #fff;
+   text-align: center;
+   z-index: 15;
+   width: 100%;
+   text-align: left;
+   color: white;
+   min-height: 100%;
    input, select {
      width: 100%
    }
    .field {
      margin: 15px 2px 15px 2px;
    }
-   .parenthesis {
-     font-size: 12px;
-     padding-left: 10px;
-   }
    .actions input {
      text-align: center;
+   }
+
+   h2 {
+     color: $orange;
+     font-weight: 600;
+     padding-bottom: 8px;
+     text-align: center;
+   }
+   input, select {
+     padding-left: 10px;
+     color: black;
+     width: 100%;
+     margin: 20px 0 0 0;
+     border-radius: 20px;
+   }
+   input[type="submit"] {
+     border: none;
+     padding: 5px 10px;
+     color: white;
+     background-color: grey;
+   }
+   input[type="submit"]:hover {
+     background-color: $orange;
+     color: #000;
+   }
+   .cancel {
+     text-align: center;
+     margin-top: 40px;
+     margin-bottom: 40px;
+     a {
+       color: $rust;
+     }
    }
  }
 
@@ -853,9 +885,11 @@ div.home-page {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   .video {
+    display: block;
     video {
-      min-height: 85vh;
+      min-height: 80vh;
     }
   }
   .form {
@@ -881,42 +915,62 @@ div.home-page {
     }
     input[type="submit"] {
       border: none;
-      padding: 5px 20px;
+      padding: 5px 15px;
+      color: white;
+      background-color: grey;
     }
     input[type="submit"]:hover {
       background-color: $orange;
-      color: white;
+      color: #000;
     }
   }
 }
 
 .sign-up {
-  margin-top: 50px;
   background-color: black;
-  color: white;
+  padding-top: 80px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
   .video {
+    video {
+      min-height: 80vh;
+    }
+  }
+  .form {
     position: absolute;
-    top: 0;
+    text-align: center;
+    z-index: 15;
     width: 100%;
-  }
-  video {
-    width: 100%;
-    margin-top: -7px;
-  }
-  input, select {
-    padding-left: 10px;
-    color: black;
-    width: 70%;
-    margin: 5px 0px 15px 0;
-    border-radius: 20px;
-  }
-  input[type="submit"] {
-    border: none;
-    padding: 5px 10px;
-  }
-  input[type="submit"]:hover {
-    background-color: $orange;
-    color: white;
+    height: 100%;
+    margin-top: 30px;
+    text-align: left;
+    h2 {
+      color: $orange;
+      font-weight: 600;
+      padding-bottom: 8px;
+      text-align: center;
+    }
+    input, select {
+      padding-left: 10px;
+      color: black;
+      width: 100%;
+      margin: 20px 0 0 0;
+      border-radius: 20px;
+    }
+    input[type="submit"] {
+      border: none;
+      padding: 5px 10px;
+      color: white;
+      background-color: grey;
+    }
+    input[type="submit"]:hover {
+      background-color: $orange;
+      color: #000;
+    }
   }
 }
 

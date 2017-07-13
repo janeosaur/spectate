@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="profile col-sm-8 col-sm-offset-2">
+    <div class="profile col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
       <div class="cover">
         <%= image_tag @user.cover_photo, id:"cover" if @user.cover_photo? %>
         <%= image_tag @user.photo, id:"photo" if @user.photo? %>
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-5 left-info">
+        <div class="col-sm-5 col-xs-10 col-xs-offset-1 left-info">
           <div class="country">
             <i class="glyphicon glyphicon-map-marker"></i>
             <%= @user.country %>
@@ -51,7 +51,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xs-6">
+        <div class="col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
           <div class="fav">
             <u>Favorite Events</u>
             <% @fav_events.each do |event| %>

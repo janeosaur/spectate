@@ -9,8 +9,7 @@
             <%= link_to current_user.first_name, user_path(current_user), class:"username" %>
             <span class="log-out">
               <%= link_to destroy_user_session_path, :method=>:delete, id: "icon" do %>
-                <i class="glyphicon glyphicon-log-out"></i>
-              <% end %>
+                <i class="glyphicon glyphicon-log-out"></i> <% end %>
             </span>
           </li>
         <% else %>
@@ -20,6 +19,7 @@
             <%= link_to "Sign In", new_user_session_path %>
           </li>
         <% end %>
+
         <!-- Devise & Flash Messages (notice, alert) -->
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
