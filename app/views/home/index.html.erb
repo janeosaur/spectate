@@ -1,18 +1,22 @@
-<div class="home">
-  <%= video_tag "bg-video.mp4", autoplay: true, loop: true %>
+<div class="home-page">
+  <div class="home-banner">
+    <%= video_tag "bg-video.mp4", autoplay: true, loop: true %>
 
-  <div class="month-bar">
-    <ul class="grid">
-      <li class="month"><%= link_to "June", fetch_month_path(:month => 6), remote: true %></li>
-      <li class="month"><%= link_to "July", fetch_month_path(:month => 7), remote: true %></li>
-      <li class="month"><%= link_to "August", fetch_month_path(:month => 8), remote: true %></li>
-      <li class="month"><%= link_to "September", fetch_month_path(:month => 9), remote: true %></li>
-      <li class="month"><%= link_to "October", fetch_month_path(:month => 10), remote: true %></li>
-      <li class="month"><%= link_to "November", fetch_month_path(:month => 11), remote: true %></li>
-    </ul>
-  </div> <!-- month-bar -->
+    <a href=".month-bar"><div class="arrow"></div></a>
 
-  <div id="index-events">
+    <div class="month-bar">
+      <ul class="grid">
+        <li class="month"><%= link_to "June", fetch_month_path(:month => 6), remote: true %></li>
+        <li class="month"><%= link_to "July", fetch_month_path(:month => 7), remote: true %></li>
+        <li class="month"><%= link_to "August", fetch_month_path(:month => 8), remote: true %></li>
+        <li class="month"><%= link_to "September", fetch_month_path(:month => 9), remote: true %></li>
+        <li class="month"><%= link_to "October", fetch_month_path(:month => 10), remote: true %></li>
+        <li class="month"><%= link_to "November", fetch_month_path(:month => 11), remote: true %></li>
+      </ul>
+    </div> <!-- month-bar -->
+  </div>
+
+  <div id="index-events" class="container-fluid">
     <% @events.each do |event| %>
       <%= render partial: 'home/event_card', locals: { event: event} %>
     <% end %>
@@ -22,4 +26,4 @@
   <div id="current-month">
   </div>
 
-</div> <!-- home -->
+</div>
