@@ -21,5 +21,4 @@ Future Iterations:
 - section to streamline travel arrangements
 
 ERD: http://imgur.com/a/PX9MF
-User Stories & other Project Planning: https://trello.com/b/14HcQ5ok/project-3
 Wireframe: https://www.figma.com/file/JBISakmHnXaDAibtOE3LDHMW/spectate
