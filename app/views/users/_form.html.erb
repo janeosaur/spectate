@@ -1,54 +1,92 @@
-<div class="row">
-  <div class="test col-sm-3 col-sm-offset-1">
-    <div class="field">
-      <%= f.label :username %><br />
-      <%= f.text_field :username, autofocus: true %>
+<div class="col-sm-10 col-sm-offset-1">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-0 col-xs-6">
+      <div class="field">
+        <%= f.text_field :username, autofocus: true %>
+        <%= f.label :username %>
+      </div>
+
+      <div class="field">
+        <%= f.email_field :email %>
+        <%= f.label :email %>
+      </div>
+
+      <% if @current_user.nil? %>
+        <div class="field pw">
+          <% if @minimum_password_length %>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "off" %>
+          <%= f.label :password %>
+          <span class="parenthesis">(<%= @minimum_password_length %> characters minimum)</span>
+        </div>
+        <div class="field pw">
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          <%= f.label :password_confirmation %>
+        </div>
+      <% else %>
+        <div class="field">
+          <%= f.password_field :current_password, autocomplete: "off" %>
+          <%= f.label :current_password %><br />
+        </div>
+      <% end%>
+
     </div>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email %>
+    <div class="col-sm-4 col-sm-offset-0 col-xs-6">
+      <div class="field">
+        <%= f.text_field :first_name %>
+        <%= f.label :first_name %>
+      </div>
+
+      <div class="field">
+        <%= f.text_field :last_name %>
+        <%= f.label :last_name %>
+      </div>
+      <div class="photo">
+        <div class="field">
+          <%= f.text_field :photo %>
+          <%= f.label :photo %> <span class="parenthesis">(enter URL)</span>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :cover_photo %>
+          <%= f.label :cover_photo %><span class="parenthesis">(enter URL)</span>
+        </div>
+      </div>
+
     </div>
 
-    <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name %>
-    </div>
+    <div class="col-sm-4 col-sm-offset-0 col-xs-6">
+      <div class="field">
+        <%= f.country_select :country %>
+        <%= f.label :country %>
+      </div>
 
-    <div class="field">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name %>
+      <div class="socials">
+        <div class="field">
+          <%= f.text_field :twitter %>
+          <%= f.label :twitter %><span class="parenthesis"> (enter @username)</span>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :instagram %>
+          <%= f.label :instagram %><span class="parenthesis"> (enter @username)</span>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="test col-sm-4">
-    <div class="photo">
-      <div class="field">
-        <%= f.label :photo %><i class="parenthesis">(enter URL)</i><br />
-        <%= f.text_field :photo %>
-      </div>
-
-      <div class="field">
-        <%= f.label :cover_photo %><i class="parenthesis">(enter URL)</i><br />
-        <%= f.text_field :cover_photo %>
-      </div>
-    </div>
-
-    <div class="socials">
-      <div class="field">
-        <%= f.label :twitter %><i class="parenthesis">(enter username)</i><br />
-        <%= f.text_field :twitter %>
-      </div>
-
-      <div class="field">
-        <%= f.label :instagram %><i class="parenthesis">(enter username)</i><br />
-        <%= f.text_field :instagram %>
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-5 col-xs-8 col-xs-offset-2">
+      <div class="actions">
+        <%= f.submit "Submit" %>
       </div>
     </div>
   </div>
-
-  <div class="test col-sm-3">
-    <div class="field">
-      <%= f.label :country %><br />
-      <%= f.country_select :country %>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2 cancel">
+      <% if @current_user %>
+        <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "delete" %></p>
+      <% end %>
     </div>
+  </div>
+</div>

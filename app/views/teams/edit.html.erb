@@ -1,9 +1,20 @@
-<div class="team-form">
+<div class="edit-team">
   <h1>Edit Team</h1>
-  <%= link_to "Back", :back%>
 
   <%= form_for @team, :url => { :action => "update" } do |f| %>
     <%= render partial: 'teams/form', locals: { f: f } %>
   <% end %>
+
+  <div class="container-fluid">
+    <div class="row players">
+      <div class="col-xs-6 col-xs-offset-3">
+        <h4>Player List (<%= link_to "add a player", add_player_select_path(@team) %>)</h4>
+        <% @team.players.each do |player| %>
+          <%= player.gamer_tag %> |
+        <% end %>
+
+      </div>
+    </div>
+  </div>
 
 </div>

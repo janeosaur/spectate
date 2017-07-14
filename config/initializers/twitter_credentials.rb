@@ -1,8 +1,8 @@
 require 'twitter'
 
 $client = Twitter::REST::Client.new do |config|
-  config.consumer_key = 'uLmBusLAJEhEXH4ZRoGxfI7Nv'
-  config.consumer_secret = 'nJ4IkkS6g9ELZ2MRENVOxYbB97aLRy3WoD7j56voodJiUQUtjS'
-  config.access_token = '2155869889-kELlluhSislgjBxQaWePiAcAoYy7N3NgZxxv5M4'
-  config.access_token_secret = 'vx90zrrOJboTvUQkC857fXTBNXXY67JQ2scdPRrcXFSrC'
+  config.consumer_key = 'DGwc0egArNWd2V3L2cVisr7Yf'
+  config.consumer_secret = 'YLk1c9byg8RVP1gfHMHXNPlhiAT1pynIzR3EQgxqwpduMPkL2X'
+  config.access_token = '885377420169068544-fT5g2oSXHog0dwuYp67unnM0AmxdtAJ'
+  config.access_token_secret = 'lxB3GUjqgjSvF9TG9J9uTHQm0ja1gsq8eVLiwh4WWvY9M'
 end

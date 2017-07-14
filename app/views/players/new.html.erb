@@ -1,6 +1,6 @@
-<h1>Create New Player</h1>
-<%= link_to "Back", :back%>
-
-<%= form_for @player, :url => { :action => "create" } do |f| %>
-  <%= render partial: 'players/form', locals: { f: f } %>
-<% end %>
+<div class="new-player">
+  <h1>Create New Player</h1>
+  <%= form_for @player, :url => { :action => "create" } do |f| %>
+    <%= render partial: 'players/form', locals: { f: f } %>
+  <% end %>
+</div>

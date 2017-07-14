@@ -3,26 +3,15 @@
     <%= video_tag "smoke.mp4", autoplay: true, loop: true %>
   </div>
 
-  <div class="container profile-form">
+  <div class="form">
     <h2>Sign Up</h2>
+    <%= devise_error_messages! %>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-
-      <%= render partial: "users/form", locals: {f:f} %>
-
-      <div class="field pw">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-      <div class="field pw">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-      <div class="actions">
-        <%= f.submit "Submit" %>
+      <div class="container-fluid">
+        <div class="row">
+          <%= render partial: "users/form", locals: {f:f} %>
+        </div>
       </div>
     <% end %>
   </div>
+</div>

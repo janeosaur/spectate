@@ -1,24 +1,18 @@
 <div class="team-index">
 
-  <h1>List of Teams</h1>
+  <h1>Manage Teams</h1>
   <%= link_to "Create New Team", new_team_path %>
 
-  <ul style="list-style: none">
-    <% @teams.each do |team| %>
-    <li>
-      <%= link_to team.name, team %>
-      <div class="admin">
-        <% if signed_in? && current_user.admin? %>
-          <%= link_to edit_team_path(team) do %>
-            <i class="glyphicon glyphicon-pencil"></i>
-          <% end %>
-          <%= link_to destroy_team_path(team), data: { confirm: "Are you sure you want to delete" }, method: :delete do %>
-            <i class="glyphicon glyphicon-trash"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </li>
-    <% end %>
-  </ul>
-
+  <% @teams.each do |team| %>
+    <p>
+      <%= team.name %>:
+      <%= link_to "View", team %>
+      <%= link_to edit_team_path(team) do %>
+        <i class="glyphicon glyphicon-pencil"></i>
+      <% end %>
+      <%= link_to destroy_team_path(team), data: { confirm: "Are you sure you want to delete" }, method: :delete do %>
+        <i class="glyphicon glyphicon-trash"></i>
+      <% end %>
+    </p>
+  <% end %>
 </div>

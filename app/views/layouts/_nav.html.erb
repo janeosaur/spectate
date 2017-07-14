@@ -1,33 +1,32 @@
-<div id="header-wrap">
-    <div id="header" class="clear">
-        <nav>
-          <ul>
-            <li class="logo"><%= link_to "SPECTATE", root_path %></li>
-            <li class="logo small">What will you spectate next? </li>
+<div id="header" class="clear">
+    <nav>
+      <ul>
+        <li class="logo"><%= link_to "SPECTATE", root_path %></li>
+        <!-- <li class="logo small">What will you spectate next? </li> -->
 
-            <% if signed_in? %>
-              <li class="right-content">
-                <%= link_to current_user.first_name, user_path(current_user), class:"username" %>
-                <span class="log-out">
-                  <%= link_to destroy_user_session_path, :method=>:delete, id: "icon" do %>
-                    <i class="glyphicon glyphicon-log-out"></i>
-                  <% end %>
-                </span>
-              </li>
-            <% else %>
-              <li class="right-content">
-                <%= link_to "Sign Up", new_user_registration_path, :method => :get %> |
-                <%= link_to "Sign In", new_user_session_path %>
-              </li>
-            <% end %>
-            <!-- Devise & Flash Messages (notice, alert) -->
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
+        <% if signed_in? %>
+          <li class="right-content">
+            <%= link_to current_user.first_name, user_path(current_user), class:"username" %>
+            <span class="log-out">
+              <%= link_to destroy_user_session_path, :method=>:delete, id: "icon" do %>
+                <i class="glyphicon glyphicon-log-out"></i> <% end %>
+            </span>
+          </li>
+        <% else %>
+          <li class="right-content">
+            <%= link_to "Sign Up", new_user_registration_path, :method => :get %>
+            <span class="orange">|</span>
+            <%= link_to "Sign In", new_user_session_path %>
+          </li>
+        <% end %>
 
-            <li class="right-content events">
-              <%= link_to "Search Events", events_path %>
-            </li>
-          </ul>
-        </nav>
-    </div> <!-- header -->
-</div> <!-- header-wrap -->
+        <!-- Devise & Flash Messages (notice, alert) -->
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <li class="right-content events">
+          <%= link_to "Search Events", events_path %>
+        </li>
+      </ul>
+    </nav>
+</div> <!-- header -->

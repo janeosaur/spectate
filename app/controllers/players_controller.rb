@@ -37,7 +37,7 @@ class PlayersController < ApplicationController
   def update
     @player.update_attributes(player_params)
     flash[:notice] = "Success, player was updated"
-    redirect_to @player
+    redirect_to players_path
   end
 
   # delete "/players/:id", to: "players#destroy", as: "destroy_player"

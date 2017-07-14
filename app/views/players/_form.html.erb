@@ -1,18 +1,20 @@
 <div class="container-fluid">
-  <div class="row team-form">
+  <div class="row player-form">
     <div class="col-xs-6 col-xs-offset-3">
-      <p>Player Full Name: </p>
+      <%= link_to "Back", :back%>
+
       <%= f.text_field :name %>
-      <p>Gamer Tag:</p>
+      <p>Full Name</p>
       <%= f.text_field :gamer_tag %>
-      <p>Role:</p>
+      <p>Gamer Tag</p>
       <%= f.select :role, ['AWPer', 'Support', 'Entry', 'Rifler', 'IGL']%>
-      <p>Photo: </p>
+      <p>Role:</p>
       <%= f.text_field :photo %>
-      <p>Twitter: </p>
+      <p>Photo</p>
       <%= f.text_field :twitter %>
-      <p>Instagram: </p>
+      <p>Twitter</p>
       <%= f.text_field :instagram %>
+      <p>Instagram</p>
       <br>
       <div class="submit">
         <%= f.submit "Save" %>

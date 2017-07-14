@@ -17,6 +17,8 @@ gem 'devise'
 gem 'jquery-rails', '~> 4.3.1'
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
+# font awesome
+gem 'font-awesome-sass'
 # google maps
 gem 'gmaps4rails'
 gem 'underscore-rails'

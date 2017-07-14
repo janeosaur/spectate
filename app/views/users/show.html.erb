@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="profile col-sm-8 col-sm-offset-2">
+    <div class="profile col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
       <div class="cover">
         <%= image_tag @user.cover_photo, id:"cover" if @user.cover_photo? %>
         <%= image_tag @user.photo, id:"photo" if @user.photo? %>
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-5 left-info">
+        <div class="col-sm-5 col-xs-10 col-xs-offset-1 left-info">
           <div class="country">
             <i class="glyphicon glyphicon-map-marker"></i>
             <%= @user.country %>
@@ -34,24 +34,30 @@
           </div>
           <div class="socials">
             <div class="twitter">
+              <span class="fa fa-twitter"></span>
               <% if @user.twitter? %>
-                <a href="https://twitter.com/<%=@user.twitter%>">
-                  <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_black-128.png" alt="">
-                  <%= @user.twitter %>
-                </a>
+                <a href="https://twitter.com/<%=@user.twitter%>"><%= @user.twitter %></a>
               <% end %>
             </div>
             <div class="insta">
+              <span class="fa fa-instagram"></span>
               <% if @user.instagram? %>
-                <a href="https://www.instagram.com/<%=@user.instagram%>">
-                  <img src="https://cdn4.iconfinder.com/data/icons/picons-social/57/38-instagram-3-128.png" alt="">
-                  <%= @user.instagram %>
-                </a>
+                <a href="https://www.instagram.com/<%=@user.instagram%>"><%= @user.instagram %></a>
               <% end %>
             </div>
           </div>
+          <div class="admin">
+            <% if signed_in? && current_user.admin? %>
+              <p>Admin Tools:</p>
+              <ul>
+                <li><%= link_to "Manage Events", events_admin_path %></li>
+                <li><%= link_to "Manage Teams", teams_path %></li>
+                <li><%= link_to "Manage Players", players_path %></li>
+              </ul>
+            <% end %>
+          </div>
         </div>
-        <div class="col-xs-6">
+        <div class="col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
           <div class="fav">
             <u>Favorite Events</u>
             <% @fav_events.each do |event| %>

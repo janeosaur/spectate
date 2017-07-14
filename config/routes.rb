@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/users/:id", to: "users#show", as: "user"
 
   get "/events", to: "events#index", as: "events"
+  get "/events/admin", to: "events#admin", as: "events_admin"
   get "/events/new", to: "events#new", as: "new_event"
   post "/events", to: "events#create", as: "create_event"
   get "/events/:id", to: "events#show", as: "event"

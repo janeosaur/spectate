@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -23,39 +25,62 @@
  $rust: #a94442;
  $nav: #222222;
 
+ html, body {
+  //  min-height: 100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
+ }
+
 body {
   background-color: $blue;
   font-family: "Montserrat";
+  padding-bottom: 100px;
+  position: relative;
+  padding-bottom: 100px;
 }
 
 a {
   cursor: pointer!important;
   cursor: hand!important;
+  color: white
 }
-.socials img {
-  height: 22px!important;
-  width: 22px!important;
+a:hover {
+  text-decoration: none;
 }
-
 .blue {
   color: $blue!important;
 }
 .red {
   color: $rust!important;
 }
+.orange {
+  color: $orange!important;
+}
+
 .twitter-feed {
   margin-top: 10px!important;
   text-align: left!important;
+  font-size: 13px;
   .tweet-card {
     background-color: #ddd!important;
-    padding: 5px 22px!important;
-    margin: 0 auto!important;
+    padding: 10px 10px 10px 20px!important;
+    margin: 10px!important;
     color: black!important;
+    border-radius: 10px!important;
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+    .tweet-text {
+      float: left;
+    }
+    .tweet-data {
+      overflow:hidden;
+      float: right;
+      padding: 5px!important;
+    }
   }
-  .tweet-data {
-    float: right!important;
-    padding: 5px!important;
-  }
+
 }
 
 .glyphicon-trash {
@@ -63,18 +88,16 @@ a {
 }
 
 // scrolly dynamic nav bar
-#header-wrap {
-  top: 0;
-  width: 100%;
-  position: fixed;
-  background-color: $nav;
-  z-index: 100;
-  #header {
+#header {
     width: 100%;
     position: absolute;
     bottom: 0;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    background-color: $nav;
+    z-index: 100;
     height: 60px;
-  }
   ul {
     overflow: hidden;
     list-style: none;
@@ -86,27 +109,21 @@ a {
     margin: 13px;
     display: inline-block;
   }
-  .logo {
-    margin-left: 30px;
-    a {
-      color: white;
-      font-size: 30px;
-      line-height: 30px;
-      padding: 1px 20px;
-    }
-    a:hover {
-      border-bottom: 4px solid $orange;
-      padding-bottom: 8px;
-      text-decoration: none;
-      border-bottom: 2px solid $orange;
-      border-radius: 40px;
-    }
+  a {
+    color: white;
+    font-size: 30px;
+    line-height: 30px;
+    padding: 1px 10px;
   }
-  .small {
+  a:hover {
+    text-decoration: none;
     color: $orange;
-    font-size: 15px;
-    line-height: 35px;
   }
+  // .small {
+  //   color: $orange;
+  //   font-size: 15px;
+  //   line-height: 35px;
+  // }
   .events {
     padding-right: 20px;
   }
@@ -124,15 +141,9 @@ a {
       }
     }
     a {
-      color: white;
       font-size: 15px;
       line-height: 15px;
       padding: 7px;
-    }
-    a:hover {
-      border-bottom: 2px solid $orange;
-      border-radius: 20px;
-      text-decoration: none;
     }
   }
   @media only screen and (max-width: 926px) {
@@ -145,6 +156,7 @@ a {
 // devise errors
 #error_explanation ul {
   list-style: none;
+  color: $rust;
 }
 
 .notice, .alert {
@@ -156,113 +168,145 @@ a {
 }
 
 // home page
-.home {
-  position: relative;
-  .row {
-    width: 100%;
+div.home-page {
+  div.home-banner {
+    position: relative;
   }
   video {
-    position: absolute;
-    top: -22px;
+    top: -250px;
     width: 100%;
   }
-  #index-events, #current-month {
-    background-color: $blue;
+  .arrow {
+    transition: opacity 0.5s ease-in!important;
+    content: '';
     position: absolute;
-    z-index: 5;
-    margin-top: 431px;
-    padding-right: 15px;
+    bottom: 15%;
+    right: 0;
+    left: 0;
+    width: 0;
+    margin: 0 auto;
+    opacity: 0;
   }
-  #index-events {
-    height: 500px;
+  .arrow::before, .arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 30px solid $orange;
+    border-right: 30px solid transparent;
+    border-left: 30px solid transparent;
+    margin: 0 auto;
+    -webkit-animation: bounce 2s ease-in-out infinite;
+    animation: bounce 2s ease-in-out infinite;
   }
-  #current-month {
+  .month-bar {
+    background-color: #212121;
     width: 100%;
-    .row {
-      margin: 0
+    border-top: 2px $orange solid;
+    border-bottom: 2px $orange solid;
+    ul {
+      overflow: hidden;
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+    }
+    li {
+      float: left;
+      text-align: center;
+      width: 16.6667%;
+      box-sizing: border-box;
+    }
+    a {
+      color: white;
+      font-weight: 600;
+      display: block;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin: 8px 0;
+      padding: 10px;
+    }
+    a:hover {
+      text-decoration: none;
+      color: $orange;
     }
   }
 }
 
-// month nav bar
-.month-bar {
-  position: absolute;
-  margin-top: 371px;
-  background-color: #212121;
-  width: 100%;
-  border-top: 3px $orange solid;
-  ul {
-    overflow: hidden;
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
+@-webkit-keyframes bounce {
+  0%, 100% {
+     -webkit-transform: translateY(0);
+   }
+   50% {
+     -webkit-transform: translateY(-30px);
+   }
+}
+
+@keyframes bounce {
+  0%, 100% {
+   transform: translateY(0);
+   }
+   50% {
+     transform: translateY(-30px);
+   }
+}
+
+@media (max-width: 700px) {
+  .home-banner {
+    display: none
   }
-  li {
-    float: left;
-    text-align: center;
-    width: 16.6667%;
-    box-sizing: border-box;
+  #index-events, #current-month {
+    padding-top: 80px;
   }
-  a {
-    color: white;
-    font-weight: 600;
-    display: block;
-    text-decoration: none;
-    font-size: 15px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    padding: 10px;
-  }
-  a:hover {
-    color: $orange;
-    border-bottom: 4px white solid;
-    border-radius: 15px;
-  }
-  @media only screen and (max-width: 926px) {
-    a, li, ul, div {
-      display: none;
-    }
+}
+
+@media (min-width: 1350px) {
+  .arrow {
+    opacity: 1!important;
   }
 }
 
 // _event_card partial
 .event-card {
-  position: relative;
   overflow: hidden;
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #ddd; //test
+  background-color: #ddd;
   img {
     width: 100%;
     overflow: hidden;
   }
   .name {
-    width:200px;
+    width: auto;
     height: 40px;
     background-color: #ddd;
     position:absolute;
     top: 50%;
     line-height: 40px;
-    padding-left: 10px;
+    padding: 0 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
   .name:hover {
     background-color: $blue;
-    a:hover {
+    a {
       color: $orange;
     }
-  }
-  .card-content {
-    padding: 20px;
   }
   a {
     color: black;
     font-weight: 600;
-  }
-  a {
     text-decoration: none;
   }
-
+  .card-content {
+    padding: 20px;
+    a:hover {
+      color: $rust;
+    }
+  }
 }
 
 // events index (search) page
@@ -282,6 +326,7 @@ a {
   .mapped {
     margin: 50px 0 50px 0;
     .search {
+      margin-left: 15px;
       .dates {
         border-top: 1px white solid;
         border-bottom: 1px white solid;
@@ -341,6 +386,7 @@ a {
       input[type="submit"] {
         border: none;
         padding: 5px 20px;
+        border-radius: 15px;
       }
       input[type="submit"]:hover {
         background-color: $orange;
@@ -390,6 +436,7 @@ a {
   }
   #map {
     margin-top: 50px;
+    margin-left: 30px;
   }
 }
 
@@ -436,18 +483,18 @@ a {
 
  // user profile
  .profile {
-   margin-top: 20px;
-   overflow:hidden;
-   border: 5px $rust solid;
+   margin-top: 80px;
+   margin-bottom: 20px;
+   overflow: hidden;
+   border: 4px $rust solid;
    border-radius: 20px;
    height: 40%;
-   padding: 0;
    background-color: #ddd;
+   padding: 0;
    .fav {
      min-height: 100px;
      margin: 10px 0;
      padding: 10px 0 30px 15px;
-     border-bottom: 1px solid black;
      width: 80%;
      li {
        padding-left: 20px;
@@ -484,24 +531,18 @@ a {
      input[type="submit"] {
        border: none;
        padding: 5px 15px;
+       border-radius: 20px;
        background-color: white;
      }
      input[type="submit"]:hover {
-       background-color: $orange;
        color: white;
+       background-color: $orange;
      }
    }
    .left-info {
      margin: 30px 0 0 30px;
-     .country, .signed-in, .socials, .created-at {
-       font-size: 15px;
-       margin: 10px;
-       margin-left: 30px;
-     }
      .country {
-       i {
-         color: $rust;
-       }
+       color: $rust;
      }
    }
    .info {
@@ -512,12 +553,7 @@ a {
      }
    }
    .socials {
-     padding-bottom: 20px;
-   }
-   @media only screen and (max-width: 500px) {
-     img {
-       display: none;
-     }
+     padding: 20px 0;
    }
    a {
      color: $rust;
@@ -528,176 +564,268 @@ a {
    }
  }
 
+ .parenthesis {
+   font-size: 12px;
+   padding-left: 5px;
+   color: $orange;
+ }
+
 // edit/create profile page
  .profile-form {
    position: relative;
+   padding-top: 70px;
+   color: #fff;
+   text-align: center;
+   z-index: 15;
+   width: 100%;
+   text-align: left;
+   color: white;
+   min-height: 100%;
    input, select {
      width: 100%
    }
    .field {
      margin: 15px 2px 15px 2px;
    }
-   .parenthesis {
-     font-size: 12px;
-     padding-left: 10px;
-   }
    .actions input {
      text-align: center;
+   }
+
+   h2 {
+     color: $orange;
+     font-weight: 600;
+     padding-bottom: 8px;
+     text-align: center;
+   }
+   input, select {
+     padding-left: 10px;
+     color: black;
+     width: 100%;
+     margin: 20px 0 0 0;
+     border-radius: 20px;
+   }
+   input[type="submit"] {
+     border: none;
+     padding: 5px 10px;
+     color: white;
+     background-color: grey;
+   }
+   input[type="submit"]:hover {
+     background-color: $orange;
+     color: #000;
+   }
+   .cancel {
+     text-align: center;
+     margin-top: 40px;
+     margin-bottom: 40px;
+     a {
+       color: $rust;
+     }
    }
  }
 
  // event show page
 .event-show {
+  margin: 130px 0;
   text-align: center;
   color: white;
   .back a {
     margin-top: 10px;
   }
   .banner {
-    margin-top: 60px;
     width: 100%;
     position: relative;
     h1 {
       position: absolute;
       text-align: center;
-      left: 10px;
+      left: 20px;
       bottom: 0;
-      color: white;
+      color: #fff;
       font-weight: 800;
       font-size: 50px;
+      text-shadow: 2px 3px 2px #000;
     }
   }
-  .admin {
-    p {
-      color: $orange;
-      margin: 0 auto;
-    }
+  .admin p {
+    padding-top: 20px;
+    color: $orange;
+    margin: 0 auto;
   }
-  .team-grid {
-    margin-bottom: 10px;
+  h3 {
+    font-weight: 700;
     text-align: left;
-    img {
-      height: 25px;
+    color: #fff;
+  }
+  .left {
+    a {
+      color: $orange
     }
-    h3 {
-      color: $orange;
-      font-weight: 700;
+    a:hover {
+      color: $rust
     }
     .widget {
       text-align: right;
-      a {
-        color: $orange;
-      }
     }
   }
-  .card {
-    margin: 10px 0;
-    color: black;
-    background-color: #ddd;
-    border: 2px solid black;
-    border-radius: 10px;
-    a {
-      color: $blue;
-    }
-    .below {
-      border-top: 2px solid black;
-      padding: 10px 0;
-    }
-    .logo {
-      width: 100%;
-      margin-top: 12px;
-      margin-left: -10px;
-    }
-    h3 {
-      padding: 0;
-      text-align: left;
+  .team-list {
+    margin-left: 20px;
+    .card {
       margin: 20px 0;
+      color: black;
+      background-color: #ddd;
+      border: 3px solid $orange;
+      border-radius: 20px;
       a {
-        font-size: 30px;
-        font-weight: 800;
         color: $rust;
       }
-    }
-    .favorite {
-      position: absolute;
-      top: 15px;
-      right: 30px;
-    }
-    .admin {
-      text-align: right;
-      margin: 10px;
-    }
-    .players {
-      text-align: left;
-      font-size: 15px;
-      ul {
-        padding: 0
+      a:hover {
+        color: $orange;
       }
-    }
-    .team-info {
-      padding-top: 8px;
-      text-align: left;
-      p {
-        padding-left: 12px;
-        margin: 3px;
+      .logo {
+        width: 100%;
+        padding: 10px;
       }
-      img {
-        height: 25px;
+      .team-info {
+        padding: 10px;
+        text-align: left;
+        p {
+          margin: 3px;
+        }
+        h4 {
+          text-align: center;
+          margin: 0 0 10px 0;
+          font-weight: 700;
+          .favorite {
+            font-size: 15px;
+            float: right;
+          }
+        }
+      }
+      .right {
+        text-align: left;
+        font-size: 15px;
+        padding: 20px;
+        ul {
+          padding: 0
+        }
+        .admin p {
+          text-align: right;
+          color: black;
+          margin: 10px;
+          a {
+          }
+        }
       }
     }
   }
   @media only screen and (max-width: 926px) {
-    .banner, #tweets, img {
+    .banner img {
       display: none;
+    }
+    .banner {
+      margin-top: 120px;
+    }
+  }
+}
+
+// events index page for admins
+.event-admin {
+  color: #fff;
+  margin: 100px 0;
+  text-align: center;
+  a {
+    color: $orange;
+    padding: 0 10px;
+  }
+  a:hover {
+    color: #fff;
+  }
+  p {
+    margin: 10px;
+    padding: 10px 0;
+  }
+}
+
+.edit-event, .new-event {
+  margin: 100px 0;
+  text-align: center;
+  color: #fff;
+  h1 {
+    color: $orange;
+    font-weight: 800;
+  }
+  .teams {
+    margin-top: 20px;
+    text-align: center;
+    h4 {
+      text-decoration: underline
     }
   }
   a {
-    color: white;
-  }
-  a:hover {
-    text-decoration: none;
+    color: $orange;
+    text-decoration: none
   }
 }
 
  // event partial form
 .event-form {
-  text-align: center;
   color: white;
-  h1 {
-    margin-top: 90px;
-    color: $orange;
-    font-weight: 800;
+  text-align: left;
+  p {
+    margin: 0px;
   }
-   p {
-     margin: 20px 0px 0px 0px;
-   }
-   input, select {
-     color: black;
-     width: 80%;
-   }
-   #booleans {
-     margin-top: 50px;
-     input[type="submit"] {
-       width: 50%;
-       margin-top: 30px;
-     }
-     input {
-       display: inline-block;
-       width: 20%;
-     }
-   }
+  input, select {
+    color: black;
+    width: 100%;
+    margin: 20px 0 0 0;
+    border-radius: 15px;
+    padding: 5px 10px;
+  }
+  input[type="submit"]:hover {
+    background-color: $orange;
+    color: #000;
+  }
+  #booleans {
+    input[type="submit"] {
+    width: 50%;
+    margin-top: 30px;
+    }
+    input {
+      display: inline-block;
+      width: 20%;
+    }
+  }
 }
 
-// team form
-.team-form {
+// edit team
+.edit-team, .new-team {
+  margin: 100px 0;
   h1 {
     color: $orange;
     text-align: center;
     margin-top: 80px;
   }
+  .players {
+    color: #fff;
+    margin-top: 20px;
+    text-align: center;
+    h4 {
+      text-decoration: underline
+    }
+  }
+  a {
+    color: $orange;
+    text-decoration: none
+  }
+}
+
+// team form
+.team-form {
   input {
     width: 100%;
-    margin: 10px 0px 25px 0px;
+    margin: 20px 0 0 0;
+    border-radius: 15px;
+    padding: 5px 10px;
   }
   p {
     margin: 0;
@@ -714,20 +842,28 @@ a {
 
 // team show page
 .team-show {
-  margin-top: 80px;
+  margin-top: 100px;
+  margin-bottom: 40px;
   color: white;
+  .socials {
+    text-align: center;
+    span {
+      color: #fff;
+    }
+  }
   .team-left-info {
+    margin-top: 30px;
     padding: 10px 10px 50px 10px;
     .info {
       padding: 4px;
       float: left;
     }
-    .socials {
-      text-align: center;
-    }
     .image {
-      width: 50%;
+      width: 100%;
       margin: 0 auto;
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      padding: 15px;
       img {
         width: 100%;
         margin: 0 auto;
@@ -738,7 +874,7 @@ a {
       text-align: center;
     }
     .admin {
-      margin-top: 8px;
+      margin-left: 8px;
       float: right;
       p {
         margin: 0;
@@ -748,29 +884,40 @@ a {
       }
     }
   }
-  h3 {
-    margin-top: 50px;
+  .timeline h4 {
+    text-align: center;
+  }
+  .player-list {
+    margin-top: 20px;
   }
   .card {
-    border: 2px solid black;
+    border: 2px solid $orange;
     border-radius: 15px;
     padding: 0;
-    margin: 5px 20px;
+    margin: 2px;
     overflow: hidden;
     background-color: #ddd;
     color: black;
     .card-info {
-      padding: 20px 0 0 20px;
-      .role p {
-        font-size: 18px;
+      padding: 10px 0 0 10px;
+      font-size: 13px;
+      .name {
+        font-size: 15px;
       }
-    }
-    .socials {
-      a {
-        color: $blue;
+      .role {
+        margin-top: 10px;
       }
-      a:hover {
-        color: $orange;
+      .socials {
+        text-align: left;
+        span {
+          color: #000;
+        }
+        a {
+          color: $rust;
+        }
+        a:hover {
+          color: $orange;
+        }
       }
     }
     .favorite, .admin {
@@ -779,63 +926,61 @@ a {
     }
     .image {
       position: relative;
+      color: $blue;
       img {
         width: 100%
       }
     }
-    h3 {
+    h4 {
       position: absolute;
       bottom: 0;
-      right: 10px;
+      right: 0;
       font-weight: 700;
-      background-color: $blue;
-      padding: 8px 15px;
-      border-radius: 20px;
+      background-color: $orange;
+      padding: 5px;
+      border-top-left-radius: 25px;
+      width: 60%;
+      text-align: center;
     }
   }
   a {
-    color: $rust;
+    color: $orange;
   }
   a:hover {
     text-decoration: none;
-    color: white;
+    color: $rust;
   }
-  @media only screen and (max-width: 926px) {
-    img {
-      display: none;
-    }
+  @media only screen and (max-width: 991px) {
   }
 }
 
-.log-in {
+.sign-in {
   background-color: black;
-  margin-top: 50px;
-  position: relative;
+  margin-top: 60px;
   text-align: center;
   color: white;
-  h2 {
-    color: $orange;
-    font-weight: 600;
-    margin-top: 50px;
-    padding-bottom: 8px;
-    border-bottom: 2px white solid;
-  }
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   .video {
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-  video {
-    width: 100%;
-    margin-top: -7px;
+    display: block;
+    video {
+      min-height: 80vh;
+    }
   }
   .form {
     position: absolute;
-    top: 500%;
-    left: 40%;
-    width: 300px;
-    height: 200px;
+    text-align: center;
     z-index: 15;
+    h2 {
+      color: $orange;
+      font-weight: 600;
+      margin-top: 20px;
+      padding-bottom: 8px;
+      // border-bottom: 2px white solid;
+    }
     .first {
       margin-top: 30px;
     }
@@ -848,105 +993,110 @@ a {
     }
     input[type="submit"] {
       border: none;
-      padding: 5px 20px;
+      padding: 5px 15px;
+      color: white;
+      background-color: grey;
     }
     input[type="submit"]:hover {
       background-color: $orange;
-      color: white;
+      color: #000;
     }
   }
 }
 
 .sign-up {
-  margin-top: 50px;
   background-color: black;
-  color: white;
+  padding-top: 80px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
   .video {
+    video {
+      min-height: 80vh;
+    }
+  }
+  .form {
     position: absolute;
-    top: 0;
+    text-align: center;
+    z-index: 15;
     width: 100%;
-  }
-  video {
-    width: 100%;
-    margin-top: -7px;
-  }
-  input, select {
-    padding-left: 10px;
-    color: black;
-    width: 70%;
-    margin: 5px 0px 15px 0;
-    border-radius: 20px;
-  }
-  input[type="submit"] {
-    border: none;
-    padding: 5px 10px;
-  }
-  input[type="submit"]:hover {
-    background-color: $orange;
-    color: white;
+    height: 100%;
+    margin-top: 30px;
+    text-align: left;
+    h2 {
+      color: $orange;
+      font-weight: 600;
+      padding-bottom: 8px;
+      text-align: center;
+    }
+    input, select {
+      padding-left: 10px;
+      color: black;
+      width: 100%;
+      margin: 20px 0 0 0;
+      border-radius: 20px;
+    }
+    input[type="submit"] {
+      border: none;
+      padding: 5px 10px;
+      color: white;
+      background-color: grey;
+    }
+    input[type="submit"]:hover {
+      background-color: $orange;
+      color: #000;
+    }
   }
 }
 
-.footer {
-  margin-top: 700px;
-  position: fixed;
+footer {
+  position: absolute;
   bottom: 0;
-  right: 0;
   width: 100%;
   height: 100px;
   background-color: $nav;
   color: white;
-  padding-top: 15px;
-  position: relative;
-  ul {
-    list-style-type: none;
-    padding-left: 15px;
-  }
-  a {
-    color: white;
-    display: block;
-    border-bottom: 1px $orange;
-    font-family: 'Quicksand', sans-serif;
-  }
-  a:hover {
-    color: $orange;
-    text-decoration: none;
-  }
-  li {
-    padding-top: 10px;
-  }
-  .pull-right {
-    margin-right: 15px;
-    margin-top: -80px;
-  }
+  margin-top: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 // new team player and event team
 .add-team-player, .add-event-team {
   text-align: center;
-  margin-top: 100px;
+  margin: 100px 0;
   color: white;
   select, input {
     margin-top: 20px;
     color: black;
+    border-radius: 15px;
+  }
+  input[type="submit"]:hover {
+    background-color: $orange;
+    color: #000;
   }
 }
 
 // players index
 .players-index {
-  margin: 80px 0 0 60px;
+  color: #fff;
+  margin: 100px 0;
   text-align: center;
-  color: white;
-  h1 {
-    color: $rust;
-    margin-top: 20px;
-  }
   a {
-    display: inline-block;
     color: $orange;
+    padding: 0 10px;
   }
-  li {
-    margin: 20px;
+  a:hover {
+    color: #fff;
+  }
+  p {
+    margin: 10px;
+    padding: 10px 0;
   }
 }
 
@@ -964,29 +1114,60 @@ a {
   }
 }
 
-// edit player
-.edit-player {
+// edit player & new player
+.edit-player, .new-player {
+  text-align: center;
+  margin: 100px 0;
+  color: white;
   h1 {
-    margin-top: 80px;
-    color: $rust;
-    text-align: center;
+    color: $orange;
+  }
+  select, input {
+    margin-top: 20px;
+    color: black;
+    border-radius: 15px;
+  }
+  input[type="submit"]:hover {
+    background-color: $orange;
+    color: #000;
   }
 }
 
-// team index
-.team-index {
-  text-align: center;
-  h1 {
-    margin-top: 80px;
-    color: $rust;
+.player-form {
+  text-align: left;
+  input {
+    width: 100%;
+    margin: 20px 0 0 0;
+    border-radius: 15px;
+    padding: 5px 10px;
   }
-  a {
+  p {
+    margin: 0;
     color: white;
   }
-  ul {
-    margin-top: 40px;
+  .submit {
+    margin: 0 auto;
+    width: 30%;
+    input {
+      width: 100%;
+    }
   }
-  li {
-    margin: 20px;
+}
+
+// teams index
+.team-index {
+  color: #fff;
+  margin: 100px 0;
+  text-align: center;
+  a {
+    color: $orange;
+    padding: 0 10px;
+  }
+  a:hover {
+    color: #fff;
+  }
+  p {
+    margin: 10px;
+    padding: 10px 0;
   }
 }

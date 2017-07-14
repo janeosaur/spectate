@@ -1,14 +1,16 @@
 <div class="container-fluid">
   <div class="row team-form">
     <div class="col-xs-6 col-xs-offset-3">
-      <p>Team Name: </p>
+      <%= link_to "Back", :back%>
+
       <%= f.text_field :name %>
-      <p>Founded in: </p>
+      <p>Team Name</p>
       <%= f.text_field :founded_in %>
-      <p>Logo: </p>
+      <p>Founded in</p>
       <%= f.text_field :logo %>
-      <p>Twitter: </p>
+      <p>Logo</p>
       <%= f.text_field :twitter %>
+      <p>Twitter</p>
       <br>
       <div class="submit">
         <%= f.submit "Save" %>

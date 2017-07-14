@@ -1,9 +1,19 @@
-<div class="event-form">
+<div class="edit-event">
   <h1>Edit Event</h1>
-  <%= link_to "Back", :back%>
-
+  
   <%= form_for @event, :url => { :action => "update" } do |f| %>
     <%= render partial: 'events/form', locals: { f: f } %>
   <% end %>
 
+  <div class="container-fluid">
+    <div class="row teams">
+      <div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3">
+        <h4>Team List (<%= link_to "add a team", add_team_select_path(@event) %>)</h4>
+        <% @event.teams.each do |team| %>
+          <%= team.name %> |
+        <% end %>
+
+      </div>
+    </div>
+  </div>
 </div>
