@@ -48,6 +48,12 @@ ny = Event.create({name: "ESL One New York", organizer: "ESL", organizer_twitter
     image: "https://egamersworld.com/uploads//news/1496868932163.jpeg", date: "2017-09-16", date_end: "2017-09-17", tickets: "http://en.esl-one.com/csgo/newyork-2017/faq/",
     size: "1-1000", event_type: "large", prize: "220,000", ticket_price: "25", alcohol: true, stadium: true, vip_tickets: true, food_drinks: true, merch_sold: true})
 
+denver = Event.create({name: "DreamHack Open Denver", organizer: "DreamHack", organizer_twitter: "dreamhackCSGO", venue: "National Western Complex", city: "Denver", country: "Colorado", min_age: 16, stream: "https://www.twitch.tv/dreamhackcs/", image: "https://denver.dreamhack.com/17/wp-content/uploads/2016/09/BL.png", date: "2017-10-20", date_end: "2017-10-22", tickets: "https://denver.dreamhack.com/17/tickets/", size: "3000",
+  event_type: "minor", prize: "100,000", ticket_price: "45", alcohol: true, stadium: false, vip_tickets: false, food_drinks: true, merch_sold: true})
+
+oakland = Event.create({name: "IEM Oakland", organizer: "ESL", organizer_twitter: "IEM", venue: "Oracle Arena", city: "Oakland", country: "US", min_age: 16, stream: "https://www.twitch.tv/esl_csgo", image: "http://media.wwg.com/2016/11/nip-win-197085-1280x0.jpg", date: "2017-11-16", date_end: "2017-11-19", tickets: "http://en.intelextrememasters.com/season-12/oakland/tickets/", size: "5000",
+  event_type: "large", prize: "300,000", ticket_price: "34", alcohol: true, stadium: true, vip_tickets: true, food_drinks: true, merch_sold: true})
+
 optic = Team.create({name: "OpTic Gaming", country: "US", founded_in: "2005", twitter: "opticgaming", logo: "https://static.hltv.org/images/team/logo/6615"})
 clg = Team.create({name: "Counter Logic Gaming", country: "US", founded_in: "2010", twitter: "clgaming", logo: "https://static.hltv.org/images/team/logo/5974"})
 vp = Team.create({name: "Virtus Pro", country: "Poland", founded_in: "2005", twitter: "teamvirtuspro", logo: "https://static.hltv.org/images/team/logo/5378"})
