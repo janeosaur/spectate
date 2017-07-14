@@ -1,50 +1,53 @@
-<div class="container-fluid">
-  <div class="row event-form">
-    <div class="col-sm-3 col-sm-offset-1">
-      <p>Event Name: </p>
+<div class="container-fluid event-form">
+  <div class="row">
+    <div class="col-md-3 col-md-offset-0 col-md-offset-1 col-xs-8 col-xs-offset-2">
       <%= f.text_field :name %>
-      <p>Organizer: </p>
+      <p>Event Name</p>
       <%= f.text_field :organizer %>
-      <p>Start Date: </p>
+      <p>Organizer</p>
       <%= f.date_field :date %>
-      <p>End Date: </p>
+      <p>Start Date</p>
       <%= f.date_field :date_end %>
-      <p>City: </p>
+      <p>End Date</p>
       <%= f.text_field :city %>
+      <p>City</p>
     </div>
-    <div class="col-sm-3">
-      <p>Country: </p>
+    <div class="col-md-3 col-md-offset-0 col-xs-8 col-xs-offset-2">
       <%= f.text_field :country %><br />
-      <p>Venue: </p>
+      <p>Country </p>
       <%= f.text_field :venue %><br />
-      <p>Event Type: </p>
+      <p>Venue </p>
       <%= f.select :event_type, ['minor', 'big', 'major'] %>
-      <p>Prize: </p>
+      <p>Event Type </p>
       <%= f.text_field :prize %>
-      <p>Image: </p>
+      <p>Prize </p>
       <%= f.text_field :image %>
+      <p>Image </p>
     </div>
-    <div class="col-sm-3">
-      <p>Minimum Age: </p>
+    <div class="col-md-3 col-md-offset-0 col-xs-8 col-xs-offset-2">
       <%= f.text_field :min_age %>
-      <p>Stream Link: </p>
+      <p>Minimum Age </p>
       <%= f.text_field :stream %>
-      <p>Tickets: </p>
+      <p>Stream Link </p>
       <%= f.text_field :tickets %>
-      <p>Ticket Price: </p>
+      <p>Tickets </p>
       <%= f.text_field :ticket_price %>
+      <p>Ticket Price </p>
     </div>
-    <div class="col-sm-2" id="booleans">
-      <p>Stadium: <%= f.check_box :stadium %></p>
+    <div class="col-md-2 col-md-offset-0 col-xs-8 col-xs-offset-2" id="booleans">
+      <p>Stadium <%= f.check_box :stadium %></p>
 
-      <p>VIP Tickets sold? <%= f.check_box :vip_tickets %></p>
+      <p>VIP Tix sold? <%= f.check_box :vip_tickets %></p>
 
       <p>Food Drink sold? <%= f.check_box :food_drinks %></p>
 
       <p>Alcohol sold? <%= f.check_box :alcohol %></p>
 
       <p>Merch sold? <%= f.check_box :merch_sold %></p>
-
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3">
       <%= f.submit "Save" %>
     </div>
   </div>

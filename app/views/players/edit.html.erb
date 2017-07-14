@@ -1,6 +1,5 @@
 <div class="edit-player">
   <h1>Edit Player</h1>
-  <%= link_to "Back", :back%>
 
   <%= form_for @player, :url => { :action => "update" } do |f| %>
     <%= render partial: 'players/form', locals: { f: f } %>

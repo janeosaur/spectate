@@ -626,13 +626,13 @@ div.home-page {
 
  // event show page
 .event-show {
+  margin: 130px 0;
   text-align: center;
   color: white;
   .back a {
     margin-top: 10px;
   }
   .banner {
-    margin-top: 60px;
     width: 100%;
     position: relative;
     h1 {
@@ -669,7 +669,6 @@ div.home-page {
   }
   .team-list {
     margin-left: 20px;
-    margin-bottom: 50px;
     .card {
       margin: 20px 0;
       color: black;
@@ -720,9 +719,12 @@ div.home-page {
     }
   }
   @media only screen and (max-width: 926px) {
-    // .banner, #tweets, img {
-    //   display: none;
-    // }
+    .banner img {
+      display: none;
+    }
+    .banner {
+      margin-top: 120px;
+    }
   }
 }
 
@@ -731,9 +733,6 @@ div.home-page {
   color: #fff;
   margin: 100px 0;
   text-align: center;
-  h1 {
-    color: $orange;
-  }
   a {
     color: $orange;
     padding: 0 10px;
@@ -747,45 +746,86 @@ div.home-page {
   }
 }
 
- // event partial form
-.event-form {
+.edit-event, .new-event {
+  margin: 100px 0;
   text-align: center;
-  color: white;
+  color: #fff;
   h1 {
-    margin-top: 90px;
     color: $orange;
     font-weight: 800;
   }
-   p {
-     margin: 20px 0px 0px 0px;
-   }
-   input, select {
-     color: black;
-     width: 80%;
-   }
-   #booleans {
-     margin-top: 50px;
-     input[type="submit"] {
-       width: 50%;
-       margin-top: 30px;
-     }
-     input {
-       display: inline-block;
-       width: 20%;
-     }
-   }
+  .teams {
+    margin-top: 20px;
+    text-align: center;
+    h4 {
+      text-decoration: underline
+    }
+  }
+  a {
+    color: $orange;
+    text-decoration: none
+  }
 }
 
-// team form
-.team-form {
+ // event partial form
+.event-form {
+  color: white;
+  text-align: left;
+  p {
+    margin: 0px;
+  }
+  input, select {
+    color: black;
+    width: 100%;
+    margin: 20px 0 0 0;
+    border-radius: 15px;
+    padding: 5px 10px;
+  }
+  input[type="submit"]:hover {
+    background-color: $orange;
+    color: #000;
+  }
+  #booleans {
+    input[type="submit"] {
+    width: 50%;
+    margin-top: 30px;
+    }
+    input {
+      display: inline-block;
+      width: 20%;
+    }
+  }
+}
+
+// edit team
+.edit-team, .new-team {
+  margin: 100px 0;
   h1 {
     color: $orange;
     text-align: center;
     margin-top: 80px;
   }
+  .players {
+    color: #fff;
+    margin-top: 20px;
+    text-align: center;
+    h4 {
+      text-decoration: underline
+    }
+  }
+  a {
+    color: $orange;
+    text-decoration: none
+  }
+}
+
+// team form
+.team-form {
   input {
     width: 100%;
-    margin: 10px 0px 25px 0px;
+    margin: 20px 0 0 0;
+    border-radius: 15px;
+    padding: 5px 10px;
   }
   p {
     margin: 0;
@@ -1029,29 +1069,34 @@ footer {
 // new team player and event team
 .add-team-player, .add-event-team {
   text-align: center;
-  margin-top: 100px;
+  margin: 100px 0;
   color: white;
   select, input {
     margin-top: 20px;
     color: black;
+    border-radius: 15px;
+  }
+  input[type="submit"]:hover {
+    background-color: $orange;
+    color: #000;
   }
 }
 
 // players index
 .players-index {
-  margin: 80px 0 0 60px;
+  color: #fff;
+  margin: 100px 0;
   text-align: center;
-  color: white;
-  h1 {
-    color: $rust;
-    margin-top: 20px;
-  }
   a {
-    display: inline-block;
     color: $orange;
+    padding: 0 10px;
   }
-  li {
-    margin: 20px;
+  a:hover {
+    color: #fff;
+  }
+  p {
+    margin: 10px;
+    padding: 10px 0;
   }
 }
 
@@ -1069,29 +1114,60 @@ footer {
   }
 }
 
-// edit player
-.edit-player {
+// edit player & new player
+.edit-player, .new-player {
+  text-align: center;
+  margin: 100px 0;
+  color: white;
   h1 {
-    margin-top: 80px;
-    color: $rust;
-    text-align: center;
+    color: $orange;
+  }
+  select, input {
+    margin-top: 20px;
+    color: black;
+    border-radius: 15px;
+  }
+  input[type="submit"]:hover {
+    background-color: $orange;
+    color: #000;
   }
 }
 
-// team index
-.team-index {
-  text-align: center;
-  h1 {
-    margin-top: 80px;
-    color: $rust;
+.player-form {
+  text-align: left;
+  input {
+    width: 100%;
+    margin: 20px 0 0 0;
+    border-radius: 15px;
+    padding: 5px 10px;
   }
-  a {
+  p {
+    margin: 0;
     color: white;
   }
-  ul {
-    margin-top: 40px;
+  .submit {
+    margin: 0 auto;
+    width: 30%;
+    input {
+      width: 100%;
+    }
   }
-  li {
-    margin: 20px;
+}
+
+// teams index
+.team-index {
+  color: #fff;
+  margin: 100px 0;
+  text-align: center;
+  a {
+    color: $orange;
+    padding: 0 10px;
+  }
+  a:hover {
+    color: #fff;
+  }
+  p {
+    margin: 10px;
+    padding: 10px 0;
   }
 }
